@@ -1,6 +1,5 @@
 import React, { type FC } from "react";
 
-
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
@@ -24,7 +23,7 @@ const PlansCard: FC<PlansCardProps> = ({
 		<Card
 			// isPressable
 			// shadow="sm"
-			className={`bg-grey-200 rounded-xl border shadow-xl ${type === "Recommended" ? "bg-secondarya z-10 shadow-secondary lg:scale-110" : "border-foreground-200 shadow-primary"} px-3 py-5`}
+			className={`bg-grey-200 rounded-xl border shadow-xl ${type === "Recommended" ? "bg-secondarya shadow-secondary z-10 lg:scale-110" : "border-foreground-200 shadow-primary"} px-3 py-5`}
 		>
 			{/* heading */}
 			<CardHeader className="flex w-full flex-col items-center justify-center pb-[2rem] text-white">
@@ -37,7 +36,7 @@ const PlansCard: FC<PlansCardProps> = ({
 						{type}
 					</Chip> */}
 					<h4
-						className={`font-dm-sans mt-5 text-3xl font-bold text-primary ${"text-white"}`}
+						className={`font-dm-sans text-primary mt-5 text-3xl font-bold ${"text-white"}`}
 					>
 						{title}
 					</h4>
@@ -49,7 +48,7 @@ const PlansCard: FC<PlansCardProps> = ({
 						{price}
 					</span>
 				</section>
-				<p className={`mt-3 w-full text-left text-base text-foreground`}>
+				<p className={`text-foreground mt-3 w-full text-left text-base`}>
 					{description}
 				</p>
 			</CardHeader>
@@ -75,8 +74,8 @@ const PlansCard: FC<PlansCardProps> = ({
 					target="_blank"
 					className={`mt-8 ${
 						type === "Recommended"
-							? "border-white bg-foreground text-primary transition-all duration-100 ease-in-out hover:bg-primary hover:text-foreground"
-							: "border-primary transition-all duration-100 ease-in-out hover:bg-primary hover:text-white"
+							? "bg-foreground text-primary hover:bg-primary hover:text-foreground border-white transition-all duration-100 ease-in-out"
+							: "border-primary hover:bg-primary transition-all duration-100 ease-in-out hover:text-white"
 					} flex w-full items-center justify-center rounded-lg border-2 p-2.5 text-lg font-semibold`}
 				>
 					Start Development

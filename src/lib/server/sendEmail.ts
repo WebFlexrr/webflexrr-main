@@ -31,8 +31,9 @@ export const sendEmailActions = async (formData: {
 			from: `business@webflexrr.com <business@webflexrr.com>`, // sender address
 			to: body.email, // list of receivers
 			subject: "Thanks for Contacted Us", // Subject line
+
 			// text: "Hello world?", // plain text body
-			html: render(
+			html: await render(
 				ContactUsEmail({
 					firstName: body.fullName,
 				}),
@@ -44,7 +45,7 @@ export const sendEmailActions = async (formData: {
 			from: `business@webflexrr.com <business@webflexrr.com>`, // sender address
 			to: `business@webflexrr.com`, // list of receivers
 			subject: "A new prospect send a message", // Subject line
-			html: render(
+			html: await render(
 				ForOwnEmail({
 					firstName: body.fullName,
 					lastName: body.fullName,

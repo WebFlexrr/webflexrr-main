@@ -23,8 +23,8 @@ const IconsCarousal = () => {
 			<h4 className="mb-8">Technologies We Use</h4>
 
 			<div className="relative w-full">
-				<div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-background to-transparent" />
-				<div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-background to-transparent" />
+				<div className="from-background pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-gradient-to-r to-transparent" />
+				<div className="from-background pointer-events-none absolute top-0 right-0 z-10 h-full w-32 bg-gradient-to-l to-transparent" />
 
 				<Swiper
 					spaceBetween={30}
@@ -42,7 +42,7 @@ const IconsCarousal = () => {
 					{techStack.map((tech, index) => (
 						<SwiperSlide
 							key={index}
-							className="w-21 relative flex aspect-video items-center justify-center rounded-xl border px-5 grayscale transition-all duration-300 ease-in-out hover:bg-primary hover:grayscale-0 md:w-32"
+							className="hover:bg-primary relative flex aspect-video w-21 items-center justify-center rounded-xl border px-5 grayscale transition-all duration-300 ease-in-out hover:grayscale-0 md:w-32"
 						>
 							<div className="w-8 bg-red-500">
 								<Image

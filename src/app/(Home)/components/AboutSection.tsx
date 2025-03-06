@@ -8,7 +8,7 @@ const AboutSection = () => {
 			{/* Gradient overlays */}
 			<div className="absolute inset-0">
 				<div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 opacity-20 blur-3xl" />
-				<div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background" />
+				<div className="via-background/10 to-background absolute inset-0 bg-gradient-to-b from-transparent" />
 			</div>
 
 			<section className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-8 px-4 md:flex-row md:px-6">

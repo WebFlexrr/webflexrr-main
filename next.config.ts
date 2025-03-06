@@ -1,24 +1,24 @@
 import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: false,
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-        pathname: `/images/**`,
-      },
-      {
-        protocol: "https",
-        hostname: "aceternity.com",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-    ],
-  },
+	reactStrictMode: false,
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "cdn.sanity.io",
+				pathname: `/images/**`,
+			},
+			{
+				protocol: "https",
+				hostname: "aceternity.com",
+			},
+			{
+				protocol: "https",
+				hostname: "images.unsplash.com",
+			},
+		],
+	},
 };
 
 module.exports = nextConfig;

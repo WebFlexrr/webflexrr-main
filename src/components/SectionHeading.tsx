@@ -7,7 +7,7 @@ interface HeadingProps {
 
 const SectionHeading: FC<HeadingProps> = ({ heading, subHeading, para }) => {
 	return (
-		<section className="mx-auto  mt-10 flex h-auto w-full max-w-4xl flex-col items-center gap-4 text-center text-white">
+		<section className="mx-auto mt-10 flex h-auto w-full max-w-4xl flex-col items-center gap-4 text-center text-white">
 			{heading != null ? (
 				<>
 					{/* <span className="text-primary flex gap-3 text-xl font-semibold">
@@ -16,8 +16,8 @@ const SectionHeading: FC<HeadingProps> = ({ heading, subHeading, para }) => {
 						</span>
 						{heading}
 					</span> */}
-					<span className="flex gap-3 rounded-full bg-gradient-to-r from-primary to-secondary p-0.5">
-						<div className="rounded-full bg-background px-7 py-3 text-base">
+					<span className="from-primary to-secondary flex gap-3 rounded-full bg-gradient-to-r p-0.5">
+						<div className="bg-background rounded-full px-7 py-3 text-base">
 							{subHeading}
 						</div>
 					</span>

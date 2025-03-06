@@ -58,43 +58,47 @@ import React from "react";
 const CallToActionBanner = (): React.JSX.Element => {
 	return (
 		<section className="h-auto w-full">
-			<Card className="z-20 mx-auto my-40 flex w-full max-w-7xl flex-col items-center rounded-2xl border-5 bg-gradient-to-b from-primary to-primary-900">
-				<CardHeader className="flex flex-col items-center">
-					<Image
-						src={"/logos/white-logo.png"}
-						width={30}
-						height={30}
-						alt={"webflexrr Labs"}
-					/>
-					<CardTitle>Let Have a Chat</CardTitle>
-					<CardDescription>
-						Get up to 90% of the benefits of your account.
-					</CardDescription>
-				</CardHeader>
-				<CardContent className="flex flex-col items-center">
-					<CallToActionButton />
-					<div className="flex gap-2">
-						<div className="flex gap-2">
-							<span className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary">
-								<Check size={12} />
-							</span>
-							<p>5 years of expertise</p>
+			<section className="w-full px-5">
+				<Card className="from-primary to-primary/40 z-20 mx-auto my-40 flex w-full max-w-5xl flex-col items-center gap-5 rounded-2xl bg-gradient-to-b">
+					<CardHeader className="flex flex-col items-center gap-5">
+						<Image
+							src={"/logos/white-logo.png"}
+							width={30}
+							height={30}
+							alt={"webflexrr Labs"}
+						/>
+						<CardTitle>
+							<h4>Let Have a Chat</h4>
+						</CardTitle>
+						<CardDescription>
+							Get up to 90% of the benefits of your account.
+						</CardDescription>
+					</CardHeader>
+					<CardContent className="flex flex-col items-center gap-5">
+						<CallToActionButton />
+						<div className="flex gap-2 py-4">
+							<div className="flex gap-2">
+								<span className="bg-primary flex h-5 w-5 items-center justify-center rounded-full">
+									<Check size={12} />
+								</span>
+								<p>5 years of expertise</p>
+							</div>
+							<div className="flex gap-2">
+								<span className="bg-primary flex h-5 w-5 items-center justify-center rounded-full">
+									<Check size={12} />
+								</span>
+								<p>Team of experts</p>
+							</div>
+							<div className="flex gap-2">
+								<span className="bg-primary flex h-5 w-5 items-center justify-center rounded-full">
+									<Check size={12} />
+								</span>
+								<p>5 Free website audit</p>
+							</div>
 						</div>
-						<div className="flex gap-2">
-							<span className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary">
-								<Check size={12} />
-							</span>
-							<p>Team of experts</p>
-						</div>
-						<div className="flex gap-2">
-							<span className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary">
-								<Check size={12} />
-							</span>
-							<p>5 Free website audit</p>
-						</div>
-					</div>
-				</CardContent>
-			</Card>
+					</CardContent>
+				</Card>
+			</section>
 		</section>
 	);
 };

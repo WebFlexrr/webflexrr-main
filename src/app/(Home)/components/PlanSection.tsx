@@ -54,7 +54,7 @@ const PlanSection = (): React.JSX.Element => {
 					para="We offer a range of flexible pricing plans tailored to suit businesses of all sizes."
 				/>
 
-				<section className="mx-auto mb-24 mt-20 grid h-auto w-full max-w-lg grid-cols-1 flex-col gap-10 sm:px-10 xl:max-w-none xl:grid-cols-3 xl:px-0">
+				<section className="mx-auto mt-20 mb-24 grid h-auto w-full max-w-lg grid-cols-1 flex-col gap-10 sm:px-10 xl:max-w-none xl:grid-cols-3 xl:px-0">
 					{plans.map((plan) => (
 						<PlansCard
 							key={plan.title}
@@ -69,7 +69,7 @@ const PlanSection = (): React.JSX.Element => {
 				<section className="flex h-auto w-full flex-col items-center justify-center gap-5">
 					<Link
 						href={"/plans"}
-						className="cursor-pointer rounded-full border px-4 py-2 text-sm font-bold text-foreground"
+						className="text-foreground cursor-pointer rounded-full border px-4 py-2 text-sm font-bold"
 					>
 						✨ See all feature and compare plans
 					</Link>

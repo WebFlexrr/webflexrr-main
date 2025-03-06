@@ -11,26 +11,27 @@ import FaqSection from "./components/FaqSection";
 import ClientFeedBack from "./components/ClientFeedBack";
 import Footer from "@/components/Footer";
 import CallToActionBanner from "./components/CallToActionBanner";
+import ContactSection from "./components/ContactSection";
 
 const HomePage = () => {
-  return (
-    <main className="relative overflow-x-hidden p-0">
-      <BlurredBg />
-      <AnnouncementBar />
-      <NavBar />
-      <HeroSection />
-      <IconsCarousal />
-      <AboutSection />
-      <Services />
-      <ProjectsSection />
-      <PlanSection />
-      <FaqSection />
-      <ClientFeedBack />
-      <CallToActionBanner />
-      {/* <ContactSection /> */}
-      <Footer />
-    </main>
-  );
+	return (
+		<main className="relative overflow-x-hidden p-0">
+			<BlurredBg />
+			<AnnouncementBar />
+			<NavBar />
+			<HeroSection />
+			<IconsCarousal />
+			<AboutSection />
+			<Services />
+			<ProjectsSection />
+			<PlanSection />
+			<FaqSection />
+			<ClientFeedBack />
+			<CallToActionBanner />
+			<ContactSection />
+			<Footer />
+		</main>
+	);
 };
 
 export default HomePage;

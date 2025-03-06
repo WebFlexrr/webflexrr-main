@@ -5,6 +5,7 @@ node_modules
 package-lock.json
 next.config.js
 eslint.config.mjs
+postcss.config.mjs
 yarn.lock
 .prettierrc
 .eslintrc.json
