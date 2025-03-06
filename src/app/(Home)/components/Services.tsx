@@ -67,7 +67,7 @@ const Services = () => {
 							className="bg-background relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg p-0.5 md:shadow-xl"
 							color={["#c6004c", "#0071f1", "#c6004c"]}
 						>
-							<Card className="bg-background w-full rounded-lg p-6">
+							<Card className="bg-background animate-shine w-full rounded-lg p-6">
 								<CardHeader className="flex flex-col items-start gap-3">
 									<div className="drop-shadow-primary bg-primary flex h-10 w-10 items-center justify-center rounded-sm drop-shadow-2xl">
 										<Search />
