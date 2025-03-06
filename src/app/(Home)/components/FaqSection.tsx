@@ -61,7 +61,7 @@ const FaqSection = () => {
 								value={`item-${index}`}
 								// indicator={<PlusCircle />}
 								aria-label={faq.title}
-								className="font-space-grotesk border-primary bg-background my-2 rounded-lg border px-5 text-left text-lg font-medium text-white antialiased"
+								className="font-space-grotesk bg-background my-2 rounded-lg border px-5 text-left text-lg font-medium text-white antialiased"
 							>
 								<AccordionTrigger>
 									<h5>{faq.title}</h5>

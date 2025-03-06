@@ -28,7 +28,7 @@ const ProjectsSection = async (): Promise<React.JSX.Element> => {
 				</section>
 				<section className="mt-16 flex w-full items-center justify-center">
 					<Link href={"/works"}>
-						<Button className="bg-primary font-inter rounded-full p-6 py-7 text-lg font-medium">
+						<Button className="bg-primary font-inter rounded-full p-6 py-7 text-lg font-medium text-white">
 							See All Projects <ArrowRight />
 						</Button>
 					</Link>

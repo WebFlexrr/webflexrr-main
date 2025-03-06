@@ -12,25 +12,28 @@ import ClientFeedBack from "./components/ClientFeedBack";
 import Footer from "@/components/Footer";
 import CallToActionBanner from "./components/CallToActionBanner";
 import ContactSection from "./components/ContactSection";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 const HomePage = () => {
 	return (
-		<main className="relative overflow-x-hidden p-0">
-			<BlurredBg />
-			<AnnouncementBar />
-			<NavBar />
-			<HeroSection />
-			<AboutSection />
-			<IconsCarousal />
-			<Services />
-			<ProjectsSection />
-			<PlanSection />
-			<FaqSection />
-			<ClientFeedBack />
-			<CallToActionBanner />
-			<ContactSection />
-			<Footer />
-		</main>
+		<SmoothScrolling>
+			<main className="relative overflow-x-hidden p-0">
+				<BlurredBg />
+				<AnnouncementBar />
+				<NavBar />
+				<HeroSection />
+				<AboutSection />
+				<IconsCarousal />
+				<Services />
+				<ProjectsSection />
+				<PlanSection />
+				<FaqSection />
+				<ClientFeedBack />
+				<CallToActionBanner />
+				<ContactSection />
+				<Footer />
+			</main>
+		</SmoothScrolling>
 	);
 };
 
