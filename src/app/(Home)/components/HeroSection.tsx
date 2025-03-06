@@ -11,6 +11,7 @@ import {
 	AvatarGroup,
 	AvatarImage,
 } from "@/components/ui/avatar";
+import Link from "next/link";
 
 // Portfolio images data
 const portfolioImages = [
@@ -172,22 +173,10 @@ const HeroSection = () => {
 					</Swiper>
 				</div> */}
 			</div>
-			{/* <span className="text-foreground-500 mx-auto my-4 flex flex-col gap-2 text-2xl md:text-lg lg:flex-row">
-				<motion.span
-					initial={{ opacity: 0, x: "-20%", y: "30%" }}
-					animate={{ opacity: 1, x: "0", y: "0" }}
-					transition={{ duration: 0.7, delay: 0.6, ease: "circInOut" }}
-					className=""
-				>
-					We use industry standard technologies
-				</motion.span>
-				<motion.span
-					initial={{ opacity: 0, x: "20%", y: "30%" }}
-					animate={{ opacity: 1, x: "0", y: "0" }}
-					transition={{ duration: 0.7, delay: 0.6, ease: "circInOut" }}
-					className="flex flex-wrap justify-center"
-				>
-					<motion.span whileHover={{ y: -10 }}>
+			<span className="text-foreground-500 mx-auto my-4 flex flex-col gap-2 text-2xl text-white md:text-lg lg:flex-row">
+				<span className="">We use industry standard technologies</span>
+				<span className="flex flex-wrap justify-center">
+					<span>
 						<Link
 							href={"https://www.figma.com"}
 							className="text-foreground mx-2 flex items-center justify-center gap-1 font-bold"
@@ -201,9 +190,9 @@ const HeroSection = () => {
 							/>
 							Figma
 						</Link>
-					</motion.span>
+					</span>
 					,
-					<motion.span whileHover={{ y: -10 }}>
+					<span>
 						<Link
 							href={"https://www.figma.com"}
 							className="text-foreground mx-2 flex items-center justify-center gap-1 font-bold"
@@ -217,9 +206,9 @@ const HeroSection = () => {
 							/>
 							React
 						</Link>
-					</motion.span>
+					</span>
 					and{" "}
-					<motion.span whileHover={{ y: -10 }}>
+					<span>
 						<Link
 							href={"https://www.figma.com"}
 							className="text-foreground mx-2 flex items-center gap-1 font-bold"
@@ -233,9 +222,9 @@ const HeroSection = () => {
 							/>
 							Framer
 						</Link>
-					</motion.span>
-				</motion.span>
-			</span> */}
+					</span>
+				</span>
+			</span>
 		</section>
 	);
 };

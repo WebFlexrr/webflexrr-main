@@ -84,7 +84,7 @@ const NavBar = () => {
 			<nav className="fixed top-8 z-20 my-5 w-full">
 				<section className="mx-auto flex w-full max-w-7xl items-center px-5">
 					<section className="flex w-full items-center justify-start">
-						<div className="flex w-fit items-center gap-3">
+						<Link href={"/"} className="flex w-fit items-center gap-3">
 							<Image
 								src={"/logos/white-logo.png"}
 								width={30}
@@ -94,7 +94,7 @@ const NavBar = () => {
 							<div className="font-space-grotesk text-lg font-bold text-white">
 								Webflexrr Labs.
 							</div>
-						</div>
+						</Link>
 					</section>
 					<section className="flex w-full items-center justify-center">
 						<NavigationMenu>

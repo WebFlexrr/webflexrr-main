@@ -58,13 +58,13 @@ import React from "react";
 const CallToActionBanner = (): React.JSX.Element => {
 	return (
 		<section className="h-auto w-full">
-			<section className="w-full px-5">
-				<Card className="from-primary to-primary/40 z-20 mx-auto my-40 flex w-full max-w-5xl flex-col items-center gap-5 rounded-2xl bg-gradient-to-b">
+			<section className="w-full px-5 py-20">
+				<Card className="from-primary to-primary/40 z-20 mx-auto flex w-full max-w-5xl flex-col items-center gap-5 rounded-2xl bg-gradient-to-b py-12">
 					<CardHeader className="flex flex-col items-center gap-5">
 						<Image
 							src={"/logos/white-logo.png"}
-							width={30}
-							height={30}
+							width={60}
+							height={60}
 							alt={"webflexrr Labs"}
 						/>
 						<CardTitle>

@@ -43,27 +43,23 @@ const ContactSection = (): React.JSX.Element => {
 	async function onSubmit(values: z.infer<typeof formSchema>) {
 		try {
 			await sendEmailActions(values);
-
-			toast.success("Mail Sucessfully send!");
-			// console.log(data);
+			toast.success("Mail Successfully sent!");
 		} catch (error) {
-			toast.error("Error Happen! Email was not send, Pls Retry");
+			toast.error("Error! Email was not sent, please retry.");
 			console.log(error);
 		}
 	}
-
-	// 2. Define a submit handler.
 
 	return (
 		<section id={"contact"} className="relative h-auto w-full">
 			<Toaster position="bottom-center" reverseOrder={true} />
 			<section className="mx-auto w-full max-w-5xl space-y-10 px-5 py-20 md:px-10 lg:py-24">
 				<Heading
-					heading={"Fill out the form and make thing happened"}
+					heading={"Fill out the form and make things happen"}
 					subHeading={"Contact Us"}
 				/>
 				<section className="flex h-auto w-full flex-col gap-16 p-5">
-					<Card className="mx-auto w-full max-w-xl rounded-lg bg-slate-800">
+					<Card className="mx-auto w-full max-w-xl rounded-lg bg-[#0A0A0B]/70 backdrop-blur-xl">
 						<CardHeader>
 							<div className="flex w-full gap-2 rounded-full bg-slate-700 p-2">
 								<div className="flex w-1/2 gap-2">
@@ -100,7 +96,7 @@ const ContactSection = (): React.JSX.Element => {
 											<FormItem>
 												<FormLabel>Username</FormLabel>
 												<FormControl>
-													<Input placeholder="shadcn" {...field} />
+													<Input placeholder="Your name" {...field} />
 												</FormControl>
 												<FormDescription>
 													This is your public display name.
@@ -116,10 +112,14 @@ const ContactSection = (): React.JSX.Element => {
 											<FormItem>
 												<FormLabel>Email</FormLabel>
 												<FormControl>
-													<Input type="email" placeholder="shadcn" {...field} />
+													<Input
+														type="email"
+														placeholder="Your email"
+														{...field}
+													/>
 												</FormControl>
 												<FormDescription>
-													This is your public display name.
+													We'll never share your email.
 												</FormDescription>
 												<FormMessage />
 											</FormItem>
@@ -130,10 +130,10 @@ const ContactSection = (): React.JSX.Element => {
 										name="message"
 										render={({ field }) => (
 											<FormItem>
-												<FormLabel>Bio</FormLabel>
+												<FormLabel>Message</FormLabel>
 												<FormControl>
 													<Textarea
-														placeholder="Tell us a little bit about yourself"
+														placeholder="Write your message"
 														className="resize-none"
 														{...field}
 													/>

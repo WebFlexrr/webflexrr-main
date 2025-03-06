@@ -1,12 +1,14 @@
+"use client";
 import React from "react";
-import { Check, PanelsTopLeft, Search } from "lucide-react";
-import { TbBrandReactNative } from "react-icons/tb";
+import Heading from "@/components/SectionHeading";
+import { motion } from "framer-motion";
+
+import { Check, PanelsTopLeft } from "lucide-react";
+// import { TbBrandReactNative } from "react-icons/tb";
 import { IoLogoAndroid } from "react-icons/io";
-import { FaPlus } from "react-icons/fa";
+// import { FaPlus } from "react-icons/fa";
 import { BsTypeH1 } from "react-icons/bs";
-import SectionHeading from "@/components/SectionHeading";
 import { Separator } from "@/components/ui/separator";
-import { ShineBorder } from "@/components/shine-border";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const services = [
@@ -14,35 +16,31 @@ const services = [
 		title: "Landing Page",
 		description:
 			"We ensure your website ranks higher through advanced SEO strategies, driving organic traffic and improving visibility.",
-		background: (
-			<section className="from-primary flex h-full w-full items-center justify-center rounded-lg bg-linear-to-tr to-[#549493]">
-				<PanelsTopLeft size={80} />
-			</section>
-		),
+		icon: <PanelsTopLeft className="h-8 w-8 text-blue-400" />,
 		list: ["Website Content2", "Website Content1"],
+		gradient: "from-blue-500/10 via-transparent to-transparent",
 	},
 	{
-		title: "App Developement",
+		title: "App Development",
 		description:
 			"We ensure your website ranks higher through advanced SEO strategies, driving organic traffic and improving visibility.",
-		background: (
-			<section className="from-primary flex h-full w-full items-center justify-center rounded-lg bg-linear-to-tr to-[#549493]">
-				<IoLogoAndroid className="text-7xl" /> <FaPlus className="text-xl" />
-				<TbBrandReactNative className="text-7xl" />
-			</section>
+		icon: (
+			<IoLogoAndroid className="h-8 w-8 text-green-400" />
+			// <div className="flex items-center gap-2">
+			//  <FaPlus className="h-4 w-4 text-gray-400" />
+			// <TbBrandReactNative className="h-8 w-8 text-cyan-400" />
+			// </div>
 		),
 		list: ["Website Content2", "Website Content1"],
+		gradient: "from-green-500/10 via-transparent to-transparent",
 	},
 	{
 		title: "SEO",
 		description:
 			"We ensure your website ranks higher through advanced SEO strategies, driving organic traffic and improving visibility.",
-		background: (
-			<section className="from-primary flex h-full w-full items-center justify-center rounded-lg bg-linear-to-tr to-[#549493]">
-				<BsTypeH1 className="text-7xl" />
-			</section>
-		),
+		icon: <BsTypeH1 className="h-8 w-8 text-purple-400" />,
 		list: ["Website Content2", "Website Content3"],
+		gradient: "from-purple-500/10 via-transparent to-transparent",
 	},
 ];
 
@@ -50,48 +48,41 @@ const Services = () => {
 	return (
 		<section className="w-full py-20 md:py-20">
 			<section className="mx-auto w-full max-w-7xl px-5">
-				<SectionHeading
-					heading={` How We help Brands?`}
-					subHeading={"Our Services"}
-					para="Empowering startups with innovative solutions and strategic insights to accelerate growth and success."
-				/>
-
-				<div
-					className={
-						"mt-16 grid w-full grid-cols-1 flex-col gap-6 md:grid-cols-2 lg:grid-cols-3"
-					}
+				<motion.div
+					initial={{ opacity: 0, y: 50 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
 				>
-					{services.map((service) => (
-						<ShineBorder
+					<Heading
+						heading="How We help Brands?"
+						subHeading="Our Services"
+						para="Empowering startups with innovative solutions and strategic insights to accelerate growth and success."
+					/>
+				</motion.div>
+
+				<div className="mt-16 grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+					{services.map((service, index) => (
+						<motion.div
 							key={service.title}
-							className="bg-background relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg p-0.5 md:shadow-xl"
-							color={["#c6004c", "#0071f1", "#c6004c"]}
+							initial={{ opacity: 0, y: 100 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{
+								duration: 0.5,
+								delay: index * 0.2,
+								type: "tween",
+								ease: "easeOut",
+							}}
 						>
-							<Card className="bg-background animate-shine w-full rounded-lg p-6">
-								<CardHeader className="flex flex-col items-start gap-3">
-									<div className="drop-shadow-primary bg-primary flex h-10 w-10 items-center justify-center rounded-sm drop-shadow-2xl">
-										<Search />
-									</div>
-									<div className="my-4 flex flex-col items-start gap-1">
-										<h5>{service.title}</h5>
-										<p className="text-foreground/80 text-base">
-											{service.description}
-										</p>
-									</div>
-								</CardHeader>
-								<Separator />
-								<CardContent className="flex flex-col gap-2">
-									{service.list.map((list) => (
-										<div key={list} className="flex items-center gap-3">
-											<span className="bg-secondary flex h-5 w-5 items-center justify-center rounded-full">
-												<Check size={12} />
-											</span>
-											<p>{list}</p>
-										</div>
-									))}
-								</CardContent>
-							</Card>
-						</ShineBorder>
+							<ServicesCard
+								title={service.title}
+								description={service.description}
+								list={service.list}
+								gradient={service.gradient}
+								icon={service.icon}
+							/>
+						</motion.div>
 					))}
 				</div>
 			</section>
@@ -100,3 +91,59 @@ const Services = () => {
 };
 
 export default Services;
+
+const ServicesCard = ({
+	title,
+	description,
+	icon,
+	gradient,
+	list,
+}: {
+	title: string;
+	description: string;
+	icon: React.JSX.Element;
+	list: string[];
+	gradient: string;
+}) => {
+	return (
+		<Card className="group relative overflow-hidden rounded-3xl border border-white/[0.05] bg-[#0A0A0B]/70 backdrop-blur-xl">
+			{/* Gradient Background */}
+			<div
+				className={`absolute inset-0 bg-gradient-to-br opacity-100 transition-opacity duration-500 group-hover:opacity-80 ${gradient}`}
+			/>
+
+			{/* Content */}
+			<CardHeader className="relative z-10 flex flex-col items-start gap-3 p-6">
+				<motion.div
+					whileHover={{ scale: 1.05 }}
+					transition={{ duration: 0.2 }}
+					className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/[0.05] backdrop-blur-lg"
+				>
+					{icon}
+				</motion.div>
+				<div className="my-4 flex flex-col items-start gap-2">
+					<h5 className="text-xl font-semibold text-white">{title}</h5>
+					<p className="text-sm text-gray-400">{description}</p>
+				</div>
+			</CardHeader>
+
+			<Separator className="opacity-10" />
+
+			<CardContent className="relative z-10 flex flex-col gap-3 p-6">
+				{list.map((item) => (
+					<motion.div
+						key={item}
+						className="flex items-center gap-3"
+						whileHover={{ x: 5 }}
+						transition={{ duration: 0.2 }}
+					>
+						<span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/[0.05] backdrop-blur-lg">
+							<Check size={12} className="text-blue-400" />
+						</span>
+						<p className="text-sm text-gray-400">{item}</p>
+					</motion.div>
+				))}
+			</CardContent>
+		</Card>
+	);
+};
