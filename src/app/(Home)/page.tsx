@@ -20,8 +20,8 @@ const HomePage = () => {
 			<AnnouncementBar />
 			<NavBar />
 			<HeroSection />
-			<IconsCarousal />
 			<AboutSection />
+			<IconsCarousal />
 			<Services />
 			<ProjectsSection />
 			<PlanSection />
