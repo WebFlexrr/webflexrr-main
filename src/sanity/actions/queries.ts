@@ -1,4 +1,25 @@
 import { defineQuery } from "next-sanity";
+//Metadata Queriers
+export const HOME_PAGE_METADATA_QUERY =
+	defineQuery(`*[_type=="pages" && route=="/" ][0]{
+  name,route,seo,_id,_type,_createdAt,_updatedAt
+}`);
+export const WORK_PAGE_METADATA_QUERY =
+	defineQuery(`*[_type=="pages" && route=="/work" ][0]{
+  name,route,seo,_id,_type,_createdAt,_updatedAt
+}`);
+export const BLOGS_PAGE_METADATA_QUERY =
+	defineQuery(`*[_type=="pages" && route=="/blogs" ][0]{
+  name,route,seo,_id,_type,_createdAt,_updatedAt
+}`);
+
+//project Query
+export const PROJECTS_QUERY = defineQuery(`*[_type=="project"]`);
+
+export const SINGLE_PROJECT_QUERY = (slug: string) =>
+	defineQuery(`*[_type=="project" && slug.current == "${slug}"][0]`);
+
+export const BLOG_QUERY = defineQuery(`*[_type=="blogs"]`);
 
 export const FAQ_Query = defineQuery(
 	`*[_type=="faq"]{id,question,ans,content,_updatedAt}`
@@ -14,12 +35,6 @@ export const PLANS_Query =
   bookingLink
 }`);
 
-export const PROJECT_QUERY = defineQuery(`*[_type=="project"]{
-      title,
-      link,
-      "thumbnail":thumbnail.asset->url,
-      _updatedAt
-    }`);
 export const FEEDBACK_Query = defineQuery(`*[_type=="feedback" ]{
       _id,
       clientName,
@@ -31,42 +46,13 @@ export const FEEDBACK_Query = defineQuery(`*[_type=="feedback" ]{
       _type
     }`);
 
-export const PRIVACY_POLICY_QUERY =
-	defineQuery(`*[_type=="policies" && slug.current == "privacyPolicy" ][0]{
-  			title,
-    		"slug": slug.current,
-    		content,
-    		_updatedAt
-		}`);
+export const PRIVACY_POLICY_QUERY = defineQuery(`*[_type=="privacyPolicy"][0]`);
 
 export const TERMS_CONDITIONS_QUERY = defineQuery(
-	`*[_type=="policies" && slug.current == "term&Conditions" ][0]{
-  			title,
-    		"slug": slug.current ,
-    		content,
-    		_updatedAt
-		}`
+	`*[_type=="termsConditions"][0]`
 );
 
-export const REFUND_POLICY_QUERY =
-	defineQuery(`*[_type=="policies" && slug.current == "refundPolicy" ][0]{
-            title,
-            "slug": slug.current ,
-            content,
-			_updatedAt
-        }`);
-
-export const ALL_BLOG_QUERY = defineQuery(`*[_type=="blogs"]{
-      _id,
-      title,
-      "slug":slug.current,
-      description,
-      "thumbnail":thumbnail.asset->url,
-      category,
-      content,
-      _createdAt,
-      _updatedAt
-    }`);
+export const REFUND_POLICY_QUERY = defineQuery(`*[_type=="refundPolicy"][0]`);
 
 export const GET_SINGLE_BLOG_QUERY = (slug: string) => {
 	return defineQuery(`*[_type=="blogs" && slug.current == "${slug}"][0]{

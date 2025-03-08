@@ -100,7 +100,9 @@ export const PortableTextComponents: PortableTextReactComponents = {
 				{children}
 			</blockquote>
 		),
-		normal: ({ children }) => <p className="text-lg text-white">{children}</p>,
+		normal: ({ children }) => (
+			<p className="my-4 text-lg text-white">{children}</p>
+		),
 	},
 	list: {
 		// Ex. 1: customizing common list types

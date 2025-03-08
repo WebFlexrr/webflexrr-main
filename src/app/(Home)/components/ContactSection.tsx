@@ -10,7 +10,6 @@ import { Mail } from "lucide-react";
 import {
 	Form,
 	FormControl,
-	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -18,11 +17,12 @@ import {
 } from "@/components/ui/form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { sendEmailActions } from "@/lib/server/sendEmail";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@radix-ui/react-separator";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Link from "next/link";
+import { submitFormActions } from "@/lib/server/enquiryForm";
 
 const formSchema = z.object({
 	fullName: z.string().min(2).max(50),
@@ -42,7 +42,8 @@ const ContactSection = (): React.JSX.Element => {
 
 	async function onSubmit(values: z.infer<typeof formSchema>) {
 		try {
-			await sendEmailActions(values);
+			// await sendEmailActions(values);
+			await submitFormActions(values);
 			toast.success("Mail Successfully sent!");
 		} catch (error) {
 			toast.error("Error! Email was not sent, please retry.");
@@ -59,35 +60,45 @@ const ContactSection = (): React.JSX.Element => {
 					subHeading={"Contact Us"}
 				/>
 				<section className="flex h-auto w-full flex-col gap-16 p-5">
-					<Card className="mx-auto w-full max-w-xl rounded-lg bg-[#0A0A0B]/70 backdrop-blur-xl">
+					<Card className="mx-auto w-full max-w-lg rounded-3xl bg-[#0A0A0B]/70 backdrop-blur-xl">
+						{/* Gradient Background */}
+						<div
+							className={`absolute inset-0 rounded-3xl bg-gradient-to-b from-[#1a1f35] to-[#0c1322]`}
+						/>
 						<CardHeader>
-							<div className="flex w-full gap-2 rounded-full bg-slate-700 p-2">
+							<div className="z-10 flex w-full gap-2 rounded-full bg-slate-700 p-2">
 								<div className="flex w-1/2 gap-2">
-									<span className="bg-primary flex h-12 w-12 items-center justify-center rounded-full">
+									<Link
+										href={"mailto:contact@webflexrr.com"}
+										className="bg-primary flex h-12 w-12 items-center justify-center rounded-full"
+									>
 										<Mail />
-									</span>
+									</Link>
 									<div className="flex flex-col">
 										<span className="font-space-grotesk">EMAIL</span>
-										<span>contact@webflexrr.com</span>
+										<span className="text-sm">contact@webflexrr.com</span>
 									</div>
 								</div>
 								<Separator orientation="vertical" />
 								<div className="flex w-1/2 gap-2">
-									<span className="bg-primary flex h-12 w-12 items-center justify-center rounded-full">
+									<Link
+										href={"telto:9674128921"}
+										className="bg-primary flex h-12 w-12 items-center justify-center rounded-full"
+									>
 										<Mail />
-									</span>
+									</Link>
 									<div className="flex flex-col">
-										<span>CALL US</span>
-										<span>9674128921</span>
+										<span className="font-space-grotesk">CALL US</span>
+										<span className="text-sm">9674128921</span>
 									</div>
 								</div>
 							</div>
 						</CardHeader>
-						<CardContent className="flex w-full flex-col">
+						<CardContent className="z-10 flex w-full flex-col">
 							<Form {...form}>
 								<form
 									onSubmit={form.handleSubmit(onSubmit)}
-									className="w-2/3 space-y-6"
+									className="w-full space-y-6 rounded-3xl bg-slate-700 p-5"
 								>
 									<FormField
 										control={form.control}
@@ -96,11 +107,13 @@ const ContactSection = (): React.JSX.Element => {
 											<FormItem>
 												<FormLabel>Username</FormLabel>
 												<FormControl>
-													<Input placeholder="Your name" {...field} />
+													<Input
+														className="rounded-lg bg-white text-black"
+														placeholder="Your name"
+														{...field}
+													/>
 												</FormControl>
-												<FormDescription>
-													This is your public display name.
-												</FormDescription>
+
 												<FormMessage />
 											</FormItem>
 										)}
@@ -114,13 +127,12 @@ const ContactSection = (): React.JSX.Element => {
 												<FormControl>
 													<Input
 														type="email"
+														className="rounded-lg bg-white text-black"
 														placeholder="Your email"
 														{...field}
 													/>
 												</FormControl>
-												<FormDescription>
-													We'll never share your email.
-												</FormDescription>
+
 												<FormMessage />
 											</FormItem>
 										)}
@@ -134,19 +146,18 @@ const ContactSection = (): React.JSX.Element => {
 												<FormControl>
 													<Textarea
 														placeholder="Write your message"
-														className="resize-none"
+														className="resize-none rounded-lg bg-white text-black"
 														{...field}
 													/>
 												</FormControl>
-												<FormDescription>
-													You can <span>@mention</span> other users and
-													organizations.
-												</FormDescription>
+
 												<FormMessage />
 											</FormItem>
 										)}
 									/>
-									<Button type="submit">Submit</Button>
+									<Button className="w-full text-white" type="submit">
+										Submit
+									</Button>
 								</form>
 							</Form>
 						</CardContent>
