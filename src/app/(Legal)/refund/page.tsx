@@ -3,13 +3,11 @@ import Footer from "@/components/Footer";
 import NavBar from "@/components/Navbar";
 import { PortableTextComponents } from "@/components/PortableText";
 import { Separator } from "@/components/ui/separator";
-
 import { REFUND_POLICY_QUERY } from "@/sanity/actions/queries";
 import { sanityFetch } from "@/sanity/lib/client";
 import { RefundPolicy } from "@/types/sanity";
-
-import { PortableText } from "@portabletext/react";
 import type { Metadata } from "next";
+import { PortableText } from "next-sanity";
 
 export const metadata: Metadata = {
 	title: "Refund Policy",

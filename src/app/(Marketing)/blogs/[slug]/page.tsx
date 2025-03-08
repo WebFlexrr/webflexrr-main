@@ -1,8 +1,5 @@
 import React, { cache } from "react";
 import Footer from "@/components/Footer";
-import { sanityFetch } from "@/sanity/lib/client";
-import { Blogs } from "@/types/sanity";
-import { BLOG_QUERY, GET_SINGLE_BLOG_QUERY } from "@/sanity/actions/queries";
 import { Metadata } from "next";
 import BlurredBg from "@/components/BlurredBg";
 import AnnouncementBar from "@/components/AnnouncementBar";
@@ -11,15 +8,16 @@ import Image from "next/image";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-const getBlogsData = cache(async (slug: string) => {
-	return await sanityFetch<Blogs>({
-		query: GET_SINGLE_BLOG_QUERY(slug),
-	});
-});
+import { PortableTextComponents } from "@/components/PortableText";
+import { PortableText } from "next-sanity";
+import { getBlogs, getSingleBlog } from "@/sanity/actions/queryActions";
+
+//chached data
+const getBlogsData = cache(async (slug: string) => await getSingleBlog(slug));
+
+//Static params
 export async function generateStaticParams() {
-	const blogs = await sanityFetch<Blogs[]>({
-		query: BLOG_QUERY,
-	});
+	const blogs = await getBlogs();
 
 	return blogs.map((blog) => ({
 		slug: blog.slug?.current,
@@ -62,33 +60,36 @@ const Blog = async ({
 			<BlurredBg />
 			<AnnouncementBar />
 			<NavBar />
-			{/* <div className="container mx-auto px-4"> */}
-			<div className="relative flex h-auto w-full flex-col items-center justify-center px-5 py-20">
-				<section className="mx-auto flex h-fit w-full max-w-[90rem] flex-col items-center text-center md:items-center md:px-14 xl:px-20">
-					<div>
-						<Image
-							src={
-								blogData.thumbnail
-									? imageUrlFor(blogData.thumbnail as SanityImageSource).url()
-									: "/assets/background-home-2.jpg"
-							}
-							alt={blogData.title ?? ""}
-							width={1000}
-							height={0}
-							className="aspect-[4/3] w-full rounded-lg transition-transform duration-500 group-hover:scale-110"
-						/>
-					</div>
+			<section className="relative mx-auto mb-20 flex h-auto h-fit w-full max-w-[90rem] flex-col items-center justify-center gap-20 pt-20 md:items-center md:px-14 md:pt-20 lg:pt-40 xl:px-20">
+				<div className="flex w-auto w-full flex-col gap-5 text-center">
+					<h1 className="mx-auto w-full max-w-3xl">{blogData.title}</h1>
+					<p className="mx-auto max-w-4xl text-purple-100/80">
+						{blogData.description}
+					</p>
+				</div>
+				<div className="w-full">
+					<Image
+						src={
+							blogData.thumbnail
+								? imageUrlFor(blogData.thumbnail as SanityImageSource).url()
+								: "/assets/background-home-2.jpg"
+						}
+						alt={blogData.title ?? ""}
+						width={1000}
+						height={0}
+						className="aspect-screen w-full rounded-lg transition-transform duration-500 group-hover:scale-110"
+					/>
+				</div>
+				<div className="mx-auto w-full max-w-3xl">
+					<PortableText
+						value={blogData.content!}
+						components={PortableTextComponents}
+					/>
+				</div>
+				{/* <section className="mx-auto flex h-fit w-full max-w-[90rem] flex-col items-center text-center md:items-center md:px-14 xl:px-20">
 					{/* Hero Section */}
-					<div className="mb-16 text-center">
-						<h1 className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-							{blogData.title}
-						</h1>
-						<p className="mx-auto max-w-2xl text-lg text-purple-100/80">
-							{blogData.description}
-						</p>
-					</div>
 
-					{/* Latest Blogs Grid */}
+				{/* Latest Blogs Grid *
 					<section className="relative">
 						<h2 className="mb-8 text-2xl font-bold text-white">
 							Latest Articles
@@ -108,11 +109,11 @@ const Blog = async ({
 										date={blog._createdAt}
 									/>
 								</div>
-							))} */}
+							))} 
 						</div>
 					</section>
-				</section>
-			</div>
+				</section> */}
+			</section>
 			<Footer />
 		</main>
 	);

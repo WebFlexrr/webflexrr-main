@@ -1,6 +1,5 @@
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
-import { PortableText } from "@portabletext/react";
 import { sanityFetch } from "@/sanity/lib/client";
 import { PRIVACY_POLICY_QUERY } from "@/sanity/actions/queries";
 import NavBar from "@/components/Navbar";
@@ -8,6 +7,7 @@ import BlurredBg from "@/components/BlurredBg";
 import { PortableTextComponents } from "@/components/PortableText";
 import { Separator } from "@/components/ui/separator";
 import { PrivacyPolicy } from "@/types/sanity";
+import { PortableText } from "next-sanity";
 
 export const metadata: Metadata = {
 	title: "Privacy Policy",

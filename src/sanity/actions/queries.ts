@@ -1,5 +1,5 @@
 import { defineQuery } from "next-sanity";
-
+//Metadata Queriers
 export const HOME_PAGE_METADATA_QUERY =
 	defineQuery(`*[_type=="pages" && route=="/" ][0]{
   name,route,seo,_id,_type,_createdAt,_updatedAt
@@ -13,12 +13,12 @@ export const BLOGS_PAGE_METADATA_QUERY =
   name,route,seo,_id,_type,_createdAt,_updatedAt
 }`);
 
-export const PROJECT_QUERY = defineQuery(`*[_type=="project"]{
-      title,
-      link,
-      "thumbnail":thumbnail.asset->url,
-      _updatedAt
-    }`);
+//project Query
+export const PROJECTS_QUERY = defineQuery(`*[_type=="project"]`);
+
+export const SINGLE_PROJECT_QUERY = (slug: string) =>
+	defineQuery(`*[_type=="project" && slug.current == "${slug}"][0]`);
+
 export const BLOG_QUERY = defineQuery(`*[_type=="blogs"]`);
 
 export const FAQ_Query = defineQuery(

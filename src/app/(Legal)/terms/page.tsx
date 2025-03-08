@@ -1,8 +1,5 @@
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
-
-import { PortableText } from "@portabletext/react";
-
 import { sanityFetch } from "@/sanity/lib/client";
 import { TERMS_CONDITIONS_QUERY } from "@/sanity/actions/queries";
 
@@ -11,6 +8,7 @@ import NavBar from "@/components/Navbar";
 import { PortableTextComponents } from "@/components/PortableText";
 import { Separator } from "@radix-ui/react-separator";
 import { TermsConditions } from "@/types/sanity";
+import { PortableText } from "next-sanity";
 
 export const metadata: Metadata = {
 	title: "Term & Condition",

@@ -13,26 +13,22 @@ import Footer from "@/components/Footer";
 import CallToActionBanner from "./components/CallToActionBanner";
 import ContactSection from "./components/ContactSection";
 import SmoothScrolling from "@/components/SmoothScrolling";
-import { sanityFetch } from "@/sanity/lib/client";
-import { HOME_PAGE_METADATA_QUERY } from "@/sanity/actions/queries";
-import { Pages } from "@/types/sanity";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { Metadata } from "next";
+import { getHomePageMetadata } from "@/sanity/actions/metadataQueryActions";
 
 export async function generateMetadata(): Promise<Metadata> {
-	const homePage = await sanityFetch<Pages>({
-		query: HOME_PAGE_METADATA_QUERY,
-	});
+	const homePage = await getHomePageMetadata();
 
 	console.log(homePage);
 
-	console.log(
-		"Open graph Image",
-		imageUrlFor(homePage.seo?.openGraph?.image as SanityImageSource)
-			.blur(50)
-			.url()
-	);
+	// console.log(
+	// 	"Open graph Image",
+	// 	imageUrlFor(homePage.seo?.openGraph?.image as SanityImageSource)
+	// 		.blur(50)
+	// 		.url()
+	// );
 	return {
 		title: homePage.seo?.metaTitle,
 		description: homePage.seo?.metaDescription,
