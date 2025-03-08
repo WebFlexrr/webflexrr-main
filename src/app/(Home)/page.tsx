@@ -13,8 +13,50 @@ import Footer from "@/components/Footer";
 import CallToActionBanner from "./components/CallToActionBanner";
 import ContactSection from "./components/ContactSection";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import { sanityFetch } from "@/sanity/lib/client";
+import { HOME_PAGE_METADATA_QUERY } from "@/sanity/actions/queries";
+import { Pages } from "@/types/sanity";
+import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { Metadata } from "next";
 
-const HomePage = () => {
+export async function generateMetadata(): Promise<Metadata> {
+	const homePage = await sanityFetch<Pages>({
+		query: HOME_PAGE_METADATA_QUERY,
+	});
+
+	console.log(homePage);
+
+	console.log(
+		"Open graph Image",
+		imageUrlFor(homePage.seo?.openGraph?.image as SanityImageSource)
+			.blur(50)
+			.url()
+	);
+	return {
+		title: homePage.seo?.metaTitle,
+		description: homePage.seo?.metaDescription,
+		keywords: homePage.seo?.seoKeywords,
+		openGraph: {
+			title: homePage.seo?.openGraph?.title,
+			description: homePage.seo?.openGraph?.description,
+			url: homePage.seo?.openGraph?.url,
+			siteName: homePage.seo?.openGraph?.siteName,
+			images: [
+				{
+					url: imageUrlFor(homePage.seo?.openGraph?.image as SanityImageSource)
+						.blur(50)
+						.url(),
+					width: 1200,
+					height: 630,
+					alt: "WebFlexrr",
+				},
+			],
+		},
+	};
+}
+
+const HomePage = async () => {
 	return (
 		<SmoothScrolling>
 			<main className="relative overflow-x-hidden p-0">

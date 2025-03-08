@@ -2,6 +2,8 @@ import ProjectCard from "@/components/ProjectCard";
 import Heading from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { getProjectsActions } from "@/sanity/actions/queryActions";
+import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -17,7 +19,7 @@ const ProjectsSection = async (): Promise<React.JSX.Element> => {
 					{projects.map((item) => (
 						<ProjectCard
 							key={item.title}
-							thumbnail={item.thumbnail}
+							thumbnail={imageUrlFor(item.thumbnail as SanityImageSource).url()}
 							title={item.title}
 							description={
 								"Streamline your hiring process with automated candidate screening, saving time and ensuring quality talent with each call."

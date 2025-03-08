@@ -2,22 +2,49 @@ import React from "react";
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import { sanityFetch } from "@/sanity/lib/client";
-import { PROJECT_QUERY } from "@/sanity/actions/queries";
+import {
+	PROJECT_QUERY,
+	WORK_PAGE_METADATA_QUERY,
+} from "@/sanity/actions/queries";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import ProjectCard from "@/components/ProjectCard";
 import BlurredBg from "@/components/BlurredBg";
 import NavBar from "@/components/Navbar";
+import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { Pages, Project } from "@/types/sanity";
 
-export const metadata: Metadata = {
-	title: {
-		default: "Our Portfolio of High Performing landing page",
-		template: "%s | WebFlexrr Digital Services",
-	},
-	description: "This is Plan Page of Webflexrr Digital Services",
-};
+export async function generateMetadata(): Promise<Metadata> {
+	const workPage = await sanityFetch<Pages>({
+		query: WORK_PAGE_METADATA_QUERY,
+	});
 
+	console.log(workPage.seo?.openGraph);
+
+	// console.log(
+	// 	"Open graph Image",
+	// 	imageUrlFor(workPage.seo?.openGraph?.image as SanityImageSource)
+	//
+	// 		.url()
+	// );
+	return {
+		title: workPage.seo?.metaTitle,
+		description: workPage.seo?.metaDescription,
+		keywords: workPage.seo?.seoKeywords,
+		openGraph: {
+			title: workPage.seo?.openGraph?.title,
+			description: workPage.seo?.openGraph?.description,
+			url: workPage.seo?.openGraph?.url,
+			siteName: workPage.seo?.openGraph?.siteName,
+			images: [
+				// imageUrlFor(workPage.seo?.openGraph?.image as SanityImageSource)
+				// 	.url(),
+			],
+		},
+	};
+}
 const Works = async (): Promise<React.JSX.Element> => {
-	const projects = await sanityFetch<getAllProjects[]>({
+	const projects = await sanityFetch<Project[]>({
 		query: PROJECT_QUERY,
 	});
 
@@ -42,7 +69,9 @@ const Works = async (): Promise<React.JSX.Element> => {
 						{projects.map((item) => (
 							<ProjectCard
 								key={item.title}
-								thumbnail={item.thumbnail}
+								thumbnail={imageUrlFor(
+									item.thumbnail as SanityImageSource
+								).url()}
 								title={item.title}
 								description={item.description}
 								link={item.link}

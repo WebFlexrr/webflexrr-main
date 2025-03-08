@@ -8,14 +8,14 @@ import { motion } from "framer-motion";
 
 interface ProjectCardProps {
 	thumbnail: string;
-	title: string;
-	description: string;
-	link: string;
+	title?: string;
+	description?: string;
+	link?: string;
 	index?: number;
 }
 
 const ProjectCard: FC<ProjectCardProps> = ({
-	thumbnail,
+	thumbnail = "",
 	title,
 	description,
 	link,
@@ -43,7 +43,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 							transition={{ duration: 0.2 }}
 						>
 							<Image
-								alt={title}
+								alt={title ?? ""}
 								className="aspect-4/3 w-full rounded-2xl object-cover shadow-lg ring-1 ring-white/10"
 								src={thumbnail}
 								width={1000}
@@ -83,18 +83,19 @@ const ProjectCard: FC<ProjectCardProps> = ({
 										Business
 									</span>
 								</motion.section>
-
-								<motion.div
-									whileHover={{ scale: 1.02 }}
-									transition={{ duration: 0.2 }}
-								>
-									<Link
-										href={link}
-										className="from-primary to-secondary flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r p-3 text-sm font-medium text-white transition-all hover:gap-3"
+								{link && (
+									<motion.div
+										whileHover={{ scale: 1.02 }}
+										transition={{ duration: 0.2 }}
 									>
-										View Project <MdOutlineArrowOutward size={20} />
-									</Link>
-								</motion.div>
+										<Link
+											href={link}
+											className="from-primary to-secondary flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r p-3 text-sm font-medium text-white transition-all hover:gap-3"
+										>
+											View Project <MdOutlineArrowOutward size={20} />
+										</Link>
+									</motion.div>
+								)}
 							</section>
 						</section>
 					</section>

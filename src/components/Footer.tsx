@@ -12,7 +12,7 @@ const Footer = (): React.JSX.Element => {
 		<footer className="text-tertiary mx-auto h-auto w-full max-w-7xl text-white">
 			<Separator />
 			<section className="flex flex-col gap-10 py-20">
-				<section className="w-full">
+				<section className="w-full px-10 lg:px-5">
 					<Image
 						src={"/logos/logo.png"}
 						width={"200"}

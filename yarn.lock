@@ -1354,7 +1354,7 @@
 
 "@sanity/image-url@^1.1.0":
   version "1.1.0"
-  resolved "https://registry.npmjs.org/@sanity/image-url/-/image-url-1.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/@sanity/image-url/-/image-url-1.1.0.tgz#f26905ef5bdd27165b0f04d8571eb75dc7cdf50a"
   integrity sha512-JHumVRxzzaZAJyOimntdukA9TjjzsJiaiq/uUBdTknMLCNvtM6KQ5OCp6W5fIdY78uyFxtQjz+MPXwK8WBIxWg==
 
 "@sanity/insert-menu@^1.1.4":
