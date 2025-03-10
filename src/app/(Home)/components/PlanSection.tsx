@@ -51,10 +51,7 @@ const plans = [
 
 const PlanSection = (): React.JSX.Element => {
 	return (
-		<section
-			id="plans"
-			className="relative h-auto w-full overflow-hidden bg-[#0A0A0B] py-20"
-		>
+		<section className="relative h-auto w-full overflow-hidden bg-[#0A0A0B] py-20">
 			{/* Background Effects */}
 			{/* <div className="pointer-events-none absolute inset-0">
 				{/* Left glow *
@@ -105,7 +102,7 @@ const PlanSection = (): React.JSX.Element => {
 					</span>
 				</motion.div> */}
 
-				<section className="mx-auto mt-16 mb-24 grid h-auto w-full max-w-lg grid-cols-1 gap-8 sm:px-10 xl:max-w-none xl:grid-cols-3 xl:gap-10 xl:px-0">
+				<section className="mx-auto my-16 grid h-auto w-full max-w-lg grid-cols-1 gap-8 sm:px-10 xl:max-w-none xl:grid-cols-3 xl:gap-10 xl:px-0">
 					{plans.map((plan, index) => (
 						<PlansCard
 							key={plan.title}
@@ -124,7 +121,7 @@ const PlanSection = (): React.JSX.Element => {
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
 					transition={{ duration: 0.5, delay: 0.4 }}
-					className="flex h-auto w-full flex-col items-center justify-center gap-5"
+					className="flex h-auto w-full flex-col items-center justify-center"
 				>
 					<Link
 						href={"/plans"}

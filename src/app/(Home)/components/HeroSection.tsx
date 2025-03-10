@@ -44,7 +44,7 @@ const portfolioImages = [
 
 const HeroSection = () => {
 	return (
-		<section className="relative mb-20 flex h-auto w-full flex-col items-center justify-center pt-20 md:pt-20 lg:pt-40">
+		<section className="relative flex h-auto w-full flex-col items-center justify-center py-20 md:pt-20 lg:pt-40">
 			{/* Hero Content */}
 			<div className="mx-auto flex h-fit w-full max-w-[90rem] flex-col items-center px-7 text-center md:items-center md:px-14 xl:px-20">
 				<span className="mb-4 rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-sm text-blue-400">
@@ -71,7 +71,7 @@ const HeroSection = () => {
 				</div>
 
 				{/* Customer Avatars */}
-				<div className="z-20 flex items-center gap-2">
+				<div className="z-10 flex items-center gap-2">
 					<AvatarGroup className="flex items-center" max={3}>
 						<Avatar className="h-11 w-11">
 							<AvatarImage src="/assets/avatar1.png" />

@@ -8,9 +8,9 @@ import Image from "next/image";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-import { PortableTextComponents } from "@/components/PortableText";
 import { PortableText } from "next-sanity";
 import { getBlogs, getSingleBlog } from "@/sanity/actions/queryActions";
+import { PortableTextComponents } from "@/components/PortableText";
 
 //chached data
 const getBlogsData = cache(async (slug: string) => await getSingleBlog(slug));
@@ -60,11 +60,13 @@ const Blog = async ({
 			<BlurredBg />
 			<AnnouncementBar />
 			<NavBar />
-			<section className="relative mx-auto mb-20 flex h-auto h-fit w-full max-w-[90rem] flex-col items-center justify-center gap-20 pt-20 md:items-center md:px-14 md:pt-20 lg:pt-40 xl:px-20">
+			<section className="relative mx-auto mb-20 flex h-auto h-fit w-full max-w-[90rem] flex-col items-center justify-center gap-20 px-10 pt-20 md:items-center md:px-14 md:pt-20 lg:pt-40 xl:px-20">
 				<div className="flex w-auto w-full flex-col gap-5 text-center">
-					<h1 className="mx-auto w-full max-w-3xl">{blogData.title}</h1>
+					<h1 className="font-space-grotesk mx-auto w-full max-w-3xl text-center text-3xl font-bold md:text-6xl md:leading-[82px] lg:max-w-4xl dark:text-white">
+						{blogData?.title}
+					</h1>
 					<p className="mx-auto max-w-4xl text-purple-100/80">
-						{blogData.description}
+						{blogData?.description}
 					</p>
 				</div>
 				<div className="w-full">
@@ -77,7 +79,7 @@ const Blog = async ({
 						alt={blogData.title ?? ""}
 						width={1000}
 						height={0}
-						className="aspect-screen w-full rounded-lg transition-transform duration-500 group-hover:scale-110"
+						className="aspect-screen w-full transition-transform duration-500 group-hover:scale-110"
 					/>
 				</div>
 				<div className="mx-auto w-full max-w-3xl">

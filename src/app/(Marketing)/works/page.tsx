@@ -10,6 +10,7 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { getWorkPageMetadata } from "@/sanity/actions/metadataQueryActions";
 import { getProjects } from "@/sanity/actions/queryActions";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import CallToActionBanner from "@/app/(Home)/components/CallToActionBanner";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const workPage = await getWorkPageMetadata();
@@ -46,8 +47,8 @@ const Works = async (): Promise<React.JSX.Element> => {
 				<BlurredBg />
 				<AnnouncementBar />
 				<NavBar />
-				<section className="relative mb-20 flex h-auto w-full flex-col items-center justify-center px-7 pt-20 md:pt-20 lg:py-40">
-					<div className="mx-auto flex h-fit w-full max-w-[90rem] flex-col items-center text-center md:items-center md:px-14 xl:px-20">
+				<section className="relative flex h-auto w-full flex-col items-center justify-center py-20">
+					<div className="mx-auto flex h-fit w-full max-w-[90rem] flex-col items-center px-7 text-center md:items-center md:px-14 xl:px-20">
 						<section className="mx-auto mt-10 flex h-auto w-full max-w-2xl flex-col items-center gap-4 text-center text-white">
 							{/* <span className="from-primary to-secondary flex gap-3 rounded-full bg-gradient-to-r p-0.5">
 									<div className="bg-background rounded-full px-7 py-3 text-base">
@@ -74,6 +75,7 @@ const Works = async (): Promise<React.JSX.Element> => {
 						</section>
 					</div>
 				</section>
+				<CallToActionBanner />
 				<Footer />
 			</main>
 		</SmoothScrolling>

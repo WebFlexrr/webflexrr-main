@@ -19,7 +19,7 @@ export const CallToActionButton = () => {
 
 export const ContactUsButton = () => {
 	return (
-		<Link href={"/booking"}>
+		<Link href={"/booking"} className="hidden md:flex">
 			<Button className="border-secondary from-primary to-secondary font-space-grotesk gap-5 rounded-2xl border bg-linear-to-r text-base text-white">
 				<Phone size={24} />
 				Contact US

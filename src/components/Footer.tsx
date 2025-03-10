@@ -86,9 +86,9 @@ const Footer = (): React.JSX.Element => {
 								<li>
 									<Link href={"/blogs"}>Blog</Link>
 								</li>
-								<li>
+								{/* <li>
 									<Link href={"/contact"}>Contact</Link>
-								</li>
+								</li> */}
 							</ul>
 						</section>
 						<section className="flex flex-col gap-4 text-black dark:text-white">
@@ -97,7 +97,6 @@ const Footer = (): React.JSX.Element => {
 							</span>
 							<ul className="space-y-4">
 								<li className="cursor-pointer">Landing Page Development</li>
-								<li className="cursor-pointer">Custom Web App Development</li>
 								<li className="cursor-pointer">SAAS App Development</li>
 								<li className="cursor-pointer">SEO Optimization</li>
 							</ul>

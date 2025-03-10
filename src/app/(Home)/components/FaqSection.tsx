@@ -47,7 +47,7 @@ const FaqSection = () => {
 	];
 	return (
 		<section id={"faq"} className="relative h-auto w-full">
-			<section className="mx-auto flex w-full max-w-4xl flex-col gap-14 px-5 py-20 md:px-10 lg:py-20">
+			<section className="mx-auto flex w-full max-w-4xl flex-col gap-14 px-5 py-20">
 				<Heading
 					heading={"FAQ"}
 					subHeading={"Frequently Asked Questions ?"}

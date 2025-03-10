@@ -39,10 +39,10 @@ const ProjectCard: FC<ProjectCardProps> = ({
 		>
 			<Card className="mx-auto h-fit w-full max-w-4xl overflow-hidden rounded-3xl border border-white/[0.05] bg-[#0A0A0B]/70 backdrop-blur-xl">
 				<div className="from-primary/10 to-secondary/10 absolute inset-0 bg-gradient-to-br via-transparent" />
-				<CardContent className="relative z-10 h-full w-full p-6">
-					<section className="flex h-full gap-6">
+				<CardContent className="relative z-10 h-full w-full lg:p-6">
+					<section className="flex h-full flex-col gap-6 md:flex-row">
 						<motion.section
-							className="w-1/2"
+							className="w-full lg:w-1/2"
 							whileHover={{ scale: 1.02 }}
 							transition={{ duration: 0.2 }}
 						>
@@ -54,13 +54,13 @@ const ProjectCard: FC<ProjectCardProps> = ({
 								height={0}
 							/>
 						</motion.section>
-						<section className="flex h-full w-1/2 flex-col items-stretch justify-between">
-							<section className="flex flex-col items-start">
+						<section className="flex h-full w-full flex-col items-stretch justify-between lg:w-1/2">
+							<section className="flex flex-col items-start gap-3">
 								<motion.h5
 									initial={{ opacity: 0, x: -20 }}
 									animate={{ opacity: 1, x: 0 }}
 									transition={{ duration: 0.3, delay: 0.2 }}
-									className="text-2xl font-semibold text-white"
+									className="text-left text-2xl font-semibold text-white"
 								>
 									{title}
 								</motion.h5>
@@ -68,12 +68,12 @@ const ProjectCard: FC<ProjectCardProps> = ({
 									initial={{ opacity: 0, x: -20 }}
 									animate={{ opacity: 1, x: 0 }}
 									transition={{ duration: 0.3, delay: 0.3 }}
-									className="mt-3 text-sm text-gray-400"
+									className="text-sm text-gray-400"
 								>
 									{description}
 								</motion.p>
 							</section>
-							<section className="flex flex-col gap-4">
+							<section className="mt-10 flex flex-col gap-4">
 								{tags && (
 									<motion.section
 										initial={{ opacity: 0, y: 20 }}
