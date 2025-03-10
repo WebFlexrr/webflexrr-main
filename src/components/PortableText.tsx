@@ -61,13 +61,13 @@ export const PortableTextComponents: PortableTextReactComponents = {
 	block: {
 		// Ex. 1: customizing common block types
 		h1: ({ children }) => (
-			<h1 className="my-4 text-left text-3xl font-bold">{children}</h1>
+			<h1 className="my-5 text-left text-3xl font-bold">{children}</h1>
 		),
 		h2: ({ children }) => (
 			<h2 className="my-4 text-left text-2xl font-bold">{children}</h2>
 		),
 		h3: ({ children }) => (
-			<h3 className="my-3 text-left text-xl font-bold">{children}</h3>
+			<h3 className="m-3 text-left text-xl font-bold">{children}</h3>
 		),
 		h4: ({ children }) => (
 			<h4 className="my-2 text-left text-lg font-bold">{children}</h4>
@@ -79,39 +79,31 @@ export const PortableTextComponents: PortableTextReactComponents = {
 			<h6 className="my-4 text-left text-sm font-bold">{children}</h6>
 		),
 		blockquote: ({ children }) => (
-			<blockquote className="border-l-4 border-slate-500 pl-3 text-left text-black">
+			<blockquote className="border-l-4 border-slate-500 pl-3 text-left">
 				{children}
 			</blockquote>
 		),
-		normal: ({ children }) => <p className="my-4 text-lg">{children}</p>,
+		normal: ({ children }) => <p className="mb-2 text-lg">{children}</p>,
 	},
 	list: {
 		// Ex. 1: customizing common list types
 		bullet: ({ children }) => (
-			<ul className="my-6 space-y-6 px-5 text-black">{children}</ul>
+			<ul className="my-6 list-inside space-y-6 px-5">{children}</ul>
 		),
-		number: ({ children }) => <ol className="mt-lg text-black">{children}</ol>,
+		number: ({ children }) => <ol className="mt-lg">{children}</ol>,
 
 		// Ex. 2: rendering custom lists
 		checkmarks: ({ children }) => (
-			<ol className="m-auto text-lg text-black">{children}</ol>
+			<ol className="m-auto text-lg">{children}</ol>
 		),
 	},
 	listItem: {
 		// Ex. 1: customizing common list types
-		bullet: ({ children }) => (
-			<li className="list-disc text-black">
-				<p className="text-base text-black">{children}</p>
-			</li>
-		),
-		number: ({ children }) => (
-			<li className="list-decimal text-black">
-				<p className="text-base text-black">{children}</p>
-			</li>
-		),
+		bullet: ({ children }) => <li className="list-disc">{children}</li>,
+		number: ({ children }) => <li className="list-decimal">{children}</li>,
 
 		// Ex. 2: rendering custom list items
-		checkmarks: ({ children }) => <li className="text-black">✅ {children}</li>,
+		checkmarks: ({ children }) => <li className="">✅ {children}</li>,
 	},
 	hardBreak: () => <br />,
 	unknownMark: () => <></>,

@@ -164,7 +164,7 @@ layer(base);
     @apply text-center font-space-grotesk text-4xl leading-[38.5px] md:text-5xl font-light md:leading-[52.8px]  text-secondary   dark:text-white;
   }
   h3 {
-    @apply font-space-grotesk  md:text-[2.9rem] md:leading-[54px] text-2xl  font-bold;
+    @apply font-space-grotesk  md:text-[2.9rem] md:leading-[54px] text-2xl  font-bold dark:text-white;
   }
   h4 {
     @apply font-space-grotesk md:text-4xl md:leading-[3.15rem] font-bold text-lg leading-[1.6rem] text-[#3F3F46] dark:text-white;
@@ -175,4 +175,20 @@ layer(base);
   p {
     @apply font-inter text-foreground/55 md:text-lg text-base subpixel-antialiased leading-[1.4rem]  md:leading-[1.6rem]  text-secondary dark:text-white;
   }
+
+  ul{
+    @apply text-black dark:text-white
+  } 
+  ol{
+    @apply text-black dark:text-white
+  } 
+  li{
+    @apply text-black dark:text-white
+  } 
+  blockquote{
+     @apply text-black dark:text-white
+  }
+ code{
+  @apply text-black dark:text-white
+ } 
 }
