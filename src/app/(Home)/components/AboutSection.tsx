@@ -11,7 +11,7 @@ const AboutSection = () => {
 				<div className="via-background/10 to-background absolute inset-0 bg-gradient-to-b from-transparent" />
 			</div>
 
-			<section className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-8 px-4 md:flex-row md:px-6">
+			<section className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-8 px-5 md:flex-row">
 				<div className="w-full md:w-1/2">
 					<Image
 						src="/assets/about.png"
@@ -37,8 +37,9 @@ const AboutSection = () => {
 						experience, we craft tailored web solutions that drive growth and
 						success in the digital world.
 					</p>
-
-					<CallToActionButton />
+					<div className="w-full">
+						<CallToActionButton />
+					</div>
 				</div>
 			</section>
 		</section>

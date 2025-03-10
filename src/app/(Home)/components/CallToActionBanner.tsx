@@ -70,13 +70,13 @@ const CallToActionBanner = (): React.JSX.Element => {
 						<CardTitle>
 							<h4>Let Have a Chat</h4>
 						</CardTitle>
-						<CardDescription>
+						<CardDescription className="text-center">
 							Get up to 90% of the benefits of your account.
 						</CardDescription>
 					</CardHeader>
 					<CardContent className="flex flex-col items-center gap-5">
 						<CallToActionButton />
-						<div className="flex gap-2 py-4">
+						<div className="flex flex-col gap-2 py-4 lg:flex-row">
 							<div className="flex gap-2">
 								<span className="bg-primary flex h-5 w-5 items-center justify-center rounded-full">
 									<Check size={12} />

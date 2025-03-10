@@ -54,7 +54,7 @@ const ContactSection = (): React.JSX.Element => {
 	return (
 		<section id={"contact"} className="relative h-auto w-full">
 			<Toaster position="bottom-center" reverseOrder={true} />
-			<section className="mx-auto w-full max-w-5xl space-y-10 px-5 py-20 md:px-10 lg:py-24">
+			<section className="mx-auto w-full max-w-5xl space-y-10 px-5 py-20">
 				<Heading
 					heading={"Fill out the form and make things happen"}
 					subHeading={"Contact Us"}
@@ -66,8 +66,8 @@ const ContactSection = (): React.JSX.Element => {
 							className={`absolute inset-0 rounded-3xl bg-gradient-to-b from-[#1a1f35] to-[#0c1322]`}
 						/>
 						<CardHeader>
-							<div className="z-10 flex w-full gap-2 rounded-full bg-slate-700 p-2">
-								<div className="flex w-1/2 gap-2">
+							<div className="z-10 flex w-full flex-col gap-2 rounded-2xl bg-slate-700 p-2 lg:rounded-full">
+								<div className="flex w-full gap-2 lg:w-1/2">
 									<Link
 										href={"mailto:contact@webflexrr.com"}
 										className="bg-primary flex h-12 w-12 items-center justify-center rounded-full"
@@ -80,7 +80,7 @@ const ContactSection = (): React.JSX.Element => {
 									</div>
 								</div>
 								<Separator orientation="vertical" />
-								<div className="flex w-1/2 gap-2">
+								<div className="flex w-full gap-2 lg:w-1/2">
 									<Link
 										href={"telto:9674128921"}
 										className="bg-primary flex h-12 w-12 items-center justify-center rounded-full"

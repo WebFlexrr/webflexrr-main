@@ -55,15 +55,5 @@ export const TERMS_CONDITIONS_QUERY = defineQuery(
 export const REFUND_POLICY_QUERY = defineQuery(`*[_type=="refundPolicy"][0]`);
 
 export const GET_SINGLE_BLOG_QUERY = (slug: string) => {
-	return defineQuery(`*[_type=="blogs" && slug.current == "${slug}"][0]{
-      _id,
-      title,
-      "slug": slug.current,
-      description,
-      "thumbnail": thumbnail.asset->url,
-      category,
-      content,
-      _createdAt,
-      _updatedAt
-    }`);
+	return defineQuery(`*[_type=="blogs" && slug.current == "${slug}"][0]`);
 };

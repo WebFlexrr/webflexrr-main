@@ -19,7 +19,7 @@ const techStack = [
 
 const IconsCarousal = () => {
 	return (
-		<div className="mx-auto flex w-full max-w-7xl flex-col items-center py-20">
+		<div className="mx-auto flex w-full max-w-7xl flex-col items-center md:py-20">
 			<h4 className="mb-8">Technologies We Use</h4>
 
 			<div className="relative w-full">

@@ -12,6 +12,14 @@ import {
 	navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import {
+	Sheet,
+	SheetContent,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from "./ui/sheet";
+import { Menu } from "lucide-react";
 
 const NavBar = () => {
 	// const pathname = usePathname();
@@ -80,94 +88,75 @@ const NavBar = () => {
 		},
 	];
 	return (
-		<>
-			<nav className="fixed top-8 z-20 my-5 w-full">
-				<section className="mx-auto flex w-full max-w-7xl items-center px-5">
-					<section className="flex w-full items-center justify-start">
-						<Link href={"/"} className="flex w-fit items-center gap-3">
-							<Image
-								src={"/logos/white-logo.png"}
-								width={30}
-								height={30}
-								alt={"Webflexrr Labs."}
-							/>
-							<div className="font-space-grotesk text-lg font-bold text-white">
-								Webflexrr Labs.
-							</div>
-						</Link>
-					</section>
-					<section className="flex w-full items-center justify-center">
-						<NavigationMenu>
-							<NavigationMenuList className="flex w-fit gap-4 rounded-full bg-black px-4 py-2 text-white">
-								{/* <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                    {/* <Icons.logo className="h-6 w-6" /> 
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
-                    </p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem> */}
-								{/* <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem> */}
-								{menuItems.map((navLink) => (
-									<NavigationMenuItem key={navLink.content}>
-										<Link href={navLink.link} legacyBehavior passHref>
-											<NavigationMenuLink
-												className={navigationMenuTriggerStyle()}
-											>
-												{navLink.content}
-											</NavigationMenuLink>
-										</Link>
-									</NavigationMenuItem>
-								))}
-							</NavigationMenuList>
-						</NavigationMenu>
-					</section>
-					<section className="flex w-full items-center justify-end">
-						<ContactUsButton />
-					</section>
+		<header className="sticky top-0 z-20 w-full md:top-8 md:my-5">
+			<section className="relative z-10 mx-auto flex h-16 w-full max-w-7xl items-center px-5 backdrop-blur-xl md:rounded-full">
+				{/* <div className="absolute inset-0 bg-gradient-to-b from-[#1a1f35] to-[#0c1322]" /> */}
+				<section className="flex w-full items-center justify-start">
+					<Link href={"/"} className="flex w-fit items-center gap-3">
+						<Image
+							src={"/logos/white-logo.png"}
+							width={30}
+							height={30}
+							alt={"Webflexrr Labs."}
+						/>
+						<div className="font-space-grotesk font-bold text-white md:text-lg">
+							Webflexrr Labs.
+						</div>
+					</Link>
 				</section>
-			</nav>
-		</>
+				<section className="hidden w-full items-center justify-center md:flex">
+					<NavigationMenu>
+						<NavigationMenuList className="flex w-fit gap-4 rounded-full bg-black px-4 py-2 text-white">
+							{menuItems.map((navLink) => (
+								<NavigationMenuItem key={navLink.content}>
+									<Link href={navLink.link} legacyBehavior passHref>
+										<NavigationMenuLink
+											className={navigationMenuTriggerStyle()}
+										>
+											{navLink.content}
+										</NavigationMenuLink>
+									</Link>
+								</NavigationMenuItem>
+							))}
+						</NavigationMenuList>
+					</NavigationMenu>
+				</section>
+				<section className="flex w-full items-center justify-end">
+					<ContactUsButton />
+					<Sheet>
+						<SheetTrigger className="md:hidden">
+							<Menu className="text-white" />
+						</SheetTrigger>
+						<SheetContent side={"top"}>
+							<SheetHeader>
+								<SheetTitle>Menu</SheetTitle>
+								{/* <SheetDescription>
+									This action cannot be undone. This will permanently delete
+									your account and remove your data from our servers.
+								</SheetDescription> */}
+							</SheetHeader>
+							<NavigationMenu>
+								<NavigationMenuList className="flex w-full flex-col gap-4 px-4 py-4 text-white">
+									{menuItems.map((navLink) => (
+										<NavigationMenuItem key={navLink.content}>
+											<Link href={navLink.link} legacyBehavior passHref>
+												<NavigationMenuLink
+													className={
+														(navigationMenuTriggerStyle(), "w-full border")
+													}
+												>
+													{navLink.content}
+												</NavigationMenuLink>
+											</Link>
+										</NavigationMenuItem>
+									))}
+								</NavigationMenuList>
+							</NavigationMenu>
+						</SheetContent>
+					</Sheet>
+				</section>
+			</section>
+		</header>
 	);
 };
 

@@ -8,7 +8,7 @@ import BlurredBg from "@/components/BlurredBg";
 import ProjectsSection from "./components/ProjectsSection";
 import PlanSection from "./components/PlanSection";
 import FaqSection from "./components/FaqSection";
-import ClientFeedBack from "./components/ClientFeedBack";
+// import ClientFeedBack from "./components/ClientFeedBack";
 import Footer from "@/components/Footer";
 import CallToActionBanner from "./components/CallToActionBanner";
 import ContactSection from "./components/ContactSection";
@@ -55,7 +55,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const HomePage = async () => {
 	return (
 		<SmoothScrolling>
-			<main className="relative overflow-x-hidden p-0">
+			<main className="h-fit p-0">
 				<BlurredBg />
 				<AnnouncementBar />
 				<NavBar />
@@ -66,7 +66,7 @@ const HomePage = async () => {
 				<ProjectsSection />
 				<PlanSection />
 				<FaqSection />
-				<ClientFeedBack />
+				{/* <ClientFeedBack /> */}
 				<CallToActionBanner />
 				<ContactSection />
 				<Footer />

@@ -61,7 +61,7 @@ consultation report was eye-opening” `,
 const ClientFeedBack = () => {
 	return (
 		<section id={"faq"} className="relative h-auto w-full">
-			<section className="mx-auto flex w-full max-w-7xl flex-col gap-14 px-5 py-20 md:px-10 lg:py-28">
+			<section className="mx-auto flex w-full max-w-7xl flex-col gap-14 px-5 py-20">
 				<SectionHeading
 					heading={"What our clients Say"}
 					subHeading={"Client Experience"}
