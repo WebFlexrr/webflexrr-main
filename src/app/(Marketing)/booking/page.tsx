@@ -35,7 +35,7 @@ const BookingPage = async (): Promise<React.JSX.Element> => {
 							and digital innovation
 						</p>
 					</section>
-					<section className="mt-12 w-full">
+					<section className="my-12 w-full">
 						<BookingCalender />
 					</section>
 				</section>

@@ -7,25 +7,6 @@ layer(base);
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
-  --font-inter: "Inter", "sans-serif";
-  --font-space-grotesk: "Space Grotesk", "sans-serif";
-  --animate-shine: shine var(--duration) infinite linear;
-
-  @keyframes shine {
-	0% {
-		background-position: "0% 0%",
-		};
-					50% {
-						background-position: "100% 100%",
-					};
-					to:{
-						background-position: "0% 0%",
-					}
-				}
-
-        
-}
 
 
 @theme inline {
@@ -149,6 +130,24 @@ layer(base);
   }
  
 }
+
+@theme {
+  --font-inter: "Inter", "sans-serif";
+  --font-space-grotesk: "Space Grotesk", "sans-serif";
+  --animate-hero-marquee: hero-marquee 20s linear infinite;
+  --animate-banner-marquee : marquee 10s linear infinite;
+  
+
+  @keyframes hero-marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+  @keyframes marquee {
+  0% { transform: translateX(50%); }
+  100% { transform: translateX(-100%); }
+}
+}
+
 
 @layer base {
   body {

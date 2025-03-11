@@ -2,7 +2,6 @@ import AnnouncementBar from "@/components/AnnouncementBar";
 import NavBar from "@/components/Navbar";
 import AboutSection from "./components/AboutSection";
 import HeroSection from "./components/HeroSection";
-import IconsCarousal from "./components/IconsCarousal";
 import Services from "./components/Services";
 import BlurredBg from "@/components/BlurredBg";
 import ProjectsSection from "./components/ProjectsSection";
@@ -61,7 +60,7 @@ const HomePage = async () => {
 				<NavBar />
 				<HeroSection />
 				<AboutSection />
-				<IconsCarousal />
+				{/* <IconsCarousal /> */}
 				<Services />
 				<ProjectsSection />
 				<PlanSection />

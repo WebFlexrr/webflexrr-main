@@ -105,7 +105,8 @@ const PlansCard: FC<PlansCardProps> = ({
 					>
 						<span className="flex items-baseline gap-1 text-3xl font-medium text-white">
 							${price}
-							<span className="text-base text-gray-400">/mo</span>
+							<span className="text-base text-gray-400">Starting </span>
+							{/* <span className="text-base text-gray-400">/mo</span> */}
 						</span>
 					</motion.div>
 
@@ -149,7 +150,7 @@ const PlansCard: FC<PlansCardProps> = ({
 						className="w-full"
 					>
 						<Link
-							href={""}
+							href={"/booking"}
 							className={`flex w-full items-center justify-center gap-2 rounded-xl p-3 text-sm font-medium transition-all hover:gap-3 ${styles.button} text-white`}
 						>
 							Get started

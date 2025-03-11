@@ -10,7 +10,7 @@ interface ProjectCardProps {
 	thumbnail: string;
 	title?: string;
 	description?: string;
-
+	link?: string;
 	index?: number;
 	tags?: string[];
 	slug?: string;
@@ -20,9 +20,9 @@ const ProjectCard: FC<ProjectCardProps> = ({
 	thumbnail = "",
 	title,
 	description,
-
+	link,
 	tags,
-	slug,
+	// slug,
 	index = 0,
 }) => {
 	return (
@@ -95,13 +95,14 @@ const ProjectCard: FC<ProjectCardProps> = ({
 									</span> */}
 									</motion.section>
 								)}
-								{slug && (
+								{link && (
 									<motion.div
 										whileHover={{ scale: 1.02 }}
 										transition={{ duration: 0.2 }}
 									>
 										<Link
-											href={`/works/${slug}`}
+											// href={`/works/${slug}`}
+											href={link}
 											className="from-primary to-secondary flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r p-3 text-sm font-medium text-white transition-all hover:gap-3"
 										>
 											View Project <MdOutlineArrowOutward size={20} />

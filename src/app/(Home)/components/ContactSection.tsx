@@ -66,7 +66,7 @@ const ContactSection = (): React.JSX.Element => {
 							className={`absolute inset-0 rounded-3xl bg-gradient-to-b from-[#1a1f35] to-[#0c1322]`}
 						/>
 						<CardHeader>
-							<div className="z-10 flex w-full flex-col gap-2 rounded-2xl bg-slate-700 p-2 lg:rounded-full">
+							<div className="z-10 flex w-full flex-col gap-2 rounded-2xl bg-slate-700 p-2 lg:flex-row lg:rounded-full">
 								<div className="flex w-full gap-2 lg:w-1/2">
 									<Link
 										href={"mailto:contact@webflexrr.com"}
