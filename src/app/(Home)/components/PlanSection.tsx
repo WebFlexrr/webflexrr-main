@@ -10,8 +10,8 @@ const plans = [
 		type: "Basic",
 		title: "Landing Page",
 		description:
-			"A single, high-impact page designed to capture leads and drive conversions.",
-		price: 29,
+			"Single page website tailored to marketing needs. Perfect for early-stage startups an businesses to showcase their ideas.",
+		price: 200,
 		list: [
 			"Keyword optimization",
 			"Automated meta tags",
@@ -21,10 +21,10 @@ const plans = [
 	},
 	{
 		type: "Recommended",
-		title: "Pro",
+		title: "Template Website",
 		description:
-			"Advanced features and priority support for growing businesses.",
-		price: 79,
+			"Best for early-stage startups and businesses that need fast development. And Validate their Ideas through our pre-made Solutions.",
+		price: 500,
 		list: [
 			"All Basic features",
 			"Content suggestions",
@@ -35,10 +35,10 @@ const plans = [
 	},
 	{
 		type: "Advanced",
-		title: "Enterprise",
+		title: "Custom Enterprise",
 		description:
 			"Custom solutions and dedicated support for large-scale operations.",
-		price: 149,
+		price: 700,
 		list: [
 			"All Pro features",
 			"Custom integrations",

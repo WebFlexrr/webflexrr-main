@@ -23,7 +23,8 @@ const ProjectsSection = async (): Promise<React.JSX.Element> => {
 							title={item.title}
 							description={item.description}
 							tags={item.tags}
-							slug={item.slug?.current}
+							// slug={item.slug?.current}
+							link={item.link}
 						/>
 					))}
 				</section>
