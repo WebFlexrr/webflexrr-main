@@ -1,5 +1,11 @@
 import { CallToActionButton } from "@/components/CallToActionButton";
 import {
+	Avatar,
+	AvatarFallback,
+	AvatarGroup,
+	AvatarImage,
+} from "@/components/ui/avatar";
+import {
 	Card,
 	CardContent,
 	CardDescription,
@@ -7,7 +13,6 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { Check } from "lucide-react";
-import Image from "next/image";
 import React from "react";
 
 // const people = [
@@ -61,12 +66,32 @@ const CallToActionBanner = (): React.JSX.Element => {
 			<section className="w-full px-5 py-20">
 				<Card className="from-primary to-primary/40 z-20 mx-auto flex w-full max-w-5xl flex-col items-center gap-5 rounded-2xl bg-gradient-to-b py-12">
 					<CardHeader className="flex flex-col items-center gap-5">
-						<Image
+						{/* <Image
 							src={"/logos/white-logo.png"}
 							width={60}
 							height={60}
 							alt={"webflexrr Labs"}
-						/>
+						/> */}
+						<div className="z-10 flex items-center gap-2">
+							<AvatarGroup className="flex items-center" max={3}>
+								<Avatar className="h-11 w-11">
+									<AvatarImage src="/assets/avatar1.png" />
+									<AvatarFallback>CN</AvatarFallback>
+								</Avatar>
+								<Avatar className="h-11 w-11">
+									<AvatarImage src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
+									<AvatarFallback>CN</AvatarFallback>
+								</Avatar>
+								<Avatar className="h-11 w-11">
+									<AvatarImage src="/assets/avatar2.png" />
+									<AvatarFallback>CN</AvatarFallback>
+								</Avatar>
+								<Avatar className="h-11 w-11">
+									<AvatarImage src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
+									<AvatarFallback>CN</AvatarFallback>
+								</Avatar>
+							</AvatarGroup>
+						</div>
 						<CardTitle>
 							<h4>Let Have a Chat</h4>
 						</CardTitle>

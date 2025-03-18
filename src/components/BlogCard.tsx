@@ -42,7 +42,7 @@ const BlogCard = ({
 						<div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-black/30 px-3 py-1 backdrop-blur-md">
 							<CalendarDays className="h-4 w-4 text-purple-200" />
 							<time className="text-sm font-medium text-purple-100">
-								{new Date(date).toLocaleDateString("en-US", {
+								{new Date(date).toLocaleDateString("en-IN", {
 									month: "short",
 									day: "numeric",
 								})}

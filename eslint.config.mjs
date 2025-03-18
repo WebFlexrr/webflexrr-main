@@ -20,7 +20,7 @@ export default [
 			'react-hooks': pluginReactHooks,
 		},
 		rules: {
-			'@typescript-eslint/no-explicit-any': 'off',
+		
 			'react/react-in-jsx-scope': 'off',
 			'react/prop-types': 'off',
 			'react-hooks/rules-of-hooks': 'error',
