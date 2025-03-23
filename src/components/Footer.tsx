@@ -10,7 +10,7 @@ import { Separator } from "./ui/separator";
 const Footer = (): React.JSX.Element => {
 	return (
 		<>
-			<section className="w-full overflow-x-hidden bg-white">
+			{/* <section className="w-full overflow-x-hidden bg-white">
 				<div className="font-space-grotesk animate-banner-marquee mx-auto flex w-full gap-20 text-[12rem] font-bold">
 					<div className={"flex gap-2"}>
 						<span>Webflexrr</span>
@@ -25,7 +25,7 @@ const Footer = (): React.JSX.Element => {
 						<span>Labs</span>
 					</div>
 				</div>
-			</section>
+			</section> */}
 			<footer className="text-tertiary mx-auto h-auto w-full max-w-7xl text-white">
 				<Separator />
 				<section className="flex flex-col gap-10 py-20">

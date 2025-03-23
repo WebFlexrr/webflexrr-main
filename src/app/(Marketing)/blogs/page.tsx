@@ -40,7 +40,7 @@ const BlogPage = async (): Promise<React.JSX.Element> => {
 				<AnnouncementBar />
 				<NavBar />
 				{/* <div className="container mx-auto px-4"> */}
-				<section className="relative flex h-auto w-full flex-col items-center justify-center py-20">
+				<section className="relative flex h-auto w-full flex-col items-center justify-center py-20 pb-40">
 					<section className="mx-auto flex h-fit w-full max-w-[90rem] flex-col items-center px-7 text-center md:items-center md:px-14 xl:px-20">
 						{/* Hero Section */}
 

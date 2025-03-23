@@ -1,14 +1,16 @@
 "use client";
-import React from "react";
+import React, { ReactNode } from "react";
 // import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactUsButton } from "./CallToActionButton";
 import {
 	NavigationMenu,
+	NavigationMenuContent,
 	NavigationMenuItem,
 	NavigationMenuLink,
 	NavigationMenuList,
+	NavigationMenuTrigger,
 	navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
 import { cn } from "@/lib/utils";
@@ -20,6 +22,9 @@ import {
 	SheetTrigger,
 } from "./ui/sheet";
 import { Menu } from "lucide-react";
+import { FaSquareWhatsapp } from "react-icons/fa6";
+import { FaFacebookSquare } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io";
 
 const NavBar = () => {
 	// const pathname = usePathname();
@@ -59,8 +64,36 @@ const NavBar = () => {
 	//     href: "/docs/primitives/tooltip",
 	//     description:
 	//       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-	//   },
+	//
+	//  },
 	// ]
+
+	const services: {
+		icon?: ReactNode;
+		title: string;
+		href?: string;
+		description: string;
+	}[] = [
+		{
+			icon: <IoLogoYoutube className="text-3xl text-red-600" />,
+			title: "UI/UX Designing",
+			// href: "https://www.youtube.com/@ddkkhaaaofficial",
+			description: "Subscribe our Official Youtube Channel;",
+		},
+		{
+			icon: <FaSquareWhatsapp className="text-3xl text-green-400" />,
+			title: "Landing Page",
+			// href: "https://whatsapp.com/channel/0029VakxlQLIN9ikzx4JJo3E",
+			description: "Follow our Official Whatsapp Channel",
+		},
+		{
+			icon: <FaFacebookSquare className="text-3xl text-blue-600" />,
+			title: "Website Develeopment ",
+			// href: "https://www.facebook.com/ddkkhaaaofficial",
+			description: "Follow our Official Facebook Page",
+		},
+	];
+
 	const menuItems = [
 		{
 			content: "Home",
@@ -107,7 +140,7 @@ const NavBar = () => {
 				<section className="hidden w-full items-center justify-center md:flex">
 					<NavigationMenu>
 						<NavigationMenuList className="flex w-fit gap-4 rounded-full bg-black px-4 py-2 text-white">
-							{menuItems.map((navLink) => (
+							{/* {menuItems.map((navLink) => (
 								<NavigationMenuItem key={navLink.content}>
 									<Link href={navLink.link} legacyBehavior passHref>
 										<NavigationMenuLink
@@ -117,7 +150,45 @@ const NavBar = () => {
 										</NavigationMenuLink>
 									</Link>
 								</NavigationMenuItem>
-							))}
+							))} */}
+							<NavigationMenuItem>
+								<Link href={"/"} legacyBehavior passHref>
+									<NavigationMenuLink className={navigationMenuTriggerStyle()}>
+										Home
+									</NavigationMenuLink>
+								</Link>
+							</NavigationMenuItem>
+
+							<NavigationMenuItem>
+								<NavigationMenuTrigger>Services</NavigationMenuTrigger>
+								<NavigationMenuContent>
+									<ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[400px]">
+										{services.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{component.description}
+											</ListItem>
+										))}
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<Link href={"/works"} legacyBehavior passHref>
+									<NavigationMenuLink className={navigationMenuTriggerStyle()}>
+										Portfolio
+									</NavigationMenuLink>
+								</Link>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<Link href={"/blogs"} legacyBehavior passHref>
+									<NavigationMenuLink className={navigationMenuTriggerStyle()}>
+										Blogs
+									</NavigationMenuLink>
+								</Link>
+							</NavigationMenuItem>
 						</NavigationMenuList>
 					</NavigationMenu>
 				</section>
@@ -164,24 +235,51 @@ export default NavBar;
 
 const ListItem = React.forwardRef<
 	React.ElementRef<"a">,
-	React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+	{
+		className?: string;
+		icon?: React.ReactNode;
+		title: string;
+		children: React.ReactNode;
+	} & React.ComponentPropsWithoutRef<"a">
+>(({ className, icon, title, children, ...props }, ref) => {
 	return (
 		<li>
 			<NavigationMenuLink asChild>
-				<a
-					ref={ref}
-					className={cn(
-						"hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none",
-						className
-					)}
-					{...props}
-				>
-					<div className="text-sm leading-none font-medium">{title}</div>
-					<p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-						{children}
-					</p>
-				</a>
+				{icon ? (
+					<a
+						ref={ref}
+						className={cn(
+							// 'block select-none flex space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+							"hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex gap-2 space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none",
+							className
+						)}
+						{...props}
+					>
+						<div className="flex w-1/6 items-center justify-center">{icon}</div>
+
+						<div className="w-2/3">
+							<div className="text-base leading-none font-medium">{title}</div>
+							<p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+								{children}
+							</p>
+						</div>
+					</a>
+				) : (
+					<a
+						ref={ref}
+						className={cn(
+							"hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none",
+
+							className
+						)}
+						{...props}
+					>
+						<div className="text-base leading-none font-medium">{title}</div>
+						<p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+							{children}
+						</p>
+					</a>
+				)}
 			</NavigationMenuLink>
 		</li>
 	);
