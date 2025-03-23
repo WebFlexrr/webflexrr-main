@@ -39,9 +39,9 @@ export async function generateMetadata(): Promise<Metadata> {
 			siteName: homePage.seo?.openGraph?.siteName,
 			images: [
 				{
-					url: imageUrlFor(homePage.seo?.openGraph?.image as SanityImageSource)
-						.blur(50)
-						.url(),
+					url: imageUrlFor(
+						homePage.seo?.openGraph?.image as SanityImageSource
+					).url(),
 					width: 1200,
 					height: 630,
 					alt: "WebFlexrr",
