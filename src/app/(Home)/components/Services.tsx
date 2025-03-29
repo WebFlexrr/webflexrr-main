@@ -2,7 +2,6 @@
 import React from "react";
 import Heading from "@/components/SectionHeading";
 import { motion } from "framer-motion";
-
 import { Check, PanelsTopLeft } from "lucide-react";
 // import { TbBrandReactNative } from "react-icons/tb";
 import { IoLogoAndroid } from "react-icons/io";
@@ -13,33 +12,63 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const services = [
 	{
-		title: "Landing Page",
+		title: "Landing Page Websites",
 		description:
 			"We ensure your website ranks higher through advanced SEO strategies, driving organic traffic and improving visibility.",
 		icon: <PanelsTopLeft className="h-8 w-8 text-blue-400" />,
-		list: ["Website Content2", "Website Content1"],
+		list: [
+			"Advanced SEO & content optimization",
+			"Conversion-focused landing pages",
+			"Fast, mobile-friendly design",
+		],
 		gradient: "from-blue-500/10 via-transparent to-transparent",
 	},
 	{
 		title: "App Development",
 		description:
-			"We ensure your website ranks higher through advanced SEO strategies, driving organic traffic and improving visibility.",
-		icon: (
-			<IoLogoAndroid className="h-8 w-8 text-green-400" />
-			// <div className="flex items-center gap-2">
-			//  <FaPlus className="h-4 w-4 text-gray-400" />
-			// <TbBrandReactNative className="h-8 w-8 text-cyan-400" />
-			// </div>
-		),
-		list: ["Website Content2", "Website Content1"],
+			"Build high-performance, scalable, and visually appealing digital products that drive engagement and conversions.",
+		icon: <IoLogoAndroid className="h-8 w-8 text-green-400" />,
+		list: [
+			"Custom web & mobile app development",
+			"Secure, high-performance architecture",
+			"Cross-platform compatibility",
+		],
 		gradient: "from-green-500/10 via-transparent to-transparent",
 	},
 	{
-		title: "SEO",
+		title: "UI/UX Design",
 		description:
-			"We ensure your website ranks higher through advanced SEO strategies, driving organic traffic and improving visibility.",
+			"Craft beautiful, intuitive, and conversion-driven designs that enhance user experience and boost engagement.",
 		icon: <BsTypeH1 className="h-8 w-8 text-purple-400" />,
-		list: ["Website Content2", "Website Content3"],
+		list: [
+			"Wireframing & interactive prototyping",
+			"Web & mobile app UI/UX design",
+			"A/B testing for performance optimization",
+		],
+		gradient: "from-purple-500/10 via-transparent to-transparent",
+	},
+	{
+		title: "AI Automation",
+		description:
+			"Leverage artificial intelligence to automate processes, reduce costs, and enhance efficiency.",
+		icon: <BsTypeH1 className="h-8 w-8 text-purple-400" />,
+		list: [
+			"AI chatbots & virtual assistants",
+			"Workflow & task automation",
+			"Predictive analytics for decision-making",
+		],
+		gradient: "from-purple-500/10 via-transparent to-transparent",
+	},
+	{
+		title: "Cloud & DevOps Services",
+		description:
+			"Deploy, scale, and manage your applications effortlessly with cloud and DevOps solutions.",
+		icon: <BsTypeH1 className="h-8 w-8 text-purple-400" />,
+		list: [
+			"Cloud migration & infrastructure setup (AWS, Azure, GCP)",
+			"CI/CD pipelines for seamless deployments",
+			"Serverless & containerized solutions (Docker, Kubernetes)",
+		],
 		gradient: "from-purple-500/10 via-transparent to-transparent",
 	},
 ];
@@ -106,14 +135,14 @@ const ServicesCard = ({
 	gradient: string;
 }) => {
 	return (
-		<Card className="group relative overflow-hidden rounded-3xl border border-white/[0.05] bg-[#0A0A0B]/70 backdrop-blur-xl">
+		<Card className="group bg-background/40 relative overflow-hidden rounded-3xl border border-white/30 backdrop-blur-xl">
 			{/* Gradient Background */}
 			<div
 				className={`absolute inset-0 bg-gradient-to-br opacity-100 transition-opacity duration-500 group-hover:opacity-80 ${gradient}`}
 			/>
 
 			{/* Content */}
-			<CardHeader className="relative z-10 flex flex-col items-start gap-3 p-6">
+			<CardHeader className="relative z-10 flex flex-col items-start gap-3 border p-6">
 				<motion.div
 					whileHover={{ scale: 1.05 }}
 					transition={{ duration: 0.2 }}
@@ -129,7 +158,7 @@ const ServicesCard = ({
 
 			<Separator className="opacity-10" />
 
-			<CardContent className="relative z-10 flex flex-col gap-3 p-6">
+			<CardContent className="relative z-10 flex flex-col gap-3 border p-6">
 				{list.map((item) => (
 					<motion.div
 						key={item}

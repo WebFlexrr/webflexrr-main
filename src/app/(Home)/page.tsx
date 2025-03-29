@@ -1,4 +1,3 @@
-import AnnouncementBar from "@/components/AnnouncementBar";
 import NavBar from "@/components/Navbar";
 import AboutSection from "./components/AboutSection";
 import HeroSection from "./components/HeroSection";
@@ -56,7 +55,7 @@ const HomePage = async () => {
 		<SmoothScrolling>
 			<main className="h-fit p-0">
 				<BlurredBg />
-				<AnnouncementBar />
+				{/* <AnnouncementBar /> */}
 				<NavBar />
 				<HeroSection />
 				<AboutSection />
