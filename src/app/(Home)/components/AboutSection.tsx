@@ -7,7 +7,7 @@ const AboutSection = () => {
 		<section className="relative w-full bg-[#020817] py-20">
 			{/* Gradient overlays */}
 			<div className="absolute inset-0">
-				<div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 opacity-20 blur-3xl" />
+				<div className="absolute inset-0 bg-gradient-to-r opacity-20 blur-3xl" />
 				<div className="via-background/10 to-background absolute inset-0 bg-gradient-to-b from-transparent" />
 			</div>
 

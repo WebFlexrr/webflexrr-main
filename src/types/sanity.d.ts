@@ -319,6 +319,18 @@ export type Project = {
 		_type: "block";
 		_key: string;
 	}>;
+	techStack?: Array<string>;
+	gallery?: Array<{
+		asset?: {
+			_ref: string;
+			_type: "reference";
+			_weak?: boolean;
+			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+		};
+		hotspot?: SanityImageHotspot;
+		crop?: SanityImageCrop;
+		_type: "image";
+	}>;
 	seo?: SeoMetaFields;
 };
 

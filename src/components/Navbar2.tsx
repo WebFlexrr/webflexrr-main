@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode } from "react";
+import React from "react";
 // import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,11 +22,10 @@ import {
 	SheetTrigger,
 } from "./ui/sheet";
 import { Menu } from "lucide-react";
-import { FaSquareWhatsapp } from "react-icons/fa6";
-import { FaFacebookSquare } from "react-icons/fa";
-import { IoLogoYoutube } from "react-icons/io";
 
-const NavBar = () => {
+import { services } from "@/db/services";
+
+const NavBar2 = () => {
 	// const pathname = usePathname();
 
 	//   const components: { title: string; href: string; description: string }[] = [
@@ -68,31 +67,31 @@ const NavBar = () => {
 	//  },
 	// ]
 
-	const services: {
-		icon?: ReactNode;
-		title: string;
-		href?: string;
-		description: string;
-	}[] = [
-		{
-			icon: <IoLogoYoutube className="text-3xl text-red-600" />,
-			title: "UI/UX Designing",
-			// href: "https://www.youtube.com/@ddkkhaaaofficial",
-			description: "Subscribe our Official Youtube Channel;",
-		},
-		{
-			icon: <FaSquareWhatsapp className="text-3xl text-green-400" />,
-			title: "Landing Page",
-			// href: "https://whatsapp.com/channel/0029VakxlQLIN9ikzx4JJo3E",
-			description: "Follow our Official Whatsapp Channel",
-		},
-		{
-			icon: <FaFacebookSquare className="text-3xl text-blue-600" />,
-			title: "Website Develeopment ",
-			// href: "https://www.facebook.com/ddkkhaaaofficial",
-			description: "Follow our Official Facebook Page",
-		},
-	];
+	// const services: {
+	// 	icon?: ReactNode;
+	// 	title: string;
+	// 	href?: string;
+	// 	description: string;
+	// }[] = [
+	// 	{
+	// 		icon: <IoLogoYoutube className="text-3xl text-red-600" />,
+	// 		title: "UI/UX Designing",
+	// 		href: "https://www.youtube.com/@ddkkhaaaofficial",
+	// 		description: "Subscribe our Official Youtube Channel;",
+	// 	},
+	// 	{
+	// 		icon: <FaSquareWhatsapp className="text-3xl text-green-400" />,
+	// 		title: "Landing Page",
+	// 		// href: "https://whatsapp.com/channel/0029VakxlQLIN9ikzx4JJo3E",
+	// 		description: "Follow our Official Whatsapp Channel",
+	// 	},
+	// 	{
+	// 		icon: <FaFacebookSquare className="text-3xl text-blue-600" />,
+	// 		title: "Website Develeopment ",
+	// 		// href: "https://www.facebook.com/ddkkhaaaofficial",
+	// 		description: "Follow our Official Facebook Page",
+	// 	},
+	// ];
 
 	const menuItems = [
 		{
@@ -121,7 +120,7 @@ const NavBar = () => {
 		},
 	];
 	return (
-		<header className="sticky top-0 z-20 w-full md:top-8 md:my-5">
+		<header className="sticky top-0 z-50 w-full md:top-8 md:my-5">
 			<section className="relative z-10 mx-auto flex h-16 w-full max-w-7xl items-center px-5 backdrop-blur-xl md:rounded-full">
 				{/* <div className="absolute inset-0 bg-gradient-to-b from-[#1a1f35] to-[#0c1322]" /> */}
 				<section className="flex w-full items-center justify-start">
@@ -173,10 +172,10 @@ const NavBar = () => {
 											<ListItem
 												key={component.title}
 												title={component.title}
-												href={component.href}
-											>
-												{component.description}
-											</ListItem>
+												icon={component.icon}
+												href={component.link}
+												gradient={component.gradient}
+											/>
 										))}
 									</ul>
 								</NavigationMenuContent>
@@ -237,7 +236,7 @@ const NavBar = () => {
 	);
 };
 
-export default NavBar;
+export default NavBar2;
 
 const ListItem = React.forwardRef<
 	React.ElementRef<"a">,
@@ -245,49 +244,98 @@ const ListItem = React.forwardRef<
 		className?: string;
 		icon?: React.ReactNode;
 		title: string;
-		children: React.ReactNode;
+		gradient: string;
+		// children: React.ReactNode;
 	} & React.ComponentPropsWithoutRef<"a">
->(({ className, icon, title, children, ...props }, ref) => {
+>(({ className, icon, title, gradient, ...props }, ref) => {
 	return (
 		<li>
 			<NavigationMenuLink asChild>
-				{icon ? (
-					<a
-						ref={ref}
-						className={cn(
-							// 'block select-none flex space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-							"hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex gap-2 space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none",
-							className
-						)}
-						{...props}
-					>
-						<div className="flex w-1/6 items-center justify-center">{icon}</div>
+				{/* <div
+					className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+				/> */}
+				<a
+					ref={ref}
+					className={cn(
+						// 'block select-none flex space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+						"group hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground relative grid grid-cols-4 gap-2 space-y-1 rounded-lg p-3 leading-none no-underline transition-colors outline-none select-none",
+						className
+					)}
+					{...props}
+				>
+					<div
+						className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+					/>
+					<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.05] text-white">
+						{icon}
+					</div>
+					{/* <div className="col-span-1 flex items-center justify-center">
+						{icon}
+					</div> */}
 
-						<div className="w-2/3">
-							<div className="text-base leading-none font-medium">{title}</div>
-							<p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-								{children}
-							</p>
-						</div>
-					</a>
-				) : (
-					<a
-						ref={ref}
-						className={cn(
-							"hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none",
-
-							className
-						)}
-						{...props}
-					>
+					<div className="col-span-3 flex items-center">
 						<div className="text-base leading-none font-medium">{title}</div>
-						<p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-							{children}
-						</p>
-					</a>
-				)}
+						{/* <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+							{/* {children} 
+						</p> */}
+					</div>
+				</a>
 			</NavigationMenuLink>
 		</li>
 	);
 });
 ListItem.displayName = "ListItem";
+// const ListItem = React.forwardRef<
+// 	React.ElementRef<"a">,
+// 	{
+// 		className?: string;
+// 		icon?: React.ReactNode;
+// 		title: string;
+// 		// children: React.ReactNode;
+// 	} & React.ComponentPropsWithoutRef<"a">
+// >(({ className, icon, title, ...props }, ref) => {
+// 	return (
+// 		<li>
+// 			<NavigationMenuLink asChild>
+// 				{icon ? (
+// 					<a
+// 						ref={ref}
+// 						className={cn(
+// 							// 'block select-none flex space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+// 							"hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex gap-2 space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none",
+// 							className
+// 						)}
+// 						{...props}
+// 					>
+// 						<div className="flex w-1/6 items-center justify-center bg-amber-50">
+// 							{icon}
+// 						</div>
+
+// 						<div className="w-2/3">
+// 							<div className="text-base leading-none font-medium">{title}</div>
+// 							<p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+// 								{/* {children} */}
+// 							</p>
+// 						</div>
+// 					</a>
+// 				) : (
+// 					<a
+// 						ref={ref}
+// 						className={cn(
+// 							"hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none",
+
+// 							className
+// 						)}
+// 						{...props}
+// 					>
+// 						<div className="text-base leading-none font-medium">{title}</div>
+// 						<p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+// 							{/* {children} */}
+// 						</p>
+// 					</a>
+// 				)}
+// 			</NavigationMenuLink>
+// 		</li>
+// 	);
+// });
+// ListItem.displayName = "ListItem";

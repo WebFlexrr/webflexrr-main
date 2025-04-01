@@ -11,7 +11,7 @@ export const CallToActionButton = () => {
 			className="cursor-pointer"
 		>
 			<Button className="border-secondary from-primary to-secondary font-space-grotesk gap-5 rounded-2xl border bg-linear-to-r px-5 py-6 text-lg text-white">
-				Book A Friendly call{" "}
+				Book A Free Consultation{" "}
 				<div className="flex items-center justify-center rounded-md border border-white p-2">
 					<CiLocationArrow1 className="fill-white text-lg" />
 				</div>

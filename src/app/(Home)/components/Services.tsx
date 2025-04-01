@@ -65,7 +65,7 @@ const services = [
 			"Deploy, scale, and manage your applications effortlessly with cloud and DevOps solutions.",
 		icon: <BsTypeH1 className="h-8 w-8 text-purple-400" />,
 		list: [
-			"Cloud migration & infrastructure setup (AWS, Azure, GCP)",
+			"Cloud migration & infrastructure setup.",
 			"CI/CD pipelines for seamless deployments",
 			"Serverless & containerized solutions (Docker, Kubernetes)",
 		],
@@ -142,7 +142,7 @@ const ServicesCard = ({
 			/>
 
 			{/* Content */}
-			<CardHeader className="relative z-10 flex flex-col items-start gap-3 border p-6">
+			<CardHeader className="relative z-10 flex flex-col items-start gap-3 p-6">
 				<motion.div
 					whileHover={{ scale: 1.05 }}
 					transition={{ duration: 0.2 }}
@@ -150,15 +150,15 @@ const ServicesCard = ({
 				>
 					{icon}
 				</motion.div>
-				<div className="my-4 flex flex-col items-start gap-2">
-					<h5 className="text-xl font-semibold text-white">{title}</h5>
-					<p className="text-sm text-gray-400">{description}</p>
+				<div className="mt-4 flex flex-col items-start gap-2">
+					<h5 className="text-2xl font-semibold text-white">{title}</h5>
+					<p className="text-gray-400">{description}</p>
 				</div>
 			</CardHeader>
 
 			<Separator className="opacity-10" />
 
-			<CardContent className="relative z-10 flex flex-col gap-3 border p-6">
+			<CardContent className="relative z-10 flex flex-col gap-3 p-6">
 				{list.map((item) => (
 					<motion.div
 						key={item}
