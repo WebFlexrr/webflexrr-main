@@ -1,33 +1,34 @@
 import type { Metadata } from "next";
-import NavBar from "@/components/Navbar";
 import BlurredBg from "@/components/BlurredBg";
-import Footer from "@/components/Footer";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
-
-import { motion } from "framer-motion";
-
-import { BackButton } from "../components/BackButton";
 import { ProjectHero } from "../components/ProjectHero";
 import { ProjectBanner } from "../components/ProjectBanner";
 import { ProjectContent } from "../components/ProjectContent";
-import { ProjectGallery } from "../components/ProjectGallery";
-import { ProjectCTA } from "../components/ProjectCTA";
-import { getSingleProject } from "@/sanity/actions/queryActions";
+import { getProjects, getSingleProject } from "@/sanity/actions/queryActions";
+import CallToActionBanner from "@/components/CallToActionBanner";
+import Footer2 from "@/components/Footer2";
+import { cache } from "react";
+import NavBar2 from "@/components/Navbar2";
 
-// export async function generateStaticParams() {
-// 	const projects = await getProjects();
-// 	return projects.map((project) => ({
-// 		slug: project.slug?.current,
-// 	}));
-// }
+export async function generateStaticParams() {
+	const projects = await getProjects();
+	return projects.map((project) => ({
+		slug: project.slug?.current,
+	}));
+}
+
+//chached data
+const getProjectData = cache(
+	async (slug: string) => await getSingleProject(slug)
+);
 
 export async function generateMetadata({
 	params,
 }: {
 	params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-	const project = await getSingleProject((await params).slug);
+	const project = await getProjectData((await params).slug);
 
 	if (!project) {
 		return {
@@ -61,11 +62,9 @@ export default async function ProjectPage({
 }: {
 	params: Promise<{ slug: string }>;
 }) {
-	const project = await getSingleProject((await params).slug);
+	const project = await getProjectData((await params).slug);
 
-	// if (!project) {
-	// 	notFound();
-	// }
+	// console.log("Project Data--->",project)
 
 	const executionProcess = [
 		{
@@ -120,12 +119,12 @@ export default async function ProjectPage({
 		<SmoothScrolling>
 			<main className="h-fit p-0">
 				<BlurredBg />
-				<NavBar />
-				<BackButton />
+				<NavBar2 />
+				{/* <BackButton /> */}
 
 				{/* Banner Section */}
-				<section className="relative h-[60vh] w-full">
-					{/* {project.thumbnail ? (
+				{/* <section className="relative h-[60vh] w-full"> */}
+				{/* {project.thumbnail ? (
 						<Image
 							src={imageUrlFor(project.thumbnail).url()}
 							alt={project.title || "Project banner"}
@@ -142,37 +141,38 @@ export default async function ProjectPage({
 							priority
 						/>
 					)} */}
-					<div className="absolute inset-0 bg-black/50" />
-					<div className="absolute inset-0 flex items-center justify-center">
+				{/* <div className="absolute inset-0 bg-black/50" /> */}
+				{/* <div className="absolute inset-0 flex items-center justify-center">
 						<div className="text-center">
-							<motion.h1
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.5 }}
+							<h1
+								// initial={{ opacity: 0, y: 20 }}
+								// animate={{ opacity: 1, y: 0 }}
+								// transition={{ duration: 0.5 }}
 								className="text-4xl font-bold text-white md:text-6xl"
 							>
 								{project.title}
-							</motion.h1>
-							<motion.p
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.5, delay: 0.2 }}
+							</h1>
+							<p
+								// initial={{ opacity: 0, y: 20 }}
+								// animate={{ opacity: 1, y: 0 }}
+								// transition={{ duration: 0.5, delay: 0.2 }}
 								className="mt-6 text-lg text-gray-200 md:text-xl"
 							>
 								{project.description}
-							</motion.p>
+							</p>
 						</div>
-					</div>
-				</section>
+					</div> */}
+				{/* </section> */}
 
 				<ProjectHero project={project} />
 				<ProjectBanner project={project} />
 				<ProjectContent project={project} executionProcess={executionProcess} />
-				{project.gallery && project.gallery.length > 0 && (
+				{/* {project.gallery && project.gallery.length > 0 && (
 					<ProjectGallery gallery={project.gallery} />
-				)}
-				<ProjectCTA />
-				<Footer />
+				)} */}
+				{/* <ProjectCTA /> */}
+				<CallToActionBanner />
+				<Footer2 />
 			</main>
 		</SmoothScrolling>
 	);

@@ -1,16 +1,14 @@
-import React from "react";
-
+import React, { cache } from "react";
 import BlurredBg from "@/components/BlurredBg";
-
 import Footer2 from "@/components/Footer2";
 import { services } from "@/db/services";
 import BannerSection from "../components/BannerSection";
-
 import FeaturesSection from "../components/FeaturesSection";
 import BenefitSection from "../components/BenafitSection";
 import ProcessSection from "../components/ProcessSection";
 import CallToActionBanner from "@/components/CallToActionBanner";
 import NavBar2 from "@/components/Navbar2";
+import { Metadata } from "next";
 
 // Service data - in a real app, this would come from a CMS or API
 // const servicesData = {
@@ -121,13 +119,51 @@ import NavBar2 from "@/components/Navbar2";
 // 	},
 // };
 
+//chached data
+const getServiceData = cache(async (slug: string) =>
+	services.find((service) => service.slug === slug)
+);
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+	const service = await getServiceData((await params).slug);
+
+	if (!service) {
+		return {
+			title: "Service Not Found",
+			description: "The requested Service could not be found.",
+		};
+	}
+
+	return {
+		title: service.title || "Project",
+		description: service.description || "Service details",
+		openGraph: {
+			title: service.title || "Service",
+			description: service.description || "Service details",
+			images: service.bannerImage
+				? [
+						{
+							url: service.bannerImage,
+							width: 1200,
+							height: 630,
+							alt: service.title || "Service thumbnail",
+						},
+					]
+				: [],
+		},
+	};
+}
+
 const ServicePage = async ({
 	params,
 }: {
 	params: Promise<{ service: string }>;
 }) => {
-	const serviceSlug = (await params).service;
-	const serviceData = services.find((service) => service.slug === serviceSlug);
+	const serviceData = await getServiceData((await params).service);
 
 	return (
 		// <SmoothScrolling>

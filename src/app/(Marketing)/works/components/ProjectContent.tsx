@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
+import { Project } from "@/types/sanity";
 
 interface ExecutionPhase {
 	phase: string;
@@ -13,27 +14,7 @@ interface ExecutionPhase {
 }
 
 interface ProjectContentProps {
-	project: {
-		content?: Array<{
-			children?: Array<{
-				marks?: Array<string>;
-				text?: string;
-				_type: "span";
-				_key: string;
-			}>;
-			style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-			listItem?: "bullet" | "number";
-			markDefs?: Array<{
-				href?: string;
-				_type: "link";
-				_key: string;
-			}>;
-			level?: number;
-			_type: "block";
-			_key: string;
-		}>;
-		techStack?: string[];
-	};
+	project: Project;
 	executionProcess: ExecutionPhase[];
 }
 

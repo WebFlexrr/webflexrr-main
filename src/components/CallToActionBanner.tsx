@@ -1,4 +1,6 @@
+"use client";
 import { CallToActionButton } from "@/components/CallToActionButton";
+import { motion } from "motion/react";
 import {
 	Avatar,
 	AvatarFallback,
@@ -104,15 +106,36 @@ const CallToActionBanner = (): React.JSX.Element => {
 							</AvatarGroup>
 						</div>
 						<CardTitle>
-							<h4>Ready to Get Started?</h4>
+							<motion.h4
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+							>
+								Ready to Get Started?
+							</motion.h4>
 						</CardTitle>
 						<CardDescription className="text-center">
-							Contact us to discuss your project and see how we can help you
-							succeed.
+							<motion.p
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{ delay: 0.1 }}
+								className="mb-8 text-lg text-gray-400"
+							>
+								Contact us to discuss your project and see how we can help you
+								succeed.
+							</motion.p>
 						</CardDescription>
 					</CardHeader>
 					<CardContent className="z-10 flex flex-col items-center gap-5">
-						<CallToActionButton />
+						<motion.div
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ delay: 0.2 }}
+						>
+							<CallToActionButton />
+						</motion.div>
 						{/* <div className="flex flex-col gap-2 py-4 lg:flex-row">
 							<div className="flex items-center gap-2">
 								<span className="bg-primary flex h-5 w-5 items-center justify-center rounded-full">

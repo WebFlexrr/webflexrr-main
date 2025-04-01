@@ -39,8 +39,12 @@ const HeroSection = () => {
 		<section className="relative flex h-auto w-full flex-col items-center justify-center py-20 md:pt-20">
 			{/* Hero Content */}
 			<section className="mx-auto flex h-fit w-full max-w-[90rem] flex-col items-center px-7 text-center md:items-center md:px-14 xl:px-20">
-				<span className="mb-4 rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-sm text-blue-400">
-					Introducing Webflexrr Labs
+				<span className="mb-4 flex items-center gap-5 rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-sm text-white">
+					<div className="relative h-2 w-2">
+						<span className="absolute h-2.5 w-2.5 animate-ping rounded-full bg-green-500"></span>
+						{/* <span className="h-2 w-2 animate-ping  rounded-full bg-green-500"></span> */}
+					</div>
+					We Taking Projects for April 2025
 				</span>
 
 				<h1 className="mb-4 text-white">

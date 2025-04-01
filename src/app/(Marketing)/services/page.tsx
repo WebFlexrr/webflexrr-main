@@ -18,6 +18,7 @@ import { ArrowRight } from "lucide-react";
 import CallToActionBanner from "@/components/CallToActionBanner";
 import Footer2 from "@/components/Footer2";
 import NavBar2 from "@/components/Navbar2";
+import HeroSection from "../works/components/HeroSection";
 
 // const whyChooseUs = [
 // 	{
@@ -46,7 +47,7 @@ const ServicesPage = () => {
 				<NavBar2 />
 
 				{/* Hero Section */}
-				<section className="relative px-4 pt-32 md:px-8">
+				{/* <section className="relative px-4 pt-32 md:px-8">
 					<div className="mx-auto max-w-7xl text-center">
 						<motion.h1
 							initial={{ opacity: 0, y: 20 }}
@@ -66,8 +67,13 @@ const ServicesPage = () => {
 							business needs
 						</motion.p>
 					</div>
-				</section>
-
+				</section> */}
+				<HeroSection
+					title={"Transform Your Ideas Into Reality"}
+					description={
+						"We deliver cutting-edge software solutions tailored to your business needs"
+					}
+				/>
 				{/* Services Grid */}
 				<section className="relative px-4 py-20 pb-40 md:px-8">
 					<div className="mx-auto max-w-7xl">

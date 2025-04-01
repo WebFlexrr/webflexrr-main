@@ -3,7 +3,7 @@ import React from "react";
 // import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ContactUsButton } from "./CallToActionButton";
+import { CallToActionButton, ContactUsButton } from "./CallToActionButton";
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -24,6 +24,13 @@ import {
 import { Menu } from "lucide-react";
 
 import { services } from "@/db/services";
+import { Separator } from "./ui/separator";
+// import {
+// 	Accordion,
+// 	AccordionContent,
+// 	AccordionItem,
+// 	AccordionTrigger,
+// } from "./ui/accordion";
 
 const NavBar2 = () => {
 	// const pathname = usePathname();
@@ -93,32 +100,21 @@ const NavBar2 = () => {
 	// 	},
 	// ];
 
-	const menuItems = [
-		{
-			content: "Home",
-			link: "/",
-		},
-		{
-			content: "works",
-			link: "/works",
-		},
-		// {
-		// 	content: "Pricing",
-		// 	link: "/pricing",
-		// },
-		// {
-		// 	content: "about",
-		// 	link: "/about",
-		// },
-		// {
-		// 	content: "Careers",
-		// 	link: "/careers",
-		// },
-		{
-			content: "Blogs",
-			link: "/blogs",
-		},
-	];
+	// const menuItems = [
+	// {
+	// content: "Home",
+	// link: "/",
+	// },
+	// {
+	// content: "works",
+	// link: "/works",
+	// },
+	// {
+	// content: "Blogs",
+	// link: "/blogs",
+	// },
+	// ];
+
 	return (
 		<header className="sticky top-0 z-50 w-full md:top-8 md:my-5">
 			<section className="relative z-10 mx-auto flex h-16 w-full max-w-7xl items-center px-5 backdrop-blur-xl md:rounded-full">
@@ -139,17 +135,6 @@ const NavBar2 = () => {
 				<section className="hidden w-full items-center justify-center md:flex">
 					<NavigationMenu>
 						<NavigationMenuList className="flex w-fit gap-4 rounded-full bg-black px-4 py-2 text-white">
-							{/* {menuItems.map((navLink) => (
-								<NavigationMenuItem key={navLink.content}>
-									<Link href={navLink.link} legacyBehavior passHref>
-										<NavigationMenuLink
-											className={navigationMenuTriggerStyle()}
-										>
-											{navLink.content}
-										</NavigationMenuLink>
-									</Link>
-								</NavigationMenuItem>
-							))} */}
 							<NavigationMenuItem>
 								<Link href={"/"} legacyBehavior passHref>
 									<NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -203,31 +188,67 @@ const NavBar2 = () => {
 						<SheetTrigger className="md:hidden">
 							<Menu className="text-white" />
 						</SheetTrigger>
-						<SheetContent side={"top"}>
+						<SheetContent side={"top"} className="h-screen dark:text-white">
 							<SheetHeader>
 								<SheetTitle>Menu</SheetTitle>
-								{/* <SheetDescription>
-									This action cannot be undone. This will permanently delete
-									your account and remove your data from our servers.
-								</SheetDescription> */}
 							</SheetHeader>
-							<NavigationMenu>
-								<NavigationMenuList className="flex w-full flex-col gap-4 px-4 py-4 text-white">
-									{menuItems.map((navLink) => (
-										<NavigationMenuItem key={navLink.content}>
-											<Link href={navLink.link} legacyBehavior passHref>
-												<NavigationMenuLink
-													className={
-														(navigationMenuTriggerStyle(), "w-full border")
-													}
+							<Separator />
+							<div className="flex w-full flex-1 flex-col items-start px-5 font-semibold dark:text-white">
+								<Link href={"/"} className="w-full border-b border-white p-4">
+									Home
+								</Link>
+								<Link
+									href={"/services"}
+									className="w-full border-b border-white p-4"
+								>
+									Services
+								</Link>
+
+								<Link
+									href={"/portfolio"}
+									className="w-full border-b border-white p-4"
+								>
+									portfolio
+								</Link>
+								<Link
+									href={"/blogs"}
+									className="w-full border-b border-white p-4"
+								>
+									Blogs
+								</Link>
+								<Link
+									href={"/contact"}
+									className="w-full border-b border-white p-4"
+								>
+									Contact
+								</Link>
+
+								<section className="flex w-full flex-col items-center pt-10">
+									<CallToActionButton />
+								</section>
+
+								{/* <Accordion type="single" collapsible className="w-full">
+									<AccordionItem value="item-1">
+										<AccordionTrigger className="w-full py-2 text-base font-semibold">
+											Community
+										</AccordionTrigger>
+										<AccordionContent className="flex flex-col tracking-wide text-blue-600">
+											{socialPlatform.map((social) => (
+												<Link
+													key={social.title}
+													href={social.href}
+													target="_blank"
+													className="flex w-full items-center gap-2 py-2 pl-3"
 												>
-													{navLink.content}
-												</NavigationMenuLink>
-											</Link>
-										</NavigationMenuItem>
-									))}
-								</NavigationMenuList>
-							</NavigationMenu>
+													{social.icon}
+													{social.title}
+													<ArrowUpRight size={20} />
+												</Link>
+											))}
+										</AccordionContent>
+									</AccordionItem>
+								</Accordion> */}
+							</div>
 						</SheetContent>
 					</Sheet>
 				</section>

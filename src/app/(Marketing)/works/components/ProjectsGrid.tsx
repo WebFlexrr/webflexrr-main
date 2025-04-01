@@ -1,7 +1,7 @@
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import ProjectCard from "@/components/ProjectCard";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
 import { Project } from "@/types/sanity";
+import ProjectCard from "./ProjectCard";
 
 // interface Project {
 // 	title: string;
@@ -17,9 +17,9 @@ interface ProjectsGridProps {
 
 export function ProjectsGrid({ projects }: ProjectsGridProps) {
 	return (
-		<section className="relative px-4 py-12 md:px-8">
+		<section className="relative px-4 py-20 md:px-8">
 			<div className="mx-auto max-w-7xl">
-				<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+				<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
 					{projects.map((project) => (
 						// <motion.div
 						// 	key={project.title}
