@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { Project } from "@/types/sanity";
+import { FaAws, FaFlutter, FaNodeJs, FaReact } from "react-icons/fa6";
+import { SiFirebase, SiMongodb } from "react-icons/si";
 
 interface ExecutionPhase {
 	phase: string;
@@ -17,6 +19,33 @@ interface ProjectContentProps {
 	project: Project;
 	executionProcess: ExecutionPhase[];
 }
+
+const tech = [
+	{
+		name: "Flutter",
+		icon: <FaFlutter className="text-4xl" />,
+	},
+	{
+		name: "Node.js",
+		icon: <FaNodeJs className="text-4xl" />,
+	},
+	{
+		name: "Firebase",
+		icon: <SiFirebase className="text-4xl" />,
+	},
+	{
+		name: "MongoDB",
+		icon: <SiMongodb className="text-4xl" />,
+	},
+	{
+		name: "AWS",
+		icon: <FaAws className="text-4xl" />,
+	},
+	{
+		name: "React.Js",
+		icon: <FaReact className="text-4xl" />,
+	},
+];
 
 export const ProjectContent = ({
 	project,
@@ -58,12 +87,13 @@ export const ProjectContent = ({
 									Tech Stack
 								</h3>
 								<div className="flex flex-wrap gap-3">
-									{project.techStack?.map((tech: string) => (
+									{tech.map((tech) => (
 										<span
-											key={tech}
+											key={tech.name}
 											className="rounded-full bg-white/[0.05] px-4 py-1 text-sm text-gray-400"
 										>
-											{tech}
+											<div>{tech.icon}</div>
+											<div className="text-slate-200">{tech.name}</div>
 										</span>
 									))}
 								</div>

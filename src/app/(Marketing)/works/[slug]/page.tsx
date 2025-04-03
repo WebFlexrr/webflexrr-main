@@ -10,6 +10,8 @@ import CallToActionBanner from "@/components/CallToActionBanner";
 import Footer2 from "@/components/Footer2";
 import { cache } from "react";
 import NavBar2 from "@/components/Navbar2";
+import ProjectTechStack from "../components/ProjectTechStack";
+import ProjectAbout from "../components/ProjectAbout";
 
 export async function generateStaticParams() {
 	const projects = await getProjects();
@@ -141,7 +143,7 @@ export default async function ProjectPage({
 							priority
 						/>
 					)} */}
-				{/* <div className="absolute inset-0 bg-black/50" /> */}
+
 				{/* <div className="absolute inset-0 flex items-center justify-center">
 						<div className="text-center">
 							<h1
@@ -166,6 +168,9 @@ export default async function ProjectPage({
 
 				<ProjectHero project={project} />
 				<ProjectBanner project={project} />
+				<ProjectAbout project={project} />
+				<ProjectTechStack project={project} />
+
 				<ProjectContent project={project} executionProcess={executionProcess} />
 				{/* {project.gallery && project.gallery.length > 0 && (
 					<ProjectGallery gallery={project.gallery} />

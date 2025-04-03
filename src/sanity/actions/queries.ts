@@ -25,6 +25,7 @@ export const PROJECTS_QUERY = defineQuery(`*[_type=="project"]{
   slug,
   thumbnail,
   tags,
+  
   content,
   techStack,
   gallery
@@ -42,7 +43,13 @@ export const SINGLE_PROJECT_QUERY = (slug: string) =>
   slug,
   thumbnail,
   tags,
+  link,
   content,
+  budget,
+  clientName,
+  category,
+  budget,
+  timeline,
   techStack,
   gallery
 }`);

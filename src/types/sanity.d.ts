@@ -301,6 +301,10 @@ export type Project = {
 	description?: string;
 	link?: string;
 	tags?: Array<string>;
+	clientName?: string;
+	category?: string;
+	timeline?: string;
+	budget?: string;
 	content?: Array<{
 		children?: Array<{
 			marks?: Array<string>;
@@ -318,18 +322,6 @@ export type Project = {
 		level?: number;
 		_type: "block";
 		_key: string;
-	}>;
-	techStack?: Array<string>;
-	gallery?: Array<{
-		asset?: {
-			_ref: string;
-			_type: "reference";
-			_weak?: boolean;
-			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-		};
-		hotspot?: SanityImageHotspot;
-		crop?: SanityImageCrop;
-		_type: "image";
 	}>;
 	seo?: SeoMetaFields;
 };

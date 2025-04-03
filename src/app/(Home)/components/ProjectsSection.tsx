@@ -1,4 +1,4 @@
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCard from "@/app/(Marketing)/works/components/ProjectCard";
 import Heading from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { getProjects } from "@/sanity/actions/queryActions";
@@ -15,7 +15,7 @@ const ProjectsSection = async (): Promise<React.JSX.Element> => {
 		<section className="h-auto w-full py-20">
 			<section className="mx-auto w-full max-w-7xl px-5">
 				<Heading heading={"Our Works"} subHeading={"Our works"} />
-				<section className="mt-12 grid w-full grid-cols-1 gap-6">
+				<section className="mt-12 grid w-full grid-cols-1 gap-6 md:grid-cols-2">
 					{projects.map((item) => (
 						<ProjectCard
 							key={item.title}
@@ -23,7 +23,7 @@ const ProjectsSection = async (): Promise<React.JSX.Element> => {
 							title={item.title}
 							description={item.description}
 							tags={item.tags}
-							// slug={item.slug?.current}
+							slug={item.slug?.current}
 							link={item.link}
 						/>
 					))}
