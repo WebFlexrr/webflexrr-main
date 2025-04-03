@@ -106,6 +106,17 @@ const HeroSection = () => {
 								className="aspect-[4/3] w-[400] rounded-lg"
 							/>
 						))}
+
+						{portfolioImages.map((image) => (
+							<Image
+								key={image.id}
+								src={image.src}
+								alt={image.alt}
+								width={1000}
+								height={0}
+								className="aspect-[4/3] w-[400] rounded-lg"
+							/>
+						))}
 						{portfolioImages.map((image) => (
 							<Image
 								key={image.id}

@@ -2,7 +2,7 @@ import React, { cache } from "react";
 import Footer from "@/components/Footer";
 import { Metadata } from "next";
 import BlurredBg from "@/components/BlurredBg";
-import AnnouncementBar from "@/components/AnnouncementBar";
+
 import NavBar from "@/components/Navbar";
 import Image from "next/image";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
@@ -58,10 +58,10 @@ const Blog = async ({
 	return (
 		<main>
 			<BlurredBg />
-			<AnnouncementBar />
+			{/* <AnnouncementBar /> */}
 			<NavBar />
-			<section className="relative mx-auto mb-20 flex h-auto h-fit w-full max-w-[90rem] flex-col items-center justify-center gap-20 px-10 pt-20 md:items-center md:px-14 md:pt-20 lg:pt-40 xl:px-20">
-				<div className="flex w-auto w-full flex-col gap-5 text-center">
+			<section className="relative mx-auto mb-20 flex h-auto w-full max-w-[90rem] flex-col items-center justify-center gap-20 px-10 pt-20 md:items-center md:px-14 md:pt-20 lg:pt-40 xl:px-20">
+				<div className="flex w-full flex-col gap-5 text-center">
 					<h1 className="font-space-grotesk mx-auto w-full max-w-3xl text-center text-3xl font-bold md:text-6xl md:leading-[82px] lg:max-w-4xl dark:text-white">
 						{blogData?.title}
 					</h1>

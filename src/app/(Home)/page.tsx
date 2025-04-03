@@ -18,6 +18,8 @@ import IconsCarousal from "./components/IconsCarousal";
 import NavBar2 from "@/components/Navbar2";
 
 import Footer2 from "@/components/Footer2";
+import BlogSection from "./components/BlogSection";
+import { getBlogs } from "@/sanity/actions/queryActions";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const homePage = await getHomePageMetadata();
@@ -54,6 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const HomePage = async () => {
+	const blogs = await getBlogs();
 	return (
 		<SmoothScrolling>
 			<main className="h-fit p-0">
@@ -68,8 +71,9 @@ const HomePage = async () => {
 				<PlanSection />
 				<FaqSection />
 				{/* <ClientFeedBack /> */}
-				<CallToActionBanner />
 				{/* <GridSmallBackgroundDemo/> */}
+				<BlogSection blogs={blogs} />
+				<CallToActionBanner />
 				<ContactSection />
 				<Footer2 />
 			</main>

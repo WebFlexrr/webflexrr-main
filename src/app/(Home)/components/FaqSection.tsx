@@ -11,16 +11,14 @@ const FaqSection = () => {
 	const FAQ = [
 		{
 			key: 1,
-			title: "How long does it take to complete a 1-page and 5-page website?",
-			answer: `It typically takes about 1 week for a 1-page website and 2-3 weeks for a 5-page website. Rest assured, we prioritize efficiency without compromising quality to deliver your website in a timely manner.`,
+			title: "How long does it take to complete a project?",
+			answer: `It's completely based on that specific Project requirements. Rest assured, we prioritize efficiency without compromising quality to deliver your website in a timely manner.`,
 		},
-
 		{
 			key: 2,
 			title: "Do you offer ongoing support and maintenance services?",
-			answer: `Yes, we offer support to keep your website up-to-date. Our team is available for updates, troubleshooting, and enhancements as needed.`,
+			answer: `Yes, we offer support to keep your website up-to-date. Our team is available for updates, security checks, troubleshooting, and enhancements as needed.And `,
 		},
-
 		{
 			key: 3,
 			title: "What happens if I'm not satisfied with the final result?",
@@ -38,11 +36,16 @@ const FaqSection = () => {
 			title: "How long does it take to receive designs or prototypes?",
 			answer: `Timelines vary based on the project scope. I provide regular updates and prototypes, giving you a clear view of progress and allowing for timely feedback.`,
 		},
-
 		{
 			key: 6,
+			title: "You can make apps using No-code?",
+			answer: `We use both coded and no-coded platform for developement. But we prefer coded website or mobile apps for developement. If you want then we can.  `,
+		},
+
+		{
+			key: 7,
 			title: "What's your Tech Stack?",
-			answer: `I primarily use React and Next.js for front-end development, with Node.js for back-end work and MongoDB, Supabase and Firebase for databases. For styling, I prefer Sass and sometimes leverage CSS frameworks as needed. I handle animations with GSAP and Lottie, and manage user authentication and data storage with Firebase or Supabase. I also integrate Stripe for payment processing and use GitHub for version control. This stack allows me to build responsive, scalable, and maintainable applications tailored to your project's requirements.`,
+			answer: `We primarily use React and Next.js for front-end development, with Node.js for back-end work and MongoDB, PostgresSQL and Firebase for databases. For styling, I prefer tailwindcss and sometimes leverage CSS frameworks as needed. I handle animations with Framer motion, and manage user authentication and data storage with Firebase or Supabase.For Payment processing, I will prefer client's choice but my preference is Stripe and use GitHub for version control. This stack allows me to build responsive, scalable, and maintainable applications tailored to your project's requirements.`,
 		},
 	];
 	return (
