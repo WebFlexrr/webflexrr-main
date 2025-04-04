@@ -301,6 +301,10 @@ export type Project = {
 	description?: string;
 	link?: string;
 	tags?: Array<string>;
+	clientName?: string;
+	category?: string;
+	timeline?: string;
+	budget?: string;
 	content?: Array<{
 		children?: Array<{
 			marks?: Array<string>;

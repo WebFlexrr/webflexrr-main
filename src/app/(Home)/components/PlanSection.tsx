@@ -51,7 +51,8 @@ const plans = [
 
 const PlanSection = (): React.JSX.Element => {
 	return (
-		<section className="relative h-auto w-full overflow-hidden bg-[#0A0A0B] py-20">
+		// <section className="relative h-auto w-full overflow-hidden bg-[#0A0A0B] py-20">
+		<section className="relative h-auto w-full overflow-hidden py-20">
 			{/* Background Effects */}
 			{/* <div className="pointer-events-none absolute inset-0">
 				{/* Left glow *

@@ -14,9 +14,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
 	title: {
-		default:
-			"WebFlexrr Labs | Crafting High-Performance Websites for Maximize your Business 10X ",
-		template: "%s | WebFlexrr Digital Services",
+		default: "WebFlexrr Labs ",
+		template: "%s | WebFlexrr Labs",
 	},
 	description:
 		"WebFlexrr Labs: Elevate your online presence with WebFlexrr's Web Development . Specializing in E-commerce Solutions, Responsive Design, SEO, and more for impactful, custom web solutions. Learn more....",
@@ -34,10 +33,9 @@ export const metadata: Metadata = {
 	referrer: "origin-when-cross-origin",
 	keywords: [
 		"WebFlexrr Web Development",
-		"WebFlexrr Digital Services",
+		"WebFlexrr Labs",
 		"WebFlexrr SEO Solutions",
 		"E-commerce Solutions by WebFlexrr",
-		"Graphic Design by WebFlexrr",
 		"WebFlexrr SEO Experts",
 		"Responsive WebFlexrr Design",
 		"Web Development",
@@ -47,7 +45,6 @@ export const metadata: Metadata = {
 		"Online Presence",
 		"E-commerce Solutions",
 		"Responsive Design",
-		"Content Marketing",
 		"Branding Services",
 		"Mobile App Development",
 		"Search Engine Optimization",
@@ -56,7 +53,7 @@ export const metadata: Metadata = {
 		"Conversion Optimization",
 		"Custom Web Solutions",
 	],
-	authors: { name: "WebFlexrr" },
+	authors: { name: "WebFlexrr Labs" },
 	creator: "Tech Team of WebFlexrr",
 	publisher: "WebFlexrr Labs",
 	openGraph: {

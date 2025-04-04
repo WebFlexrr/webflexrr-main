@@ -160,7 +160,13 @@ const NavBar = () => {
 							</NavigationMenuItem>
 
 							<NavigationMenuItem>
-								<NavigationMenuTrigger>Services</NavigationMenuTrigger>
+								<Link href={"/services"} legacyBehavior passHref>
+									<NavigationMenuTrigger
+										className={navigationMenuTriggerStyle()}
+									>
+										Services
+									</NavigationMenuTrigger>
+								</Link>
 								<NavigationMenuContent>
 									<ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[400px]">
 										{services.map((component) => (

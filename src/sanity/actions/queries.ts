@@ -14,10 +14,45 @@ export const BLOGS_PAGE_METADATA_QUERY =
 }`);
 
 //project Query
-export const PROJECTS_QUERY = defineQuery(`*[_type=="project"]`);
+export const PROJECTS_QUERY = defineQuery(`*[_type=="project"]{
+  _id,
+  _type,
+  _createdAt,
+  _updatedAt,
+  _rev,
+  title,
+  description,
+  slug,
+  thumbnail,
+  tags,
+  
+  content,
+  techStack,
+  gallery
+}`);
 
 export const SINGLE_PROJECT_QUERY = (slug: string) =>
-	defineQuery(`*[_type=="project" && slug.current == "${slug}"][0]`);
+	defineQuery(`*[_type=="project" && slug.current == "${slug}"][0]{
+  _id,
+  _type,
+  _createdAt,
+  _updatedAt,
+  _rev,
+  title,
+  description,
+  slug,
+  thumbnail,
+  tags,
+  link,
+  content,
+  budget,
+  clientName,
+  category,
+  budget,
+  timeline,
+  techStack,
+  gallery
+}`);
 
 export const BLOG_QUERY = defineQuery(`*[_type=="blogs"]`);
 

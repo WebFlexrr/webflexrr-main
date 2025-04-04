@@ -16,8 +16,9 @@ const SectionHeading: FC<HeadingProps> = ({ heading, subHeading, para }) => {
 						</span>
 						{heading}
 					</span> */}
-					<span className="from-primary to-secondary flex gap-3 rounded-full bg-gradient-to-r p-0.5">
-						<div className="bg-background rounded-full px-7 py-3 text-base">
+					{/* <span className="from-primary to-secondary flex gap-3 rounded-full bg-gradient-to-r p-0.5"> */}
+					<span className="flex gap-3 rounded-full p-0.5">
+						<div className="bg-background border-primary rounded-full border px-7 py-3 text-base">
 							{subHeading}
 						</div>
 					</span>

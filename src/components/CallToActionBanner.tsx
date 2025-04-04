@@ -1,4 +1,6 @@
+"use client";
 import { CallToActionButton } from "@/components/CallToActionButton";
+import { motion } from "motion/react";
 import {
 	Avatar,
 	AvatarFallback,
@@ -12,7 +14,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { cn } from "@/lib/utils";
 import React from "react";
 
 // const people = [
@@ -64,8 +66,19 @@ const CallToActionBanner = (): React.JSX.Element => {
 	return (
 		<section className="h-auto w-full">
 			<section className="w-full px-5 py-20">
-				<Card className="from-primary to-primary/40 z-20 mx-auto flex w-full max-w-5xl flex-col items-center gap-5 rounded-2xl bg-gradient-to-b py-12">
-					<CardHeader className="flex flex-col items-center gap-5">
+				<Card className="from-primary to-primary/40 relative z-20 mx-auto flex w-full max-w-7xl flex-col items-center gap-5 rounded-2xl bg-gradient-to-b py-12">
+					<div
+						className={cn(
+							"absolute inset-0",
+							"[background-size:20px_20px]",
+							// "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+							// "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+							"dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]"
+						)}
+					/>
+					{/* Radial gradient for the container to give a faded look */}
+					{/* <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div> */}
+					<CardHeader className="z-10 flex flex-col items-center gap-5">
 						{/* <Image
 							src={"/logos/white-logo.png"}
 							width={60}
@@ -93,34 +106,56 @@ const CallToActionBanner = (): React.JSX.Element => {
 							</AvatarGroup>
 						</div>
 						<CardTitle>
-							<h4>Let Have a Chat</h4>
+							<motion.h4
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+							>
+								Ready to Get Started?
+							</motion.h4>
 						</CardTitle>
 						<CardDescription className="text-center">
-							Get up to 90% of the benefits of your account.
+							<motion.p
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{ delay: 0.1 }}
+								className="mb-8 text-lg text-gray-400"
+							>
+								Contact us to discuss your project and see how we can help you
+								succeed.
+							</motion.p>
 						</CardDescription>
 					</CardHeader>
-					<CardContent className="flex flex-col items-center gap-5">
-						<CallToActionButton />
-						<div className="flex flex-col gap-2 py-4 lg:flex-row">
-							<div className="flex gap-2">
+					<CardContent className="z-10 flex flex-col items-center gap-5">
+						<motion.div
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ delay: 0.2 }}
+						>
+							<CallToActionButton />
+						</motion.div>
+						{/* <div className="flex flex-col gap-2 py-4 lg:flex-row">
+							<div className="flex items-center gap-2">
 								<span className="bg-primary flex h-5 w-5 items-center justify-center rounded-full">
 									<Check size={12} />
 								</span>
-								<p>5 years of expertise</p>
+								<p>2 years of expertise</p>
 							</div>
-							<div className="flex gap-2">
+							<div className="flex items-center gap-2">
 								<span className="bg-primary flex h-5 w-5 items-center justify-center rounded-full">
 									<Check size={12} />
 								</span>
 								<p>Team of experts</p>
 							</div>
-							<div className="flex gap-2">
+							{/* <div className="flex gap-2">
 								<span className="bg-primary flex h-5 w-5 items-center justify-center rounded-full">
 									<Check size={12} />
 								</span>
 								<p>5 Free website audit</p>
-							</div>
-						</div>
+							</div> 
+						</div> */}
 					</CardContent>
 				</Card>
 			</section>

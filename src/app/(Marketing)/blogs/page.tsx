@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import NavBar from "@/components/Navbar";
 import BlogCard from "@/components/BlogCard";
 import BlurredBg from "@/components/BlurredBg";
-import AnnouncementBar from "@/components/AnnouncementBar";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
 import { getBlogPageMetadata } from "@/sanity/actions/metadataQueryActions";
@@ -37,9 +36,9 @@ const BlogPage = async (): Promise<React.JSX.Element> => {
 		<SmoothScrolling>
 			<main className="relative p-0">
 				<BlurredBg />
-				<AnnouncementBar />
+				{/* <AnnouncementBar /> */}
 				<NavBar />
-				{/* <div className="container mx-auto px-4"> */}
+
 				<section className="relative flex h-auto w-full flex-col items-center justify-center py-20 pb-40">
 					<section className="mx-auto flex h-fit w-full max-w-[90rem] flex-col items-center px-7 text-center md:items-center md:px-14 xl:px-20">
 						{/* Hero Section */}
@@ -51,44 +50,6 @@ const BlogPage = async (): Promise<React.JSX.Element> => {
 								and digital innovation
 							</p>
 						</section>
-
-						{/* Featured Blog Section */}
-						{/* <section className="mb-24">
-						<Link href={`/blogs/${featuredBlog.slug}`}>
-						<Card className="group w-full max-w-lg overflow-hidden border-purple-200/20 bg-white/10 backdrop-blur-xl transition-all hover:shadow-2xl hover:shadow-purple-500/20">
-						<CardContent className="p-0">
-						<div className="grid gap-8 md:grid-cols-2">
-						<div className="relative h-[400px] w-full overflow-hidden">
-						<Image
-						className="object-cover transition-transform duration-500 group-hover:scale-105"
-						fill
-						alt={featuredBlog.title}
-						src={featuredBlog.thumbnail}
-						priority
-						/>
-						<div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent"></div>
-						</div>
-						<div className="flex flex-col justify-center p-8">
-						<span className="mb-4 inline-block rounded-full bg-purple-500/20 px-4 py-1 text-sm font-medium text-purple-200 backdrop-blur-sm">
-						Featured
-						</span>
-						<h2 className="mb-4 text-3xl font-bold text-white">
-						{featuredBlog.title}
-						</h2>
-						<p className="mb-6 text-purple-100/80">
-						{featuredBlog.description}
-						</p>
-						<Button className="w-fit bg-purple-500 text-white transition-colors hover:bg-purple-600">
-						Read Article
-						</Button>
-						</div>
-						</div>
-						</CardContent>
-						</Card>
-						</Link>
-						</section> */}
-
-						{/* Latest Blogs Grid */}
 
 						<section className="relative mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 							{blogs.map((blog) => (

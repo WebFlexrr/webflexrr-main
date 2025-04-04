@@ -1,5 +1,3 @@
-import AnnouncementBar from "@/components/AnnouncementBar";
-import NavBar from "@/components/Navbar";
 import AboutSection from "./components/AboutSection";
 import HeroSection from "./components/HeroSection";
 import Services from "./components/Services";
@@ -8,14 +6,20 @@ import ProjectsSection from "./components/ProjectsSection";
 import PlanSection from "./components/PlanSection";
 import FaqSection from "./components/FaqSection";
 // import ClientFeedBack from "./components/ClientFeedBack";
-import Footer from "@/components/Footer";
-import CallToActionBanner from "./components/CallToActionBanner";
+// import Footer from "@/components/Footer";
+import CallToActionBanner from "../../components/CallToActionBanner";
 import ContactSection from "./components/ContactSection";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { Metadata } from "next";
 import { getHomePageMetadata } from "@/sanity/actions/metadataQueryActions";
+import IconsCarousal from "./components/IconsCarousal";
+import NavBar2 from "@/components/Navbar2";
+
+import Footer2 from "@/components/Footer2";
+import BlogSection from "./components/BlogSection";
+import { getBlogs } from "@/sanity/actions/queryActions";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const homePage = await getHomePageMetadata();
@@ -52,23 +56,26 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const HomePage = async () => {
+	const blogs = await getBlogs();
 	return (
 		<SmoothScrolling>
 			<main className="h-fit p-0">
 				<BlurredBg />
-				<AnnouncementBar />
-				<NavBar />
+				{/* <AnnouncementBar /> */}
+				<NavBar2 />
 				<HeroSection />
 				<AboutSection />
-				{/* <IconsCarousal /> */}
+				<IconsCarousal />
 				<Services />
 				<ProjectsSection />
 				<PlanSection />
 				<FaqSection />
 				{/* <ClientFeedBack /> */}
+				{/* <GridSmallBackgroundDemo/> */}
+				<BlogSection blogs={blogs} />
 				<CallToActionBanner />
 				<ContactSection />
-				<Footer />
+				<Footer2 />
 			</main>
 		</SmoothScrolling>
 	);

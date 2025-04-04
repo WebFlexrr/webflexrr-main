@@ -1,152 +1,184 @@
-import Footer from "@/components/Footer";
-import React, { cache } from "react";
+import type { Metadata } from "next";
 import BlurredBg from "@/components/BlurredBg";
-import AnnouncementBar from "@/components/AnnouncementBar";
-import NavBar from "@/components/Navbar";
-import { Metadata } from "next";
-import { getProjects, getSingleProject } from "@/sanity/actions/queryActions";
-import Image from "next/image";
+import SmoothScrolling from "@/components/SmoothScrolling";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { PortableText } from "next-sanity";
-import { PortableTextComponents } from "@/components/PortableText";
+import { ProjectHero } from "../components/ProjectHero";
+import { ProjectBanner } from "../components/ProjectBanner";
+import { ProjectContent } from "../components/ProjectContent";
+import { getProjects, getSingleProject } from "@/sanity/actions/queryActions";
+import CallToActionBanner from "@/components/CallToActionBanner";
+import Footer2 from "@/components/Footer2";
+import { cache } from "react";
+import NavBar2 from "@/components/Navbar2";
+import ProjectTechStack from "../components/ProjectTechStack";
+import ProjectAbout from "../components/ProjectAbout";
 
 export async function generateStaticParams() {
 	const projects = await getProjects();
-
 	return projects.map((project) => ({
 		slug: project.slug?.current,
 	}));
 }
 
-const getProjectData = cache(async (slug: string) => getSingleProject(slug));
+//chached data
+const getProjectData = cache(
+	async (slug: string) => await getSingleProject(slug)
+);
+
 export async function generateMetadata({
 	params,
 }: {
 	params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-	const { slug } = await params;
-	const projectData = await getProjectData(slug);
+	const project = await getProjectData((await params).slug);
+
+	if (!project) {
+		return {
+			title: "Project Not Found",
+			description: "The requested project could not be found.",
+		};
+	}
+
 	return {
-		title: projectData.title,
-		description: projectData.description,
-		// keywords: blogData.seo?.seoKeywords,
-		// openGraph: {
-		// 	title: blogPage.seo?.openGraph?.title,
-		// 	description: blogPage.seo?.openGraph?.description,
-		// 	url: blogPage.seo?.openGraph?.url,
-		// 	siteName: blogPage.seo?.openGraph?.siteName,
-		// 	images: [
-		// 		// imageUrlFor(workPage.seo?.openGraph?.image as SanityImageSource)
-		// 		// 	.url(),
-		// 	],
-		// },
+		title: project.title || "Project",
+		description: project.description || "Project details",
+		openGraph: {
+			title: project.title || "Project",
+			description: project.description || "Project details",
+			images: project.thumbnail
+				? [
+						{
+							url: imageUrlFor(project.thumbnail).url(),
+							width: 1200,
+							height: 630,
+							alt: project.title || "Project thumbnail",
+						},
+					]
+				: [],
+		},
 	};
 }
 
-const ProjectDetails = async ({
+export default async function ProjectPage({
 	params,
 }: {
 	params: Promise<{ slug: string }>;
-}) => {
-	const { slug } = await params;
-	const projectData = await getProjectData(slug);
-	return (
-		<main className="relative overflow-x-hidden p-0">
-			<BlurredBg />
-			<AnnouncementBar />
-			<NavBar />
-			<section className="relative h-auto w-full">
-				<section className="h-auto w-full px-8 py-20 md:px-5 xl:py-36">
-					<section className="mx-auto flex h-auto w-full max-w-[100rem] flex-col gap-20">
-						<section>
-							<section className="flex h-[50rem] w-full">
-								<section className="flex h-full w-1/2 flex-col justify-between border pr-[14%] pb-40">
-									<div className="flex w-full flex-col gap-5 border">
-										<span>
-											<h1>Title :</h1>
-										</span>
-										<span>
-											<p>{projectData.title}</p>
-										</span>
-									</div>
-									<div className="flex w-full flex-col gap-5 border">
-										<span>
-											<h4>Description :</h4>
-										</span>
-										<span>
-											<p>{projectData.description}</p>
-										</span>
-									</div>
-									<div className="flex w-full flex-col gap-5 border">
-										<span>
-											<h4>Client :</h4>
-										</span>
-										<span>
-											<p>
-												Maecenas eu vehicula felis Aen ean eleme ntum tortor ac
-												nu Aliquam erat volutpat. Nulla molestie risus eget nibh
-												mollis ultricies. Integer porttitor vehicula nisi, sit
-												amet volutpat erat tincidunt non.
-											</p>
-										</span>
-									</div>
-									<div className="flex w-full flex-col gap-5 border">
-										<span>
-											<h4>Category :</h4>
-										</span>
-										<span>
-											<p>
-												Aliquam erat volutpat. Nulla molestie risus eget nibh
-												mollis ultricies. Integer porttitor vehicula nisi, sit
-												met volutpat erat tincidunt non. Praesent lacinia
-												commodo massa, ac mattis sem facilisis ut.
-											</p>
-										</span>
-									</div>
-									<div className="flex w-full flex-col gap-5 border">
-										<span>
-											<h4>Share :</h4>
-										</span>
-										<span>
-											<p>
-												Aliquam erat volutpat. Nulla molestie risus eget nibh
-												mollis ultricies. Integer porttitor vehicula nisi, sit
-												met volutpat erat tincidunt non. Praesent lacinia
-												commodo massa, ac mattis sem facilisis ut.
-											</p>
-										</span>
-									</div>
-								</section>
-								<section className="h-full w-1/2 border">
-									<Image
-										src={
-											projectData.thumbnail
-												? imageUrlFor(
-														projectData.thumbnail as SanityImageSource
-													).url()
-												: "/assets/background-home-2.jpg"
-										}
-										width={"1000"}
-										height={"0"}
-										alt={""}
-										className="h-full w-full"
-									/>
-								</section>
-							</section>
-							<section className="mx-auto w-full max-w-3xl">
-								<PortableText
-									value={projectData.content!}
-									components={PortableTextComponents}
-								/>
-							</section>
-						</section>
-					</section>
-				</section>
-			</section>
-			<Footer />
-		</main>
-	);
-};
+}) {
+	const project = await getProjectData((await params).slug);
 
-export default ProjectDetails;
+	// console.log("Project Data--->",project)
+
+	const executionProcess = [
+		{
+			phase: "Planning & Research",
+			description:
+				"Understanding requirements, brainstorming solutions, and creating prototypes",
+			tasks: [
+				"Requirement Analysis",
+				"Market Research",
+				"Technical Feasibility",
+				"Prototyping",
+			],
+			image: "/images/projects/planning.jpg",
+		},
+		{
+			phase: "Design & Development",
+			description:
+				"Creating user interfaces and implementing core functionality",
+			tasks: [
+				"UI/UX Design",
+				"Frontend Development",
+				"Backend Integration",
+				"Database Design",
+			],
+			image: "/images/projects/development.jpg",
+		},
+		{
+			phase: "Testing & Refinements",
+			description: "Ensuring quality and optimizing performance",
+			tasks: [
+				"Quality Assurance",
+				"Performance Testing",
+				"User Testing",
+				"Bug Fixes",
+			],
+			image: "/images/projects/testing.jpg",
+		},
+		{
+			phase: "Deployment & Support",
+			description: "Launching the project and providing ongoing support",
+			tasks: [
+				"Production Deployment",
+				"Performance Monitoring",
+				"User Training",
+				"Maintenance",
+			],
+			image: "/images/projects/deployment.jpg",
+		},
+	];
+
+	return (
+		<SmoothScrolling>
+			<main className="h-fit p-0">
+				<BlurredBg />
+				<NavBar2 />
+				{/* <BackButton /> */}
+
+				{/* Banner Section */}
+				{/* <section className="relative h-[60vh] w-full"> */}
+				{/* {project.thumbnail ? (
+						<Image
+							src={imageUrlFor(project.thumbnail).url()}
+							alt={project.title || "Project banner"}
+							fill
+							className="object-cover"
+							priority
+						/>
+					) : (
+						<Image
+							src="/images/projects/default-banner.jpg"
+							alt="Project banner"
+							fill
+							className="object-cover"
+							priority
+						/>
+					)} */}
+
+				{/* <div className="absolute inset-0 flex items-center justify-center">
+						<div className="text-center">
+							<h1
+								// initial={{ opacity: 0, y: 20 }}
+								// animate={{ opacity: 1, y: 0 }}
+								// transition={{ duration: 0.5 }}
+								className="text-4xl font-bold text-white md:text-6xl"
+							>
+								{project.title}
+							</h1>
+							<p
+								// initial={{ opacity: 0, y: 20 }}
+								// animate={{ opacity: 1, y: 0 }}
+								// transition={{ duration: 0.5, delay: 0.2 }}
+								className="mt-6 text-lg text-gray-200 md:text-xl"
+							>
+								{project.description}
+							</p>
+						</div>
+					</div> */}
+				{/* </section> */}
+
+				<ProjectHero project={project} />
+				<ProjectBanner project={project} />
+				<ProjectAbout project={project} />
+				<ProjectTechStack project={project} />
+
+				<ProjectContent project={project} executionProcess={executionProcess} />
+				{/* {project.gallery && project.gallery.length > 0 && (
+					<ProjectGallery gallery={project.gallery} />
+				)} */}
+				{/* <ProjectCTA /> */}
+				<CallToActionBanner />
+				<Footer2 />
+			</main>
+		</SmoothScrolling>
+	);
+}
