@@ -1,3 +1,4 @@
+import { services } from "@/db/services";
 import { getBlogs, getProjects } from "@/sanity/actions/queryActions";
 import type { MetadataRoute } from "next";
 
@@ -22,6 +23,14 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 			};
 		}
 	);
+	const servicesData: MetadataRoute.Sitemap = services.map((service) => {
+		return {
+			url: `${baseUrl}/services/${service.slug}`,
+
+			changeFrequency: "monthly",
+			priority: 0.9,
+		};
+	});
 
 	return [
 		{
@@ -54,8 +63,15 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 			changeFrequency: "monthly",
 			priority: 1,
 		},
+		{
+			url: `${baseUrl}/services`,
+			lastModified: new Date(),
+			changeFrequency: "monthly",
+			priority: 1,
+		},
 		...blogs,
 		...projects,
+		...servicesData,
 		{
 			url: `${baseUrl}/privacy`,
 			lastModified: new Date(),
