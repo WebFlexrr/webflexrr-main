@@ -121,12 +121,15 @@ const NavBar2 = () => {
 				{/* <div className="absolute inset-0 bg-gradient-to-b from-[#1a1f35] to-[#0c1322]" /> */}
 				<section className="flex w-full items-center justify-start">
 					<Link href={"/"} className="flex w-fit items-center gap-3">
-						<Image
-							src={"/logos/white-logo.png"}
-							width={30}
-							height={30}
-							alt={"Webflexrr Labs."}
-						/>
+						<div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white bg-white">
+							<Image
+								src={"/logos/white-logo.png"}
+								width={21}
+								height={21}
+								alt={"Webflexrr Labs."}
+								className="invert"
+							/>
+						</div>
 						<div className="font-space-grotesk font-bold text-white md:text-lg">
 							Webflexrr Labs.
 						</div>

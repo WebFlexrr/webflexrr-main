@@ -8,6 +8,9 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 	const projectSlugUrls: string[] = (await getProjects()).map(
 		(project) => `/works/${project.slug?.current}`
 	);
+	const servicesSlugUrls: string[] = (await getProjects()).map(
+		(project) => `/works/${project.slug?.current}`
+	);
 
 	return {
 		rules: {
@@ -18,8 +21,10 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 				"/booking",
 				"/blogs",
 				"/works",
+				"/services",
 				...blogSlugUrls,
 				...projectSlugUrls,
+				...servicesSlugUrls,
 				"/privacy",
 				"/terms",
 				"/refund",
