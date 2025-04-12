@@ -10,7 +10,7 @@ import CallToActionBanner from "@/components/CallToActionBanner";
 import { ProjectsGrid } from "./components/ProjectsGrid";
 
 import Footer2 from "@/components/Footer2";
-import NavBar2 from "@/components/Navbar2";
+import NavBar2 from "@/components/Navbar";
 import { getWorkPageMetadata } from "@/sanity/actions/metadataQueryActions";
 import { Metadata } from "next";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";

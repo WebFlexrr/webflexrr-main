@@ -75,7 +75,7 @@ const services = [
 
 const Services = () => {
 	return (
-		<section className="w-full py-20 md:py-20">
+		<section className="bg-foreground w-full py-20 md:py-20">
 			<section className="mx-auto w-full max-w-7xl px-5">
 				<motion.div
 					initial={{ opacity: 0, y: 50 }}
