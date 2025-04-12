@@ -19,7 +19,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
 	return (
 		<section className="relative px-4 py-20 md:px-8">
 			<div className="mx-auto max-w-7xl">
-				<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
+				<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
 					{projects.map((project) => (
 						// <motion.div
 						// 	key={project.title}

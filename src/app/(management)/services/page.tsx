@@ -17,7 +17,7 @@ import { services } from "@/db/services";
 import { ArrowRight } from "lucide-react";
 import CallToActionBanner from "@/components/CallToActionBanner";
 import Footer2 from "@/components/Footer2";
-import NavBar2 from "@/components/Navbar2";
+import NavBar2 from "@/components/Navbar";
 import HeroSection from "../../(Marketing)/works/components/HeroSection";
 
 // const whyChooseUs = [

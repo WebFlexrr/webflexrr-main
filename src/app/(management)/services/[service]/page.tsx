@@ -7,7 +7,7 @@ import FeaturesSection from "../components/FeaturesSection";
 import BenefitSection from "../components/BenafitSection";
 import ProcessSection from "../components/ProcessSection";
 import CallToActionBanner from "@/components/CallToActionBanner";
-import NavBar2 from "@/components/Navbar2";
+import NavBar2 from "@/components/Navbar";
 import { Metadata } from "next";
 
 // Service data - in a real app, this would come from a CMS or API

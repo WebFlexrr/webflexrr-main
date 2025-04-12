@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
-import NavBar from "@/components/Navbar";
 import BlogCard from "@/components/BlogCard";
 import BlurredBg from "@/components/BlurredBg";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
@@ -9,6 +8,7 @@ import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
 import { getBlogPageMetadata } from "@/sanity/actions/metadataQueryActions";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import { getBlogs } from "@/sanity/actions/queryActions";
+import NavBar2 from "@/components/Navbar";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const blogPage = await getBlogPageMetadata();
@@ -37,7 +37,7 @@ const BlogPage = async (): Promise<React.JSX.Element> => {
 			<main className="relative p-0">
 				<BlurredBg />
 				{/* <AnnouncementBar /> */}
-				<NavBar />
+				<NavBar2 />
 
 				<section className="relative flex h-auto w-full flex-col items-center justify-center py-20 pb-40">
 					<section className="mx-auto flex h-fit w-full max-w-[90rem] flex-col items-center px-7 text-center md:items-center md:px-14 xl:px-20">

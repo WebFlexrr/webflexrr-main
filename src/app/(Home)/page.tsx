@@ -15,7 +15,7 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { Metadata } from "next";
 import { getHomePageMetadata } from "@/sanity/actions/metadataQueryActions";
 import IconsCarousal from "./components/IconsCarousal";
-import NavBar2 from "@/components/Navbar2";
+import NavBar2 from "@/components/Navbar";
 
 import Footer2 from "@/components/Footer2";
 import BlogSection from "./components/BlogSection";

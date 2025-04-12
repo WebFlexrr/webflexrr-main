@@ -27,7 +27,7 @@ const BlogCard = ({
 	category = "Development",
 }: BlogCardProps) => {
 	return (
-		<Card className="group hover:shadow-secondary/20 dark:from-primary/50 dark:to-primary-900/50 relative h-full overflow-hidden border-none bg-gradient-to-br from-white/10 to-white/5 pt-0 pb-8 shadow-lg backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+		<Card className="group hover:shadow-secondary/20 dark:from-primary/50 dark:to-primary-900/50 relative h-full justify-between overflow-hidden border-none bg-gradient-to-br from-white/10 to-white/5 pt-0 pb-8 shadow-lg backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
 			{/* Subtle gradient overlay */}
 			{/* <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-purple-700/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div> */}
 
@@ -40,7 +40,7 @@ const BlogCard = ({
 							alt={title ?? ""}
 							width={1000}
 							height={0}
-							className="aspect-[16/9] w-full rounded-lg transition-transform duration-500 group-hover:scale-105"
+							className="aspect-[16/9] w-full transition-transform duration-500 group-hover:scale-105"
 						/>
 						<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 
@@ -54,24 +54,25 @@ const BlogCard = ({
 			</CardHeader>
 
 			{/* Content */}
-			<CardContent className="relative space-y-2">
-				{/* Category Tag
+			<section className="flex h-full w-full flex-col justify-between">
+				<CardContent className="relative space-y-2">
+					{/* Category Tag
 				<div className="flex gap-2">
 					<span className="bg-primary-500/10 inline-block rounded-full px-3 py-1 text-xs font-medium text-purple-300">
 						{category}
 					</span>
 				</div> */}
 
-				{/* Title */}
-				<Link href={`/blogs/${slug}`}>
-					<h5 className="line-clamp-2 text-left font-bold text-white transition-colors group-hover:text-purple-200">
-						{title}
-					</h5>
-				</Link>
+					{/* Title */}
+					<Link href={`/blogs/${slug}`}>
+						<h5 className="line-clamp-2 text-left font-bold text-white transition-colors group-hover:text-purple-200">
+							{title}
+						</h5>
+					</Link>
 
-				{/* Description */}
-				<p className="line-clamp-2 text-sm text-gray-300/80">{description}</p>
-				{/* 
+					{/* Description */}
+					<p className="line-clamp-2 text-sm text-gray-300/80">{description}</p>
+					{/* 
 				{/* Read More Link 
 				<div className="pt-4">
 					<Link
@@ -94,32 +95,33 @@ const BlogCard = ({
 						</svg>
 					</Link>
 				</div> */}
-			</CardContent>
+				</CardContent>
 
-			<CardFooter className="flex flex-col gap-4">
-				<Separator />
-				<section className="flex w-full justify-between">
-					<section className="flex items-center gap-2">
-						<CalendarDays className="h-4 w-4 text-purple-200" />
-						<div className="text-sm font-medium text-purple-100">
-							{new Date(date).toLocaleDateString("en-IN", {
-								month: "short",
-								day: "numeric",
-							})}
-						</div>
-					</section>
+				<CardFooter className="flex flex-col gap-4">
+					<Separator />
+					<section className="flex w-full justify-between">
+						<section className="flex items-center gap-2">
+							<CalendarDays className="h-4 w-4 text-purple-200" />
+							<div className="text-sm font-medium text-purple-100">
+								{new Date(date).toLocaleDateString("en-IN", {
+									month: "short",
+									day: "numeric",
+								})}
+							</div>
+						</section>
 
-					<section className="flex items-center gap-2 text-sm">
-						<Clock size={15} /> 12 min
+						<section className="flex items-center gap-2 text-sm">
+							<Clock size={15} /> 12 min
+						</section>
 					</section>
-				</section>
-				<section className="flex w-full justify-between text-sm">
-					<section className="flex items-center gap-2">
-						<User size={15} /> Tejodeep Mitra Roy
+					<section className="flex w-full justify-between text-sm">
+						<section className="flex items-center gap-2">
+							<User size={15} /> Tejodeep Mitra Roy
+						</section>
+						<section className="text-blue-400">Read more</section>
 					</section>
-					<section className="text-blue-400">Read more</section>
-				</section>
-			</CardFooter>
+				</CardFooter>
+			</section>
 		</Card>
 	);
 };

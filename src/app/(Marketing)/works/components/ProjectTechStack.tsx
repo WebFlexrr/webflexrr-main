@@ -46,7 +46,7 @@ const tech = [
 
 const ProjectTechStack: FC<ProjectTechStackProps> = () => {
 	return (
-		<section className="relative w-full py-20 md:py-20">
+		<section className="relative w-full px-5 py-20 md:py-20">
 			<motion.div
 				className={`bg-secondary/60 absolute right-1/4 bottom-1/4 left-1/4 z-0 h-40 w-1/2 bg-gradient-to-b blur-3xl`}
 			/>
@@ -59,7 +59,7 @@ const ProjectTechStack: FC<ProjectTechStackProps> = () => {
 				>
 					<SectionHeading
 						heading="Technologies Used"
-						subHeading="Our Services"
+						subHeading="Tech stack"
 						para="We carefully selected cutting-edge technologies to build a robust, scalable, and high-performance solution."
 					/>
 				</motion.div>
