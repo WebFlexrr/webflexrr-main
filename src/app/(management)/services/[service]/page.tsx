@@ -167,7 +167,7 @@ const ServicePage = async ({
 
 	return (
 		// <SmoothScrolling>
-		<main className="h-fit p-0">
+		<main className="bg-background dark h-fit p-0">
 			<BlurredBg />
 			<NavBar2 />
 

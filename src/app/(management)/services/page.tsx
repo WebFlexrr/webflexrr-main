@@ -42,7 +42,7 @@ import HeroSection from "../../(Marketing)/works/components/HeroSection";
 const ServicesPage = () => {
 	return (
 		<SmoothScrolling>
-			<main className="h-fit p-0">
+			<main className="bg-background dark h-fit p-0">
 				<BlurredBg />
 				<NavBar2 />
 

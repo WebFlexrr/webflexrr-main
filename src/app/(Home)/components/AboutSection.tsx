@@ -4,7 +4,7 @@ import { CallToActionButton } from "@/components/CallToActionButton";
 
 const AboutSection = () => {
 	return (
-		<section className="relative w-full bg-[#020817] py-20">
+		<section className="dark relative w-full bg-[#020817] py-20">
 			{/* Gradient overlays */}
 			<div className="absolute inset-0">
 				<div className="absolute inset-0 bg-gradient-to-r opacity-20 blur-3xl" />

@@ -116,7 +116,7 @@ const NavBar = () => {
 	// ];
 
 	return (
-		<header className="sticky top-0 z-50 w-full md:top-8 md:my-5">
+		<header className="dark sticky top-0 z-50 w-full md:top-8 md:my-5">
 			<section className="relative z-10 mx-auto flex h-16 w-full max-w-7xl items-center px-5 backdrop-blur-xl md:rounded-full">
 				{/* <div className="absolute inset-0 bg-gradient-to-b from-[#1a1f35] to-[#0c1322]" /> */}
 				<section className="flex w-full items-center justify-start">

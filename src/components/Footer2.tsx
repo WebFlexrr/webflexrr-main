@@ -8,7 +8,7 @@ import { LuInstagram } from "react-icons/lu";
 
 const Footer2 = () => {
 	return (
-		<footer className="w-full">
+		<footer className="bg-background dark w-full">
 			<Separator className="bg-white/25" />
 			<div className="text-tertiary mx-auto flex h-auto w-full max-w-7xl flex-col gap-10 py-16 text-white">
 				<section className="flex flex-col gap-10">

@@ -127,6 +127,70 @@ export type PrivacyPolicy = {
 	}>;
 };
 
+export type Careers = {
+	_id: string;
+	_type: "careers";
+	_createdAt: string;
+	_updatedAt: string;
+	_rev: string;
+	title?: string;
+	description?: string;
+	availability?: "car" | "bicycle";
+	location?: "car" | "bicycle";
+	skills?: Array<string>;
+	content?: Array<
+		| {
+				children?: Array<{
+					marks?: Array<string>;
+					text?: string;
+					_type: "span";
+					_key: string;
+				}>;
+				style?:
+					| "normal"
+					| "h1"
+					| "h2"
+					| "h3"
+					| "h4"
+					| "h5"
+					| "h6"
+					| "blockquote";
+				listItem?: "bullet" | "number";
+				markDefs?: Array<{
+					href?: string;
+					_type: "link";
+					_key: string;
+				}>;
+				level?: number;
+				_type: "block";
+				_key: string;
+		  }
+		| {
+				asset?: {
+					_ref: string;
+					_type: "reference";
+					_weak?: boolean;
+					[internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+				};
+				_type: "file";
+				_key: string;
+		  }
+		| {
+				asset?: {
+					_ref: string;
+					_type: "reference";
+					_weak?: boolean;
+					[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+				};
+				hotspot?: SanityImageHotspot;
+				crop?: SanityImageCrop;
+				alt?: string;
+				_type: "image";
+				_key: string;
+		  }
+	>;
+};
+
 export type Blogs = {
 	_id: string;
 	_type: "blogs";
@@ -148,7 +212,24 @@ export type Blogs = {
 		crop?: SanityImageCrop;
 		_type: "image";
 	};
-	category?: Array<string>;
+	category?: string;
+	avgReadingTime?: number;
+	author?: {
+		name?: string;
+		image?: {
+			asset?: {
+				_ref: string;
+				_type: "reference";
+				_weak?: boolean;
+				[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+			};
+			hotspot?: SanityImageHotspot;
+			crop?: SanityImageCrop;
+			_type: "image";
+		};
+		twitter?: string;
+		linkedIn?: string;
+	};
 	content?: Array<
 		| {
 				children?: Array<{
@@ -500,6 +581,7 @@ export type AllSanitySchemaTypes =
 	| RefundPolicy
 	| TermsConditions
 	| PrivacyPolicy
+	| Careers
 	| Blogs
 	| SanityFileAsset
 	| Enquiry
