@@ -1,24 +1,38 @@
+"use client";
 import React, { type FC } from "react";
+import { motion } from "motion/react";
 interface HeadingProps {
 	heading: string | null;
 	subHeading: string;
 	para?: string;
+	align?: "left" | "center" | "right";
 }
 
-const SectionHeading: FC<HeadingProps> = ({ heading, subHeading, para }) => {
+const SectionHeading: FC<HeadingProps> = ({
+	heading,
+	subHeading,
+	para,
+	align = "center",
+}) => {
 	return (
-		<section className="mx-auto mt-10 flex h-auto w-full max-w-4xl flex-col items-center gap-4 text-center text-white">
+		<motion.div
+			initial={{ opacity: 0, y: 50 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
+			className={` ${align === "left" && "items-start"} ${align === "center" && "items-center"} ${align === "right" && "items-end"} mx-auto mt-10 flex h-auto w-full max-w-7xl flex-col gap-4 text-center text-black dark:text-white`}
+		>
 			{heading != null ? (
 				<>
 					{/* <span className="text-primary flex gap-3 text-xl font-semibold">
 						<span className="flex h-7 w-7 items-center justify-center rounded-full bg-green-400">
-							<Star size={22} className="fill-background text-green-400" />
+						<Star size={22} className="fill-background text-green-400" />
 						</span>
 						{heading}
-					</span> */}
+						</span> */}
 					{/* <span className="from-primary to-secondary flex gap-3 rounded-full bg-gradient-to-r p-0.5"> */}
 					<span className="flex gap-3 rounded-full p-0.5">
-						<div className="bg-background border-primary rounded-full border px-7 py-3 text-base">
+						<div className="bg-background border-secondary rounded-full border px-7 py-3 text-base">
 							{subHeading}
 						</div>
 					</span>
@@ -26,12 +40,12 @@ const SectionHeading: FC<HeadingProps> = ({ heading, subHeading, para }) => {
 						{heading}
 					</h2>
 
-					<p className="max-w-lg">{para}</p>
+					<p className="w-full max-w-lg">{para}</p>
 				</>
 			) : (
 				<h2 className="">{heading}</h2>
 			)}
-		</section>
+		</motion.div>
 	);
 };
 

@@ -49,7 +49,7 @@ export default async function Works() {
 	const projects = await getProjects();
 
 	return (
-		<main className="h-fit p-0">
+		<main className="bg-background dark h-fit p-0">
 			<BlurredBg />
 			{/* <AnnouncementBar /> */}
 			<NavBar2 />

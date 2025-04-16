@@ -1,4 +1,3 @@
-import AboutSection from "./components/AboutSection";
 import HeroSection from "./components/HeroSection";
 import Services from "./components/Services";
 import BlurredBg from "@/components/BlurredBg";
@@ -19,7 +18,7 @@ import NavBar2 from "@/components/Navbar";
 
 import Footer2 from "@/components/Footer2";
 import BlogSection from "./components/BlogSection";
-import { getBlogs } from "@/sanity/actions/queryActions";
+import AboutSection from "./components/AboutSection";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const homePage = await getHomePageMetadata();
@@ -33,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
 	// 		.url()
 	// );
 	return {
-		title: homePage.seo?.metaTitle,
+		title: `Webflexrr Labs- ${homePage.seo?.metaTitle}`,
 		description: homePage.seo?.metaDescription,
 		keywords: homePage.seo?.seoKeywords,
 		openGraph: {
@@ -48,7 +47,7 @@ export async function generateMetadata(): Promise<Metadata> {
 					).url(),
 					width: 1200,
 					height: 630,
-					alt: "WebFlexrr",
+					alt: "WebFlexrr Labs",
 				},
 			],
 		},
@@ -56,7 +55,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const HomePage = async () => {
-	const blogs = await getBlogs();
 	return (
 		<SmoothScrolling>
 			<main className="h-fit p-0">
@@ -72,7 +70,7 @@ const HomePage = async () => {
 				<FaqSection />
 				{/* <ClientFeedBack /> */}
 				{/* <GridSmallBackgroundDemo/> */}
-				<BlogSection blogs={blogs} />
+				<BlogSection />
 				<CallToActionBanner />
 				<ContactSection />
 				<Footer2 />

@@ -19,44 +19,46 @@ const techStack = [
 
 const IconsCarousal = () => {
 	return (
-		<div className="mx-auto flex w-full max-w-7xl flex-col items-center md:py-20">
-			<h4 className="mb-8">Technologies We Use</h4>
+		<section className="bg-background dark w-full">
+			<div className="mx-auto flex w-full max-w-7xl flex-col items-center md:py-20">
+				<h4 className="mb-8">Technologies We Use</h4>
 
-			<div className="relative w-full">
-				<div className="from-background pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-gradient-to-r to-transparent" />
-				<div className="from-background pointer-events-none absolute top-0 right-0 z-10 h-full w-32 bg-gradient-to-l to-transparent" />
+				<div className="relative w-full">
+					<div className="from-background pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-gradient-to-r to-transparent" />
+					<div className="from-background pointer-events-none absolute top-0 right-0 z-10 h-full w-32 bg-gradient-to-l to-transparent" />
 
-				<Swiper
-					spaceBetween={30}
-					slidesPerView={5}
-					loop={true}
-					speed={3000}
-					autoplay={{
-						delay: 0,
-						disableOnInteraction: false,
-						reverseDirection: false,
-					}}
-					modules={[Autoplay]}
-					className="mySwiper w-full"
-				>
-					{techStack.map((tech, index) => (
-						<SwiperSlide
-							key={index}
-							className="hover:bg-primary relative flex aspect-video w-21 items-center justify-center rounded-xl border px-5 grayscale transition-all duration-300 ease-in-out hover:grayscale-0 md:w-32"
-						>
-							<div className="w-8 bg-red-500">
-								<Image
-									src={tech.logo}
-									alt={tech.name}
-									fill
-									className="object-contain"
-								/>
-							</div>
-						</SwiperSlide>
-					))}
-				</Swiper>
+					<Swiper
+						spaceBetween={30}
+						slidesPerView={5}
+						loop={true}
+						speed={3000}
+						autoplay={{
+							delay: 0,
+							disableOnInteraction: false,
+							reverseDirection: false,
+						}}
+						modules={[Autoplay]}
+						className="mySwiper w-full"
+					>
+						{techStack.map((tech, index) => (
+							<SwiperSlide
+								key={index}
+								className="hover:bg-primary relative flex aspect-video w-21 items-center justify-center rounded-xl border px-5 grayscale transition-all duration-300 ease-in-out hover:grayscale-0 md:w-32"
+							>
+								<div className="w-8 bg-red-500">
+									<Image
+										src={tech.logo}
+										alt={tech.name}
+										fill
+										className="object-contain"
+									/>
+								</div>
+							</SwiperSlide>
+						))}
+					</Swiper>
+				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

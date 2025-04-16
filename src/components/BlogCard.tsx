@@ -16,6 +16,8 @@ interface BlogCardProps {
 	slug?: string;
 	date: string;
 	category?: string;
+	avgReadingTime?: number;
+	authorName?: string;
 }
 
 const BlogCard = ({
@@ -24,7 +26,9 @@ const BlogCard = ({
 	description,
 	slug,
 	date,
-	category = "Development",
+	category,
+	avgReadingTime,
+	authorName,
 }: BlogCardProps) => {
 	return (
 		<Card className="group hover:shadow-secondary/20 dark:from-primary/50 dark:to-primary-900/50 relative h-full justify-between overflow-hidden border-none bg-gradient-to-br from-white/10 to-white/5 pt-0 pb-8 shadow-lg backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
@@ -111,14 +115,17 @@ const BlogCard = ({
 						</section>
 
 						<section className="flex items-center gap-2 text-sm">
-							<Clock size={15} /> 12 min
+							<Clock size={15} />
+							{avgReadingTime} min
 						</section>
 					</section>
 					<section className="flex w-full justify-between text-sm">
 						<section className="flex items-center gap-2">
-							<User size={15} /> Tejodeep Mitra Roy
+							<User size={15} /> {authorName}
 						</section>
-						<section className="text-blue-400">Read more</section>
+						<section className="text-blue-400">
+							<Link href={`/blogs/${slug}`}>Read more</Link>
+						</section>
 					</section>
 				</CardFooter>
 			</section>

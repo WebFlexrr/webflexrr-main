@@ -12,7 +12,7 @@ import React from "react";
 const ProjectsSection = async (): Promise<React.JSX.Element> => {
 	const projects = await getProjects();
 	return (
-		<section className="h-auto w-full py-20">
+		<section className="bg-background dark h-auto w-full py-20">
 			<section className="mx-auto w-full max-w-7xl px-5">
 				<Heading heading={"Our Works"} subHeading={"Our works"} />
 				<section className="mt-12 grid w-full grid-cols-1 gap-6 md:grid-cols-2">

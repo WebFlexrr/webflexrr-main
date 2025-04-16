@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import Footer from "@/components/Footer";
+
 import BlogCard from "@/components/BlogCard";
 import BlurredBg from "@/components/BlurredBg";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
@@ -9,6 +9,7 @@ import { getBlogPageMetadata } from "@/sanity/actions/metadataQueryActions";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import { getBlogs } from "@/sanity/actions/queryActions";
 import NavBar2 from "@/components/Navbar";
+import Footer2 from "@/components/Footer2";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const blogPage = await getBlogPageMetadata();
@@ -34,7 +35,7 @@ const BlogPage = async (): Promise<React.JSX.Element> => {
 	const blogs = await getBlogs();
 	return (
 		<SmoothScrolling>
-			<main className="relative p-0">
+			<main className="bg-background dark relative p-0">
 				<BlurredBg />
 				{/* <AnnouncementBar /> */}
 				<NavBar2 />
@@ -64,13 +65,16 @@ const BlogPage = async (): Promise<React.JSX.Element> => {
 										description={blog.description}
 										slug={blog.slug?.current}
 										date={blog._createdAt}
+										category={blog.category}
+										avgReadingTime={blog.avgReadingTime}
+										authorName={blog.author?.name}
 									/>
 								</div>
 							))}
 						</section>
 					</section>
 				</section>
-				<Footer />
+				<Footer2 />
 			</main>
 		</SmoothScrolling>
 	);

@@ -75,20 +75,13 @@ const services = [
 
 const Services = () => {
 	return (
-		<section className="bg-foreground w-full py-20 md:py-20">
+		<section className="bg-background w-full py-20 md:py-20">
 			<section className="mx-auto w-full max-w-7xl px-5">
-				<motion.div
-					initial={{ opacity: 0, y: 50 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true }}
-					transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
-				>
-					<Heading
-						heading="How We help Brands?"
-						subHeading="Our Services"
-						para="Empowering startups with innovative solutions and strategic insights to accelerate growth and success."
-					/>
-				</motion.div>
+				<Heading
+					heading="How We help Brands?"
+					subHeading="Our Services"
+					para="Empowering startups with innovative solutions and strategic insights to accelerate growth and success."
+				/>
 
 				<div className="mt-16 grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 					{services.map((service, index) => (

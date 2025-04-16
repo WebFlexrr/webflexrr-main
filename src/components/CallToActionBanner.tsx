@@ -64,7 +64,7 @@ import React from "react";
 
 const CallToActionBanner = (): React.JSX.Element => {
 	return (
-		<section className="h-auto w-full">
+		<section className="bg-background dark h-auto w-full">
 			<section className="w-full px-5 py-20">
 				<Card className="from-primary to-primary/40 relative z-20 mx-auto flex w-full max-w-7xl flex-col items-center gap-5 rounded-2xl bg-gradient-to-b py-12">
 					<div

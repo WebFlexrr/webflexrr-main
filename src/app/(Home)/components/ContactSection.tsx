@@ -52,7 +52,10 @@ const ContactSection = (): React.JSX.Element => {
 	}
 
 	return (
-		<section id={"contact"} className="relative h-auto w-full">
+		<section
+			id={"contact"}
+			className="bg-background dark relative h-auto w-full"
+		>
 			<Toaster position="bottom-center" reverseOrder={true} />
 			<section className="mx-auto w-full max-w-5xl space-y-10 px-5 py-20">
 				<Heading

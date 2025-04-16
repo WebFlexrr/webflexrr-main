@@ -153,9 +153,7 @@ layer(base);
   body {
     @apply h-screen  w-full font-inter text-black dark:text-white;
   }
-  main {
-    @apply bg-background;
-  }
+ 
   h1 {
     @apply md:text-center text-6xl text-left font-space-grotesk font-bold  md:text-6xl  md:leading-[82px] dark:text-white;
   }

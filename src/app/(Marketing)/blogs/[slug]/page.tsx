@@ -56,7 +56,7 @@ const Blog = async ({
 	const { slug } = await params;
 	const blogData = await getBlogsData(slug);
 	return (
-		<main>
+		<main className="bg-background dark w-full">
 			<BlurredBg />
 			{/* <AnnouncementBar /> */}
 			<NavBar />
