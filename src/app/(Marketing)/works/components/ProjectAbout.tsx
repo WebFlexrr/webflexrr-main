@@ -10,16 +10,18 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 interface ProjectAboutProps {
 	description?: string;
 }
 const ProjectAbout: FC<ProjectAboutProps> = ({ description }) => {
 	return (
-		<section className="relative px-5 pt-44 pb-5 md:px-8">
-			<section className="mx-auto flex w-full max-w-3xl flex-col gap-8 lg:max-w-7xl lg:flex-row">
+		<section className="dark bg-background dark relative px-5 py-36 md:px-8">
+			<section className="mx-auto flex w-full max-w-3xl flex-col gap-8 border lg:max-w-7xl lg:flex-row">
 				{/* left Section */}
-				<section className="flex w-full flex-col gap-6 lg:w-1/2">
+				<section className="flex w-full flex-col gap-6 border lg:w-1/2">
+					<Badge>The Client</Badge>
 					<motion.h2
 						initial={{ opacity: 0, x: -20 }}
 						whileInView={{ opacity: 1, x: 0 }}
@@ -39,19 +41,19 @@ const ProjectAbout: FC<ProjectAboutProps> = ({ description }) => {
 						{description}
 						{/* Ladakh Tempo Union - Biggest tourist tempo provider in ladakh. */}
 					</motion.p>
-					<section className="flex w-1/2 justify-between">
-						<section className="flex flex-col gap-2 text-white">
+					<section className="flex justify-between">
+						<section className="flex w-1/2 flex-col gap-2 text-white">
 							<span>Project Type</span>
 							<span> UI/UX Design</span>
 						</section>
-						<section className="flex flex-col gap-2 text-white">
+						<section className="flex w-1/2 flex-col gap-2 text-white">
 							<span>Platform</span>
 							<span> Mobile & Web</span>
 						</section>
 					</section>
 				</section>
 				{/* right Section */}
-				<section className="flex flex-col gap-7">
+				<section className="flex w-full flex-col gap-7 border lg:w-1/2">
 					<section className="aspect-video w-full border"></section>
 					<Card className="border-secondary w-full rounded-lg border text-white">
 						<CardHeader>

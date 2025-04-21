@@ -55,9 +55,11 @@ layer(base);
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(0.21 0.006 285.885);
+  /* --primary: oklch(0.21 0.006 285.885); */
+  --primary: oklch(57.36% 0.2108 257.84);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.967 0.001 286.375);
+  /* --secondary: oklch(0.967 0.001 286.375); */
+   --secondary: oklch(56.7% 0.2266 11.22);
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
@@ -158,7 +160,7 @@ layer(base);
     @apply md:text-center text-6xl text-left font-space-grotesk font-bold  md:text-6xl  md:leading-[82px] dark:text-white;
   }
   h2 {
-    @apply text-center font-space-grotesk text-4xl leading-[38.5px] md:text-5xl font-light md:leading-[52.8px]  text-secondary   dark:text-white;
+    @apply text-center font-space-grotesk text-4xl leading-[38.5px] md:text-5xl font-light md:leading-[52.8px]     dark:text-white;
   }
   h3 {
     @apply font-space-grotesk  md:text-[2.9rem] md:leading-[54px] text-2xl  font-bold dark:text-white;
@@ -170,7 +172,7 @@ layer(base);
     @apply text-center font-space-grotesk md:text-2xl text-base  font-medium text-black dark:text-white;
   }
   p {
-    @apply font-inter text-foreground/55 md:text-lg text-base subpixel-antialiased leading-[1.4rem]  md:leading-[1.6rem]  text-secondary dark:text-white;
+    @apply font-inter text-foreground/55 md:text-lg text-base subpixel-antialiased leading-[1.4rem]  md:leading-[1.6rem]   dark:text-white;
   }
 
   ul{

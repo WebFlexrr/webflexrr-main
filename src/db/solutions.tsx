@@ -1,50 +1,24 @@
-import { Code, Layout, Palette, Search, Smartphone } from "lucide-react";
+import {
+	Code,
+	Database,
+	Layout,
+	Palette,
+	Search,
+	Smartphone,
+} from "lucide-react";
 
-export const services = [
+export const solutions = [
 	{
-		title: "Landing Page Development",
-		slug: "landing-page",
-		tagline:
+		title: "React JS",
+		slug: "web-development",
+		description:
 			"Custom web applications built with modern technologies and best practices.",
 		icon: <Code className="h-8 w-8" />,
-		description:
-			"We design landing pages that drive results — whether it's collecting leads, selling products, or launching a campaign. Our landing pages are tailored to your audience and optimized for speed, clarity, and conversions.",
-		offers: [
-			{
-				title: "Custom Design & UX",
-				description:
-					"We craft unique, branded layouts with persuasive design principles that guide user behavior.",
-				icon: <Code className="h-8 w-8" />,
-			},
-			{
-				title: "Responsive & Mobile-First Build",
-				description:
-					"Every landing page looks and functions perfectly on mobile, tablet, and desktop.",
-				icon: <Code className="h-8 w-8" />,
-			},
-			{
-				title: "Speed & Performance Optimization",
-				description:
-					"Lightweight, clean HTML/CSS ensures fast loading times and improved SEO rankings.",
-				icon: <Code className="h-8 w-8" />,
-			},
-			{
-				title: "Conversion-Driven Copywriting",
-				description:
-					"Clear, benefit-focused messaging that reduces bounce rates and increases action.",
-				icon: <Code className="h-8 w-8" />,
-			},
-
-			{
-				title: "A/B Testing Capabilities",
-				description:
-					"Built-in or third-party testing tools for continuous improvement and higher ROI.",
-				icon: <Code className="h-8 w-8" />,
-			},
-		],
-
+		link: "/services/web-development",
 		gradient: "from-blue-500/20 via-transparent to-purple-500/10",
 		bannerImage: "/images/services/web-development-banner.jpg",
+		OfferDescription:
+			"We design and build landing pages that convert. Whether it's for a product launch, lead gen campaign, or ad funnel, we focus on performance, clarity, and speed. Our landing pages are",
 		features: [
 			"Custom web application development",
 			"Progressive Web Apps (PWA)",
@@ -52,66 +26,6 @@ export const services = [
 			"Content Management Systems",
 			"API development and integration",
 			"Performance optimization",
-		],
-		benefits: [
-			"Increased online presence",
-			"Better user engagement",
-			"Improved conversion rates",
-			"Scalable solutions",
-			"Cross-platform compatibility",
-		],
-		process: [
-			{
-				title: "Discovery",
-				description: "Understanding your requirements and business goals",
-				image: "/images/services/discovery.jpg",
-			},
-			{
-				title: "Planning",
-				description: "Creating a detailed roadmap and technical architecture",
-				image: "/images/services/planning.jpg",
-			},
-			{
-				title: "Development",
-				description: "Building your solution with agile methodology",
-				image: "/images/services/development.jpg",
-			},
-			{
-				title: "Testing",
-				description: "Ensuring quality and performance",
-				image: "/images/services/testing.jpg",
-			},
-			{
-				title: "Deployment",
-				description: "Launching your application securely",
-				image: "/images/services/deployment.jpg",
-			},
-			{
-				title: "Support",
-				description: "Ongoing maintenance and updates",
-				image: "/images/services/support.jpg",
-			},
-		],
-	},
-	{
-		title: "Mobile App Development",
-		description:
-			"Native and cross-platform mobile applications for iOS and Android.",
-		slug: "mobile-development",
-		icon: <Smartphone className="h-8 w-8" />,
-		link: "/services/mobile-development",
-		gradient: "from-pink-500/20 via-transparent to-orange-500/10",
-		bannerImage: "/images/services/web-development-banner.jpg",
-		OfferDescription:
-			"We create custom mobile apps that are fast, scalable, and user-friendly. Whether it's a consumer app or enterprise tool, we deliver clean code and a seamless experience.",
-		features: [
-			"iOS & Android native app development",
-			"Cross-platform solutions with Flutter or React Native",
-			"Secure backend API and cloud integration",
-			"E-commerce solutions",
-			"Real-time features like chat, payments, and GPS",
-			"API development and integration",
-			"Post-launch support and app store maintenance",
 		],
 		benefits: [
 			"Increased online presence",
@@ -213,162 +127,186 @@ export const services = [
 		],
 	},
 	{
-		title: "Custom App Solutions",
+		title: "Framer",
+		description:
+			"Native and cross-platform mobile applications for iOS and Android.",
+		slug: "mobile-development",
+		icon: <Smartphone className="h-8 w-8" />,
+		link: "/services/mobile-development",
+		gradient: "from-pink-500/20 via-transparent to-orange-500/10",
+		bannerImage: "/images/services/web-development-banner.jpg",
+		OfferDescription:
+			"We create custom mobile apps that are fast, scalable, and user-friendly. Whether it's a consumer app or enterprise tool, we deliver clean code and a seamless experience.",
+		features: [
+			"iOS & Android native app development",
+			"Cross-platform solutions with Flutter or React Native",
+			"Secure backend API and cloud integration",
+			"E-commerce solutions",
+			"Real-time features like chat, payments, and GPS",
+			"API development and integration",
+			"Post-launch support and app store maintenance",
+		],
+		benefits: [
+			"Increased online presence",
+			"Better user engagement",
+			"Improved conversion rates",
+			"Scalable solutions",
+			"Cross-platform compatibility",
+		],
+		process: [
+			{
+				title: "Discovery",
+				description: "Understanding your requirements and business goals",
+				image: "/images/services/discovery.jpg",
+			},
+			{
+				title: "Planning",
+				description: "Creating a detailed roadmap and technical architecture",
+				image: "/images/services/planning.jpg",
+			},
+			{
+				title: "Development",
+				description: "Building your solution with agile methodology",
+				image: "/images/services/development.jpg",
+			},
+			{
+				title: "Testing",
+				description: "Ensuring quality and performance",
+				image: "/images/services/testing.jpg",
+			},
+			{
+				title: "Deployment",
+				description: "Launching your application securely",
+				image: "/images/services/deployment.jpg",
+			},
+			{
+				title: "Support",
+				description: "Ongoing maintenance and updates",
+				image: "/images/services/support.jpg",
+			},
+		],
+	},
+	{
+		title: "Shopify",
+		description:
+			"Scalable and secure server-side solutions for your applications.",
+		slug: "Shopify",
+		icon: <Database className="h-8 w-8" />,
+		link: "/services/backend-development",
+		gradient: "from-orange-500/20 via-transparent to-yellow-500/10",
+		bannerImage: "/images/services/web-development-banner.jpg",
+		features: [
+			"Custom web application development",
+			"Progressive Web Apps (PWA)",
+			"E-commerce solutions",
+			"Content Management Systems",
+			"API development and integration",
+			"Performance optimization",
+		],
+		benefits: [
+			"Increased online presence",
+			"Better user engagement",
+			"Improved conversion rates",
+			"Scalable solutions",
+			"Cross-platform compatibility",
+		],
+		process: [
+			{
+				title: "Discovery",
+				description: "Understanding your requirements and business goals",
+				image: "/images/services/discovery.jpg",
+			},
+			{
+				title: "Planning",
+				description: "Creating a detailed roadmap and technical architecture",
+				image: "/images/services/planning.jpg",
+			},
+			{
+				title: "Development",
+				description: "Building your solution with agile methodology",
+				image: "/images/services/development.jpg",
+			},
+			{
+				title: "Testing",
+				description: "Ensuring quality and performance",
+				image: "/images/services/testing.jpg",
+			},
+			{
+				title: "Deployment",
+				description: "Launching your application securely",
+				image: "/images/services/deployment.jpg",
+			},
+			{
+				title: "Support",
+				description: "Ongoing maintenance and updates",
+				image: "/images/services/support.jpg",
+			},
+		],
+	},
+	{
+		title: "Express JS",
+		description: "Improve your online visibility and drive organic traffic.",
+		slug: "seo-optimization",
+		icon: <Search className="h-8 w-8" />,
+		link: "/services/seo-optimization",
+		gradient: "from-green-500/20 via-transparent to-blue-500/10",
+		bannerImage: "/images/services/web-development-banner.jpg",
+		features: [
+			"Custom web application development",
+			"Progressive Web Apps (PWA)",
+			"E-commerce solutions",
+			"Content Management Systems",
+			"API development and integration",
+			"Performance optimization",
+		],
+		benefits: [
+			"Increased online presence",
+			"Better user engagement",
+			"Improved conversion rates",
+			"Scalable solutions",
+			"Cross-platform compatibility",
+		],
+		process: [
+			{
+				title: "Discovery",
+				description: "Understanding your requirements and business goals",
+				image: "/images/services/discovery.jpg",
+			},
+			{
+				title: "Planning",
+				description: "Creating a detailed roadmap and technical architecture",
+				image: "/images/services/planning.jpg",
+			},
+			{
+				title: "Development",
+				description: "Building your solution with agile methodology",
+				image: "/images/services/development.jpg",
+			},
+			{
+				title: "Testing",
+				description: "Ensuring quality and performance",
+				image: "/images/services/testing.jpg",
+			},
+			{
+				title: "Deployment",
+				description: "Launching your application securely",
+				image: "/images/services/deployment.jpg",
+			},
+			{
+				title: "Support",
+				description: "Ongoing maintenance and updates",
+				image: "/images/services/support.jpg",
+			},
+		],
+	},
+	{
+		title: "Custom Solutions",
 		description:
 			"Tailored software solutions to meet your specific business needs.",
 		slug: "custom-solutions",
 		icon: <Layout className="h-8 w-8" />,
 		link: "/services/custom-solutions",
 		gradient: "from-blue-500/20 via-transparent to-green-500/10",
-		bannerImage: "/images/services/web-development-banner.jpg",
-		features: [
-			"Custom web application development",
-			"Progressive Web Apps (PWA)",
-			"E-commerce solutions",
-			"Content Management Systems",
-			"API development and integration",
-			"Performance optimization",
-		],
-		benefits: [
-			"Increased online presence",
-			"Better user engagement",
-			"Improved conversion rates",
-			"Scalable solutions",
-			"Cross-platform compatibility",
-		],
-		process: [
-			{
-				title: "Discovery",
-				description: "Understanding your requirements and business goals",
-				image: "/images/services/discovery.jpg",
-			},
-			{
-				title: "Planning",
-				description: "Creating a detailed roadmap and technical architecture",
-				image: "/images/services/planning.jpg",
-			},
-			{
-				title: "Development",
-				description: "Building your solution with agile methodology",
-				image: "/images/services/development.jpg",
-			},
-			{
-				title: "Testing",
-				description: "Ensuring quality and performance",
-				image: "/images/services/testing.jpg",
-			},
-			{
-				title: "Deployment",
-				description: "Launching your application securely",
-				image: "/images/services/deployment.jpg",
-			},
-			{
-				title: "Support",
-				description: "Ongoing maintenance and updates",
-				image: "/images/services/support.jpg",
-			},
-		],
-	},
-	{
-		title: "Web Development",
-		slug: "web-development",
-		tagline:
-			"Custom web applications built with modern technologies and best practices.",
-		icon: <Code className="h-8 w-8" />,
-		description:
-			"We design landing pages that drive results — whether it's collecting leads, selling products, or launching a campaign. Our landing pages are tailored to your audience and optimized for speed, clarity, and conversions.",
-		offers: [
-			{
-				title: "Custom Design & UX",
-				description:
-					"We craft unique, branded layouts with persuasive design principles that guide user behavior.",
-				icon: <Code className="h-8 w-8" />,
-			},
-			{
-				title: "Responsive & Mobile-First Build",
-				description:
-					"Every landing page looks and functions perfectly on mobile, tablet, and desktop.",
-				icon: <Code className="h-8 w-8" />,
-			},
-			{
-				title: "Speed & Performance Optimization",
-				description:
-					"Lightweight, clean HTML/CSS ensures fast loading times and improved SEO rankings.",
-				icon: <Code className="h-8 w-8" />,
-			},
-			{
-				title: "Conversion-Driven Copywriting",
-				description:
-					"Clear, benefit-focused messaging that reduces bounce rates and increases action.",
-				icon: <Code className="h-8 w-8" />,
-			},
-
-			{
-				title: "A/B Testing Capabilities",
-				description:
-					"Built-in or third-party testing tools for continuous improvement and higher ROI.",
-				icon: <Code className="h-8 w-8" />,
-			},
-		],
-
-		gradient: "from-blue-500/20 via-transparent to-purple-500/10",
-		bannerImage: "/images/services/web-development-banner.jpg",
-		features: [
-			"Custom web application development",
-			"Progressive Web Apps (PWA)",
-			"E-commerce solutions",
-			"Content Management Systems",
-			"API development and integration",
-			"Performance optimization",
-		],
-		benefits: [
-			"Increased online presence",
-			"Better user engagement",
-			"Improved conversion rates",
-			"Scalable solutions",
-			"Cross-platform compatibility",
-		],
-		process: [
-			{
-				title: "Discovery",
-				description: "Understanding your requirements and business goals",
-				image: "/images/services/discovery.jpg",
-			},
-			{
-				title: "Planning",
-				description: "Creating a detailed roadmap and technical architecture",
-				image: "/images/services/planning.jpg",
-			},
-			{
-				title: "Development",
-				description: "Building your solution with agile methodology",
-				image: "/images/services/development.jpg",
-			},
-			{
-				title: "Testing",
-				description: "Ensuring quality and performance",
-				image: "/images/services/testing.jpg",
-			},
-			{
-				title: "Deployment",
-				description: "Launching your application securely",
-				image: "/images/services/deployment.jpg",
-			},
-			{
-				title: "Support",
-				description: "Ongoing maintenance and updates",
-				image: "/images/services/support.jpg",
-			},
-		],
-	},
-
-	{
-		title: "SEO Optimization",
-		description: "Improve your online visibility and drive organic traffic.",
-		slug: "seo-optimization",
-		icon: <Search className="h-8 w-8" />,
-		link: "/services/seo-optimization",
-		gradient: "from-green-500/20 via-transparent to-blue-500/10",
 		bannerImage: "/images/services/web-development-banner.jpg",
 		features: [
 			"Custom web application development",

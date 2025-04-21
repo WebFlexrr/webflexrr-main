@@ -19,23 +19,8 @@ export const ProjectHero = ({
 	projectLink,
 }: ProjectHeroProps) => {
 	return (
-		<section className="relative px-5 pt-44 pb-5 md:px-8">
+		<section className="dark relative px-5 pt-44 pb-5 md:px-8">
 			<section className="mx-auto w-full max-w-3xl lg:max-w-7xl">
-				{/* <motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5 }}
-					className="mb-8 flex flex-wrap gap-3"
-				>
-					{project.tags?.map((tag: string) => (
-						<span
-							key={tag}
-							className="rounded-full bg-white/[0.05] px-4 py-1 text-sm text-blue-400 backdrop-blur-xl"
-						>
-							{tag}
-						</span>
-					))}
-				</motion.div> */}
 				{/* <div className="absolute inset-0 bg-black/50" /> */}
 				{/*<h1>
 					 {project.title?.split(" ").map((char,index) => (

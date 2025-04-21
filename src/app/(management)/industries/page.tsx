@@ -11,13 +11,13 @@ import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
 	title: {
-		default: "Careers",
+		default: "Industries",
 		template: "%s | WebFlexrr labs",
 	},
 	description: "This is Plan Page of Webflexrr Digital Services",
 };
 
-const CareersPage = async (): Promise<React.JSX.Element> => {
+const IndustriesPage = async (): Promise<React.JSX.Element> => {
 	return (
 		// <main className="pt-28">
 		<main>
@@ -100,4 +100,4 @@ const CareersPage = async (): Promise<React.JSX.Element> => {
 	);
 };
 
-export default CareersPage;
+export default IndustriesPage;

@@ -21,16 +21,11 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from "./ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Palette } from "lucide-react";
 
 import { services } from "@/db/services";
 import { Separator } from "./ui/separator";
-// import {
-// 	Accordion,
-// 	AccordionContent,
-// 	AccordionItem,
-// 	AccordionTrigger,
-// } from "./ui/accordion";
+import { industries } from "@/db/industries";
 
 const NavBar = () => {
 	// const pathname = usePathname();
@@ -115,6 +110,20 @@ const NavBar = () => {
 	// },
 	// ];
 
+	const insights = [
+		{
+			title: "Blogs",
+			icon: <Palette className="h-8 w-8" />,
+			link: "/blogs",
+			gradient: "from-purple-500/20 via-transparent to-pink-500/10",
+		},
+		{
+			title: "White Papers",
+			icon: <Palette className="h-8 w-8" />,
+			link: "",
+			gradient: "from-purple-500/20 via-transparent to-pink-500/10",
+		},
+	];
 	return (
 		<header className="dark sticky top-0 z-50 w-full md:top-8 md:my-5">
 			<section className="relative z-10 mx-auto flex h-16 w-full max-w-7xl items-center px-5 backdrop-blur-xl md:rounded-full">
@@ -137,7 +146,7 @@ const NavBar = () => {
 				</section>
 				<section className="hidden w-full items-center justify-center md:flex">
 					<NavigationMenu>
-						<NavigationMenuList className="flex w-fit gap-4 rounded-full bg-black px-4 py-2 text-white">
+						<NavigationMenuList className="flex w-fit gap-1 rounded-full bg-black px-4 py-2 text-white">
 							<NavigationMenuItem>
 								<Link href={"/"} legacyBehavior passHref>
 									<NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -168,6 +177,28 @@ const NavBar = () => {
 									</ul>
 								</NavigationMenuContent>
 							</NavigationMenuItem>
+							{/* <NavigationMenuItem>
+								<Link href={"/solutions"} legacyBehavior passHref>
+									<NavigationMenuTrigger
+										className={navigationMenuTriggerStyle()}
+									>
+										Solutions
+									</NavigationMenuTrigger>
+								</Link>
+								<NavigationMenuContent>
+									<ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[400px]">
+										{solutions.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												icon={component.icon}
+												href={component.link}
+												gradient={component.gradient}
+											/>
+										))}
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem> */}
 							<NavigationMenuItem>
 								<Link href={"/industries"} legacyBehavior passHref>
 									<NavigationMenuTrigger
@@ -178,7 +209,7 @@ const NavBar = () => {
 								</Link>
 								<NavigationMenuContent>
 									<ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[400px]">
-										{services.map((component) => (
+										{industries.map((component) => (
 											<ListItem
 												key={component.title}
 												title={component.title}
@@ -191,13 +222,139 @@ const NavBar = () => {
 								</NavigationMenuContent>
 							</NavigationMenuItem>
 							<NavigationMenuItem>
+								<NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+								<NavigationMenuContent>
+									<section className="grid gap-3 p-4 md:w-[400px] lg:w-[700px] lg:grid-cols-3">
+										<section className="col-span-1">
+											<NavigationMenuLink asChild>
+												<a
+													className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none select-none focus:shadow-md"
+													href="/"
+												>
+													{/* <Icons.logo className="h-6 w-6" /> */}
+													<div className="mt-4 mb-2 text-xl font-medium">
+														Solutions
+													</div>
+													<p className="text-muted-foreground text-sm leading-tight">
+														We at Webflexrr make sure that your business will
+														get Webflexrr at all points possible. We have
+														solutions for multiple industries that can match an
+														array of business goals best suited for visionaries
+														of all kinds. Be it a CEO or a CTO we address all of
+														you.
+													</p>
+												</a>
+											</NavigationMenuLink>
+										</section>
+										<section className="h-full w-full"></section>
+									</section>
+									<ul className="grid gap-3 p-4 md:w-[400px] lg:w-[700px] lg:grid-cols-[.75fr_1fr]">
+										<li className="row-span-3">
+											<NavigationMenuLink asChild>
+												<a
+													className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none select-none focus:shadow-md"
+													href="/"
+												>
+													{/* <Icons.logo className="h-6 w-6" /> */}
+													<div className="mt-4 mb-2 text-xl font-medium">
+														Solutions
+													</div>
+													<p className="text-muted-foreground text-sm leading-tight">
+														We at Webflexrr make sure that your business will
+														get Webflexrr at all points possible. We have
+														solutions for multiple industries that can match an
+														array of business goals best suited for visionaries
+														of all kinds. Be it a CEO or a CTO we address all of
+														you.
+													</p>
+												</a>
+											</NavigationMenuLink>
+										</li>
+
+										<ListItem2 href="/docs" title="Introduction">
+											Re-usable components built using Radix UI and Tailwind
+											CSS.
+										</ListItem2>
+										<ListItem2 href="/docs/installation" title="Installation">
+											How to install dependencies and structure your app.
+										</ListItem2>
+										<ListItem2
+											href="/docs/primitives/typography"
+											title="Typography"
+										>
+											Styles for headings, paragraphs, lists...etc
+										</ListItem2>
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem>
+							{/* <NavigationMenuItem>
+								<NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+								<NavigationMenuContent>
+									<ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+										<li className="row-span-3">
+											<NavigationMenuLink asChild>
+												<a
+													className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none select-none focus:shadow-md"
+													href="/"
+												>
+													{/* <Icons.logo className="h-6 w-6" /> 
+													<div className="mt-4 mb-2 text-lg font-medium">
+														shadcn/ui
+													</div>
+													<p className="text-muted-foreground text-sm leading-tight">
+														Beautifully designed components built with Radix UI
+														and Tailwind CSS.
+													</p>
+												</a>
+											</NavigationMenuLink>
+										</li>
+										<ListItem2 href="/docs" title="Introduction">
+											Re-usable components built using Radix UI and Tailwind
+											CSS.
+										</ListItem2>
+										<ListItem2 href="/docs/installation" title="Installation">
+											How to install dependencies and structure your app.
+										</ListItem2>
+										<ListItem2
+											href="/docs/primitives/typography"
+											title="Typography"
+										>
+											Styles for headings, paragraphs, lists...etc
+										</ListItem2>
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem> */}
+							<NavigationMenuItem>
 								<Link href={"/works"} legacyBehavior passHref>
 									<NavigationMenuLink className={navigationMenuTriggerStyle()}>
 										Portfolio
 									</NavigationMenuLink>
 								</Link>
 							</NavigationMenuItem>
+
 							<NavigationMenuItem>
+								<Link href={"/insights"} legacyBehavior passHref>
+									<NavigationMenuTrigger
+										className={navigationMenuTriggerStyle()}
+									>
+										Insights
+									</NavigationMenuTrigger>
+								</Link>
+								<NavigationMenuContent>
+									<ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[400px]">
+										{insights.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												icon={component.icon}
+												href={component.link}
+												gradient={component.gradient}
+											/>
+										))}
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem>
+							{/* <NavigationMenuItem>
 								<Link
 									href={"https://shop.webflexrr.com"}
 									legacyBehavior
@@ -208,10 +365,11 @@ const NavBar = () => {
 									</NavigationMenuLink>
 								</Link>
 							</NavigationMenuItem>
+							 */}
 							<NavigationMenuItem>
-								<Link href={"/blogs"} legacyBehavior passHref>
+								<Link href={"/contact-us"} legacyBehavior passHref>
 									<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-										Blogs
+										Contact Us
 									</NavigationMenuLink>
 								</Link>
 							</NavigationMenuItem>
@@ -342,6 +500,32 @@ const ListItem = React.forwardRef<
 	);
 });
 ListItem.displayName = "ListItem";
+
+const ListItem2 = React.forwardRef<
+	React.ElementRef<"a">,
+	React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+	return (
+		<li>
+			<NavigationMenuLink asChild>
+				<a
+					ref={ref}
+					className={cn(
+						"hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none",
+						className
+					)}
+					{...props}
+				>
+					<div className="text-sm leading-none font-medium">{title}</div>
+					<p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+						{children}
+					</p>
+				</a>
+			</NavigationMenuLink>
+		</li>
+	);
+});
+ListItem2.displayName = "ListItem2";
 // const ListItem = React.forwardRef<
 // 	React.ElementRef<"a">,
 // 	{

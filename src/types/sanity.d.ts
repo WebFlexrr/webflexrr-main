@@ -366,17 +366,18 @@ export type Project = {
 	_createdAt: string;
 	_updatedAt: string;
 	_rev: string;
-	thumbnail?: {
-		asset?: {
-			_ref: string;
-			_type: "reference";
-			_weak?: boolean;
-			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-		};
-		hotspot?: SanityImageHotspot;
-		crop?: SanityImageCrop;
-		_type: "image";
-	};
+	// thumbnail?: {
+	// 	asset?: {
+	// 		_ref: string;
+	// 		_type: "reference";
+	// 		_weak?: boolean;
+	// 		[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+	// 	};
+	// 	hotspot?: SanityImageHotspot;
+	// 	crop?: SanityImageCrop;
+	// 	_type: "image";
+	// };
+	thumbnail?: string;
 	title?: string;
 	slug?: Slug;
 	description?: string;
