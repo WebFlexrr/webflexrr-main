@@ -18,22 +18,10 @@ const Footer2 = () => {
 							width={"200"}
 							height={"0"}
 							alt={""}
-							className=""
 						/>
 					</section>
 					<section className="flex h-auto w-full flex-col gap-5 lg:flex-row">
 						<section className="flex h-auto w-full max-w-[580px] flex-col gap-10 px-10 py-2 text-black md:w-full lg:w-1/3 lg:px-5 dark:text-white">
-							{/* <div className=" flex w-full flex-wrap gap-5 sm:flex-nowrap xl:gap-2">
-							<input
-								type="text"
-								title="Message"
-								placeholder="Email for news letters"
-								className="w-full border-b bg-transparent text-secondary focus:border-secondary focus:outline-hidden  xl:w-[60%]"
-								/>
-								<Button radius="full" color="primary" variant="ghost">
-								Subscribe
-								</Button>
-								</div> */}
 							<div className="space-y-2">
 								<section>
 									<p className="text-sm">

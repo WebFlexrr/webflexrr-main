@@ -21,24 +21,10 @@ export const ProjectHero = ({
 	return (
 		<section className="dark relative px-5 pt-44 pb-5 md:px-8">
 			<section className="mx-auto w-full max-w-3xl lg:max-w-7xl">
-				{/* <div className="absolute inset-0 bg-black/50" /> */}
-				{/*<h1>
-					 {project.title?.split(" ").map((char,index) => (
-						<motion.span
-							key={char}
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5, delay: index*10+index }}
-							className="text-left text-4xl font-bold text-white md:text-6xl"
-						>
-							{char}
-						</motion.span>
-					))} 
-						</h1>*/}
 				<motion.h1
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.4, delay: 0.1 }}
+					transition={{ duration: 0.5 }}
 					className="text-left text-4xl font-bold text-white md:text-6xl"
 				>
 					{title}
@@ -53,19 +39,17 @@ export const ProjectHero = ({
 					{/* App for biggest Tourist Tempo company of ladakh to manage their
 					bookings and drivers. */}
 				</motion.p>
-				<motion.section
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.4, delay: 0.3 }}
-					className="mt-10 flex w-1/2 flex-wrap gap-4"
-				>
+				<motion.section className="mt-10 flex w-1/2 flex-wrap gap-4">
 					{tags?.map((tag) => (
-						<span
+						<motion.span
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.5, delay: 0.3 }}
 							key={tag}
 							className="bg-primary/[0.2] text-primary w-fit rounded-full px-5 py-1.5 text-sm font-bold backdrop-blur-lg"
 						>
 							{tag}
-						</span>
+						</motion.span>
 					))}
 				</motion.section>
 				<motion.section
@@ -76,7 +60,7 @@ export const ProjectHero = ({
 				>
 					<Link
 						href={projectLink || ""}
-						className="from-primary/70 to-primary/10 shadow-primary/40 flex w-fit items-center gap-2 rounded-full bg-gradient-to-l px-10 py-3 font-semibold text-white shadow-xl transition-all duration-500 ease-in-out hover:scale-105"
+						className="from-/70 to-primary/10 shadow-primary/40 flex w-fit items-center gap-2 rounded-full bg-gradient-to-l px-10 py-3 font-semibold text-white shadow-xl transition-all duration-500 ease-in-out hover:scale-105"
 					>
 						<MdPlayArrow className="text-2xl" />
 						View Our Live App

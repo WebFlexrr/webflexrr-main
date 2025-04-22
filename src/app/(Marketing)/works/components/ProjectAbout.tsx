@@ -18,9 +18,9 @@ interface ProjectAboutProps {
 const ProjectAbout: FC<ProjectAboutProps> = ({ description }) => {
 	return (
 		<section className="dark bg-background dark relative px-5 py-36 md:px-8">
-			<section className="mx-auto flex w-full max-w-3xl flex-col gap-8 border lg:max-w-7xl lg:flex-row">
+			<section className="mx-auto flex w-full max-w-3xl flex-col gap-8 lg:max-w-7xl lg:flex-row">
 				{/* left Section */}
-				<section className="flex w-full flex-col gap-6 border lg:w-1/2">
+				<section className="flex w-full flex-col gap-6 lg:w-1/2">
 					<Badge>The Client</Badge>
 					<motion.h2
 						initial={{ opacity: 0, x: -20 }}
@@ -53,8 +53,8 @@ const ProjectAbout: FC<ProjectAboutProps> = ({ description }) => {
 					</section>
 				</section>
 				{/* right Section */}
-				<section className="flex w-full flex-col gap-7 border lg:w-1/2">
-					<section className="aspect-video w-full border"></section>
+				<section className="flex w-full flex-col gap-7 lg:w-1/2">
+					<section className="aspect-video w-full"></section>
 					<Card className="border-secondary w-full rounded-lg border text-white">
 						<CardHeader>
 							<CardTitle>

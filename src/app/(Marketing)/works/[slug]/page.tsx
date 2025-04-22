@@ -4,9 +4,7 @@ import SmoothScrolling from "@/components/SmoothScrolling";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
 import { ProjectHero } from "../components/ProjectHero";
 import { ProjectBanner } from "../components/ProjectBanner";
-import { ProjectContent } from "../components/ProjectContent";
 import { getProjects, getSingleProject } from "@/sanity/actions/queryActions";
-import CallToActionBanner from "@/components/CallToActionBanner";
 import Footer2 from "@/components/Footer2";
 import { cache } from "react";
 import NavBar2 from "@/components/Navbar";
@@ -14,6 +12,8 @@ import ProjectTechStack from "../components/ProjectTechStack";
 import ProjectAbout from "../components/ProjectAbout";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import ProjectFeatures from "../components/ProjectFeatures";
+import { CTASection } from "../components/CTASection";
+import FounderReview from "../components/FounderReview";
 
 export async function generateStaticParams() {
 	const projects = await getProjects();
@@ -70,54 +70,54 @@ export default async function ProjectPage({
 
 	console.log("Project Data--->", project);
 
-	const executionProcess = [
-		{
-			phase: "Planning & Research",
-			description:
-				"Understanding requirements, brainstorming solutions, and creating prototypes",
-			tasks: [
-				"Requirement Analysis",
-				"Market Research",
-				"Technical Feasibility",
-				"Prototyping",
-			],
-			image: "/images/projects/planning.jpg",
-		},
-		{
-			phase: "Design & Development",
-			description:
-				"Creating user interfaces and implementing core functionality",
-			tasks: [
-				"UI/UX Design",
-				"Frontend Development",
-				"Backend Integration",
-				"Database Design",
-			],
-			image: "/images/projects/development.jpg",
-		},
-		{
-			phase: "Testing & Refinements",
-			description: "Ensuring quality and optimizing performance",
-			tasks: [
-				"Quality Assurance",
-				"Performance Testing",
-				"User Testing",
-				"Bug Fixes",
-			],
-			image: "/images/projects/testing.jpg",
-		},
-		{
-			phase: "Deployment & Support",
-			description: "Launching the project and providing ongoing support",
-			tasks: [
-				"Production Deployment",
-				"Performance Monitoring",
-				"User Training",
-				"Maintenance",
-			],
-			image: "/images/projects/deployment.jpg",
-		},
-	];
+	// const executionProcess = [
+	// 	{
+	// 		phase: "Planning & Research",
+	// 		description:
+	// 			"Understanding requirements, brainstorming solutions, and creating prototypes",
+	// 		tasks: [
+	// 			"Requirement Analysis",
+	// 			"Market Research",
+	// 			"Technical Feasibility",
+	// 			"Prototyping",
+	// 		],
+	// 		image: "/images/projects/planning.jpg",
+	// 	},
+	// 	{
+	// 		phase: "Design & Development",
+	// 		description:
+	// 			"Creating user interfaces and implementing core functionality",
+	// 		tasks: [
+	// 			"UI/UX Design",
+	// 			"Frontend Development",
+	// 			"Backend Integration",
+	// 			"Database Design",
+	// 		],
+	// 		image: "/images/projects/development.jpg",
+	// 	},
+	// 	{
+	// 		phase: "Testing & Refinements",
+	// 		description: "Ensuring quality and optimizing performance",
+	// 		tasks: [
+	// 			"Quality Assurance",
+	// 			"Performance Testing",
+	// 			"User Testing",
+	// 			"Bug Fixes",
+	// 		],
+	// 		image: "/images/projects/testing.jpg",
+	// 	},
+	// 	{
+	// 		phase: "Deployment & Support",
+	// 		description: "Launching the project and providing ongoing support",
+	// 		tasks: [
+	// 			"Production Deployment",
+	// 			"Performance Monitoring",
+	// 			"User Training",
+	// 			"Maintenance",
+	// 		],
+	// 		image: "/images/projects/deployment.jpg",
+	// 	},
+	// ];
 
 	return (
 		<SmoothScrolling>
@@ -141,13 +141,15 @@ export default async function ProjectPage({
 				<ProjectAbout description={project.description} />
 				<ProjectTechStack project={project} />
 				<ProjectFeatures />
+				<CTASection />
+				<FounderReview />
 
-				<ProjectContent project={project} executionProcess={executionProcess} />
+				{/* <ProjectContent project={project} executionProcess={executionProcess} /> */}
 				{/* {project.gallery && project.gallery.length > 0 && (
 					<ProjectGallery gallery={project.gallery} />
 				)} */}
-				{/* <ProjectCTA /> */}
-				<CallToActionBanner />
+
+				{/* <CallToActionBanner /> */}
 				<Footer2 />
 			</main>
 		</SmoothScrolling>

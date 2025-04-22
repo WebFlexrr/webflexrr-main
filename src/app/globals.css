@@ -172,7 +172,7 @@ layer(base);
     @apply text-center font-space-grotesk md:text-2xl text-base  font-medium text-black dark:text-white;
   }
   p {
-    @apply font-inter text-foreground/55 md:text-lg text-base subpixel-antialiased leading-[1.4rem]  md:leading-[1.6rem]   dark:text-white;
+    @apply font-inter text-black md:text-lg text-base subpixel-antialiased leading-[1.4rem]  md:leading-[1.6rem]   dark:text-white;
   }
 
   ul{
