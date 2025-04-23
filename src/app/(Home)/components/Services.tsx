@@ -21,7 +21,8 @@ const services = [
 			"Conversion-focused landing pages",
 			"Fast, mobile-friendly design",
 		],
-		gradient: "from-blue-500/10 via-transparent to-transparent",
+		// gradient: "from-blue-500/10 via-transparent to-transparent",
+		gradient: "from-blue-500/70 via-transparent to-transparent",
 	},
 	{
 		title: "App Development",
@@ -33,7 +34,8 @@ const services = [
 			"Secure, high-performance architecture",
 			"Cross-platform compatibility",
 		],
-		gradient: "from-green-500/10 via-transparent to-transparent",
+		// gradient: "from-green-500/10 via-transparent to-transparent",
+		gradient: "from-green-500/30 via-transparent to-transparent",
 	},
 	{
 		title: "UI/UX Design",
@@ -45,7 +47,8 @@ const services = [
 			"Web & mobile app UI/UX design",
 			"A/B testing for performance optimization",
 		],
-		gradient: "from-purple-500/10 via-transparent to-transparent",
+		// gradient: "from-purple-500/10 via-transparent to-transparent",
+		gradient: "from-purple-500/70 via-transparent to-transparent",
 	},
 	{
 		title: "AI Automation",
@@ -128,7 +131,7 @@ const ServicesCard = ({
 	gradient: string;
 }) => {
 	return (
-		<Card className="group bg-background/40 relative overflow-hidden rounded-3xl border border-white/30 backdrop-blur-xl">
+		<Card className="group shadow-primary/55 bg-background/40 relative overflow-hidden rounded-3xl border border-white/30 shadow-2xl backdrop-blur-xl">
 			{/* Gradient Background */}
 			<div
 				className={`absolute inset-0 bg-gradient-to-br opacity-100 transition-opacity duration-500 group-hover:opacity-80 ${gradient}`}
@@ -144,8 +147,8 @@ const ServicesCard = ({
 					{icon}
 				</motion.div>
 				<div className="mt-4 flex flex-col items-start gap-2">
-					<h5 className="text-2xl font-semibold text-white">{title}</h5>
-					<p className="text-gray-400">{description}</p>
+					<h5 className="text-2xl font-semibold">{title}</h5>
+					<p className="">{description}</p>
 				</div>
 			</CardHeader>
 

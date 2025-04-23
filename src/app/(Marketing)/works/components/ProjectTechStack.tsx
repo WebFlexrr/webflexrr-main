@@ -79,9 +79,11 @@ const ProjectTechStack: FC<ProjectTechStackProps> = () => {
 							}}
 							className="border-secondary/35 z-10 w-full rounded-2xl border"
 						>
-							<div className="group bg-background border-secondary/35 shadow-secondary z-10 flex aspect-square w-full flex-col items-center justify-center gap-4 rounded-2xl border text-white transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-110">
+							<div className="group bg-background border-secondary/35 shadow-secondary z-10 flex aspect-square w-full flex-col items-center justify-center gap-4 rounded-2xl border text-black transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-110 dark:text-white">
 								<div>{tech.icon}</div>
-								<div className="text-slate-200">{tech.name}</div>
+								<div className="text-black dark:text-slate-200">
+									{tech.name}
+								</div>
 							</div>
 						</motion.div>
 					))}

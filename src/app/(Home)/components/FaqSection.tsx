@@ -69,7 +69,7 @@ const FaqSection = () => {
 								<AccordionTrigger>
 									<h5>{faq.title}</h5>
 								</AccordionTrigger>
-								<AccordionContent className="text-inter text-base">
+								<AccordionContent className="text-inter text-base text-black dark:text-white">
 									{faq.answer}
 								</AccordionContent>
 								{/* <Divider className="mb-3" /> */}

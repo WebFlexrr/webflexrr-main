@@ -2,7 +2,6 @@ import React from "react";
 import { CallToActionButton } from "@/components/CallToActionButton";
 import Image from "next/image";
 import "swiper/css";
-
 import Link from "next/link";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 
@@ -76,7 +75,7 @@ const HeroSection = () => {
 				</span>
 
 				<h1 className="mb-4 text-white">
-					We Ship <span className="text-pink-500">Websites</span> that <br />
+					We Ship <span className="text-pink-500">Products</span> that <br />
 					Standout Everywhere
 				</h1>
 
@@ -92,6 +91,7 @@ const HeroSection = () => {
 				</button> */}
 				<div className="mb-12">
 					<CallToActionButton />
+					{/* <ContactUsButton /> */}
 				</div>
 
 				{/* Customer Avatars */}

@@ -19,7 +19,7 @@ const SectionHeading: FC<HeadingProps> = ({
 			initial={{ opacity: 0, y: 50 }}
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true }}
-			transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
+			transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
 			className={` ${align === "left" && "items-start"} ${align === "center" && "items-center"} ${align === "right" && "items-end"} mx-auto mt-10 flex h-auto w-full max-w-7xl flex-col gap-4 text-center text-black dark:text-white`}
 		>
 			{heading != null ? (

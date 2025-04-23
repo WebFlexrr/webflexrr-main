@@ -14,11 +14,12 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { Metadata } from "next";
 import { getHomePageMetadata } from "@/sanity/actions/metadataQueryActions";
 import IconsCarousal from "./components/IconsCarousal";
-import NavBar2 from "@/components/Navbar";
+import NavBar from "@/components/Navbar";
 
 import Footer2 from "@/components/Footer2";
 import BlogSection from "./components/BlogSection";
 import AboutSection from "./components/AboutSection";
+import AnnouncementBar from "@/components/AnnouncementBar";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const homePage = await getHomePageMetadata();
@@ -59,8 +60,8 @@ const HomePage = async () => {
 		<SmoothScrolling>
 			<main className="h-fit p-0">
 				<BlurredBg />
-				{/* <AnnouncementBar /> */}
-				<NavBar2 />
+				<AnnouncementBar />
+				<NavBar />
 				<HeroSection />
 				<AboutSection />
 				<IconsCarousal />

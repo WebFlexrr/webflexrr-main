@@ -2,13 +2,13 @@ import React, { cache } from "react";
 import BlurredBg from "@/components/BlurredBg";
 import Footer2 from "@/components/Footer2";
 import { services } from "@/db/services";
-import BannerSection from "../components/BannerSection";
-import FeaturesSection from "../components/FeaturesSection";
 import BenefitSection from "../components/BenafitSection";
 import ProcessSection from "../components/ProcessSection";
 import CallToActionBanner from "@/components/CallToActionBanner";
 import NavBar2 from "@/components/Navbar";
 import { Metadata } from "next";
+import OffersSection from "../components/OffersSection";
+import ServiceHeroSection from "../components/HeroSection";
 
 // Service data - in a real app, this would come from a CMS or API
 // const servicesData = {
@@ -131,6 +131,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const service = await getServiceData((await params).slug);
 
+	console.log("This data is from backend", service);
+
 	if (!service) {
 		return {
 			title: "Service Not Found",
@@ -161,9 +163,9 @@ export async function generateMetadata({
 const ServicePage = async ({
 	params,
 }: {
-	params: Promise<{ service: string }>;
+	params: Promise<{ slug: string }>;
 }) => {
-	const serviceData = await getServiceData((await params).service);
+	const serviceData = await getServiceData((await params).slug);
 
 	return (
 		// <SmoothScrolling>
@@ -183,15 +185,21 @@ const ServicePage = async ({
 				</div> */}
 
 			{/* Banner Section */}
-			<BannerSection
+			<ServiceHeroSection
+				title={serviceData?.title}
+				tagline={serviceData?.tagline}
+			/>
+			{/* <BannerSection
 				image={serviceData?.bannerImage}
 				alt={serviceData?.title}
 				title={serviceData?.title}
 				description={serviceData?.description}
-			/>
+			/> */}
 
-			{/* Features Section */}
-			<FeaturesSection features={serviceData?.features} />
+			{/*  Section */}
+			<OffersSection offers={serviceData?.offers} />
+			{/* Features Section
+			<FeaturesSection features={serviceData?.offers} /> */}
 
 			{/* Benefits Section */}
 			<BenefitSection benefits={serviceData?.benefits} />

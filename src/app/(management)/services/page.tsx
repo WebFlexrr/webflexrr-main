@@ -2,15 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-// import {
-// 	ArrowRight,
-// 	Code,
-// 	Palette,
-// 	Layout,
-// 	Smartphone,
-// 	Database,
-// 	Search,
-// } from "lucide-react";
+
 import BlurredBg from "@/components/BlurredBg";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import { services } from "@/db/services";
@@ -98,9 +90,7 @@ const ServicesPage = () => {
 												<h3 className="mb-2 text-xl font-semibold text-white">
 													{service.title}
 												</h3>
-												<p className="mb-4 text-gray-400">
-													{service.description}
-												</p>
+												<p className="mb-4 text-gray-400">{service.tagline}</p>
 												<div className="flex items-center text-blue-400">
 													Learn more <ArrowRight className="ml-2 h-4 w-4" />
 												</div>
