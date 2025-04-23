@@ -22,10 +22,8 @@ import {
 	SheetTrigger,
 } from "./ui/sheet";
 import { Menu, Palette } from "lucide-react";
-
 import { services } from "@/db/services";
 import { Separator } from "./ui/separator";
-import { industries } from "@/db/industries";
 
 const NavBar = () => {
 	// const pathname = usePathname();
@@ -144,7 +142,7 @@ const NavBar = () => {
 						</div>
 					</Link>
 				</section>
-				<section className="hidden w-full items-center justify-center md:flex">
+				<section className="hidden w-full items-center justify-center xl:flex">
 					<NavigationMenu>
 						<NavigationMenuList className="flex w-fit gap-1 rounded-full bg-black px-4 py-2 text-white">
 							<NavigationMenuItem>
@@ -164,7 +162,7 @@ const NavBar = () => {
 									</NavigationMenuTrigger>
 								</Link>
 								<NavigationMenuContent>
-									<ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[400px]">
+									<ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[620px]">
 										{services.map((component) => (
 											<ListItem
 												key={component.title}
@@ -199,7 +197,7 @@ const NavBar = () => {
 									</ul>
 								</NavigationMenuContent>
 							</NavigationMenuItem> */}
-							<NavigationMenuItem>
+							{/* <NavigationMenuItem>
 								<Link href={"/industries"} legacyBehavior passHref>
 									<NavigationMenuTrigger
 										className={navigationMenuTriggerStyle()}
@@ -220,7 +218,7 @@ const NavBar = () => {
 										))}
 									</ul>
 								</NavigationMenuContent>
-							</NavigationMenuItem>
+							</NavigationMenuItem> */}
 							<NavigationMenuItem>
 								<NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
 								<NavigationMenuContent>
@@ -341,7 +339,7 @@ const NavBar = () => {
 									</NavigationMenuTrigger>
 								</Link>
 								<NavigationMenuContent>
-									<ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[400px]">
+									<ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[620px]">
 										{insights.map((component) => (
 											<ListItem
 												key={component.title}
@@ -376,10 +374,9 @@ const NavBar = () => {
 						</NavigationMenuList>
 					</NavigationMenu>
 				</section>
-				<section className="flex w-full items-center justify-end">
-					<ContactUsButton />
+				<section className="flex w-full items-center justify-end gap-3">
 					<Sheet>
-						<SheetTrigger className="md:hidden">
+						<SheetTrigger className="xl:hidden">
 							<Menu className="text-white" />
 						</SheetTrigger>
 						<SheetContent side={"top"} className="h-screen dark:text-white">
@@ -445,6 +442,7 @@ const NavBar = () => {
 							</div>
 						</SheetContent>
 					</Sheet>
+					<ContactUsButton />
 				</section>
 			</section>
 		</header>

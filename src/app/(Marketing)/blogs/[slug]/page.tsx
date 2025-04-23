@@ -1,5 +1,4 @@
 import React, { cache } from "react";
-import Footer from "@/components/Footer";
 import { Metadata } from "next";
 import BlurredBg from "@/components/BlurredBg";
 
@@ -11,6 +10,7 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { PortableText } from "next-sanity";
 import { getBlogs, getSingleBlog } from "@/sanity/actions/queryActions";
 import { PortableTextComponents } from "@/components/PortableText";
+import Footer2 from "@/components/Footer2";
 
 //chached data
 const getBlogsData = cache(async (slug: string) => await getSingleBlog(slug));
@@ -116,7 +116,7 @@ const Blog = async ({
 					</section>
 				</section> */}
 			</section>
-			<Footer />
+			<Footer2 />
 		</main>
 	);
 };

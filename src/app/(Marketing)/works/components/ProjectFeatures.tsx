@@ -37,7 +37,7 @@ const ProjectFeatures = () => {
 					<section className="mt-10 flex w-full flex-col gap-6">
 						<div className="flex w-full gap-5">
 							<section>
-								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1.5">
+								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1">
 									<div className="bg-primary flex h-full w-full items-center justify-center rounded-lg text-white">
 										<Brush />
 									</div>
@@ -53,7 +53,7 @@ const ProjectFeatures = () => {
 						</div>
 						<div className="flex w-full gap-5">
 							<section>
-								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1.5">
+								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1">
 									<div className="bg-primary flex h-full w-full items-center justify-center rounded-lg text-white">
 										<Brush />
 									</div>
@@ -69,7 +69,7 @@ const ProjectFeatures = () => {
 						</div>
 						<div className="flex w-full gap-5">
 							<section>
-								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1.5">
+								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1">
 									<div className="bg-primary flex h-full w-full items-center justify-center rounded-lg text-white">
 										<Brush />
 									</div>
@@ -111,7 +111,7 @@ const ProjectFeatures = () => {
 					<section className="mt-10 flex w-full flex-col gap-6">
 						<div className="flex w-full gap-5">
 							<section>
-								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1.5">
+								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1">
 									<div className="bg-primary flex h-full w-full items-center justify-center rounded-lg text-white">
 										<Brush />
 									</div>
@@ -126,7 +126,7 @@ const ProjectFeatures = () => {
 						</div>
 						<div className="flex w-full gap-5">
 							<section>
-								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1.5">
+								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1">
 									<div className="bg-primary flex h-full w-full items-center justify-center rounded-lg text-white">
 										<Brush />
 									</div>
@@ -141,7 +141,7 @@ const ProjectFeatures = () => {
 						</div>
 						<div className="flex w-full gap-5">
 							<section>
-								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1.5">
+								<div className="bg-secondary/90 flex h-14 w-14 items-center justify-center rounded-xl p-1">
 									<div className="bg-primary flex h-full w-full items-center justify-center rounded-lg text-white">
 										<Brush />
 									</div>

@@ -75,7 +75,7 @@ const HeroSection = () => {
 				</span>
 
 				<h1 className="mb-4 text-white">
-					We Ship <span className="text-pink-500">Websites</span> that <br />
+					We Ship <span className="text-pink-500">Products</span> that <br />
 					Standout Everywhere
 				</h1>
 
