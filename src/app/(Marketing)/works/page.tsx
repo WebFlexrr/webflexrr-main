@@ -15,7 +15,7 @@ import { getWorkPageMetadata } from "@/sanity/actions/metadataQueryActions";
 import { Metadata } from "next";
 import { imageUrlFor } from "@/sanity/config/SanityImageUrl";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import HeroSection from "./components/HeroSection";
+import HeroSection from "../../../components/HeroSection";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const workPage = await getWorkPageMetadata();
@@ -55,10 +55,11 @@ export default async function Works() {
 			<NavBar2 />
 			{/* Hero Section */}
 			<HeroSection
+				pillText={"Portfolio"}
 				title={"Webflexrr Lab's Diverse Portfolio of Creative Brilliance"}
-				description={
-					"Explore Our portfolio, a testament to our commitment to creative brilliance. From captivating web designs to Robust Applications."
-				}
+				// description={
+				// 	"Explore Our portfolio, a testament to our commitment to creative brilliance. From captivating web designs to Robust Applications."
+				// }
 			/>
 			{/* <HeroSection /> */}
 			{/* <FilterCategories /> */}

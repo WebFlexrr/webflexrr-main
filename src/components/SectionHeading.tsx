@@ -36,14 +36,21 @@ const SectionHeading: FC<HeadingProps> = ({
 							{subHeading}
 						</div>
 					</span>
-					<h2 className="text-5xl font-bold text-black dark:text-white">
-						{heading}
-					</h2>
+					<h2 className="font-bold text-black dark:text-white">{heading}</h2>
 
 					<p className="w-full max-w-lg">{para}</p>
 				</>
 			) : (
-				<h2 className="">{heading}</h2>
+				<>
+					<span className="flex gap-3 rounded-full p-0.5">
+						<div className="bg-background border-secondary rounded-full border px-7 py-3 text-base">
+							{subHeading}
+						</div>
+					</span>
+					<h2 className="text-5xl font-bold text-black dark:text-white">
+						{heading}
+					</h2>
+				</>
 			)}
 		</motion.div>
 	);

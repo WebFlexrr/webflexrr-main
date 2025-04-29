@@ -360,24 +360,23 @@ export type Products = {
 	seo?: SeoMetaFields;
 };
 
-export type Project = {
+export type Services = {
 	_id: string;
-	_type: "project";
+	_type: "services";
 	_createdAt: string;
 	_updatedAt: string;
 	_rev: string;
-	// thumbnail?: {
-	// 	asset?: {
-	// 		_ref: string;
-	// 		_type: "reference";
-	// 		_weak?: boolean;
-	// 		[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-	// 	};
-	// 	hotspot?: SanityImageHotspot;
-	// 	crop?: SanityImageCrop;
-	// 	_type: "image";
-	// };
-	thumbnail?: string;
+	thumbnail?: {
+		asset?: {
+			_ref: string;
+			_type: "reference";
+			_weak?: boolean;
+			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+		};
+		hotspot?: SanityImageHotspot;
+		crop?: SanityImageCrop;
+		_type: "image";
+	};
 	title?: string;
 	slug?: Slug;
 	description?: string;
@@ -408,6 +407,74 @@ export type Project = {
 	seo?: SeoMetaFields;
 };
 
+export type Project = {
+	_id: string;
+	_type: "project";
+	_createdAt: string;
+	_updatedAt: string;
+	_rev: string;
+	thumbnail?: {
+		asset?: {
+			_ref: string;
+			_type: "reference";
+			_weak?: boolean;
+			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+		};
+		hotspot?: SanityImageHotspot;
+		crop?: SanityImageCrop;
+		_type: "image";
+	};
+	title?: string;
+	slug?: Slug;
+	description?: string;
+	link?: string;
+	tags?: Array<string>;
+	clientName?: string;
+	category?: string;
+	timeline?: string;
+	budget?: string;
+	about?: string;
+	type?: string;
+	platform?: string;
+	mission?: {
+		description?: string;
+		missions?: Array<string>;
+	};
+	technology?: Array<string>;
+	problemSolving?: Array<string>;
+	features?: Array<string>;
+	ownerReview?: {
+		_id: string;
+		name: string;
+		role: string;
+		image: string;
+		message: string;
+	};
+	seo?: SeoMetaFields;
+};
+
+export type Reviews = {
+	_id: string;
+	_type: "reviews";
+	_createdAt: string;
+	_updatedAt: string;
+	_rev: string;
+	name?: string;
+	role?: string;
+	image?: {
+		asset?: {
+			_ref: string;
+			_type: "reference";
+			_weak?: boolean;
+			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+		};
+		hotspot?: SanityImageHotspot;
+		crop?: SanityImageCrop;
+		_type: "image";
+	};
+	message?: string;
+};
+
 export type Slug = {
 	_type: "slug";
 	current?: string;
@@ -422,18 +489,6 @@ export type Pages = {
 	_rev: string;
 	name?: string;
 	route?: string;
-	seo?: SeoMetaFields;
-};
-
-export type ServicesPage = {
-	_id: string;
-	_type: "servicesPage";
-	_createdAt: string;
-	_updatedAt: string;
-	_rev: string;
-	title?: string;
-	subTitle?: string;
-	about?: string;
 	seo?: SeoMetaFields;
 };
 
@@ -587,10 +642,11 @@ export type AllSanitySchemaTypes =
 	| SanityFileAsset
 	| Enquiry
 	| Products
+	| Services
 	| Project
+	| Reviews
 	| Slug
 	| Pages
-	| ServicesPage
 	| MetaTag
 	| MetaAttribute
 	| SeoMetaFields

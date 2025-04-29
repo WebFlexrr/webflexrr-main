@@ -46,6 +46,15 @@ export const SINGLE_PROJECT_QUERY = (slug: string) =>
   link,
   content,
   budget,
+  problemSolving,
+  features,
+  "ownerReview": ownerReview->{
+      _id,
+      name,
+      role,
+        "image":image.asset->url,
+      message
+    },
   clientName,
   category,
   budget,

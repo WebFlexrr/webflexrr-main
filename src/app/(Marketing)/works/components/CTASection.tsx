@@ -6,7 +6,7 @@ import Link from "next/link";
 export function CTASection() {
 	return (
 		<section className="dark bg-background relative px-4 py-32 md:px-8">
-			<div className="mx-auto grid max-w-5xl grid-cols-3 rounded-3xl border border-white/25 bg-[#0A0A0B]/70 p-12 text-center backdrop-blur-xl">
+			<div className="mx-auto grid max-w-5xl grid-cols-1 rounded-3xl border border-white/25 bg-[#0A0A0B]/70 p-12 text-center backdrop-blur-xl md:grid-cols-3">
 				<section className="col-span-2 w-full text-left">
 					<motion.h2
 						initial={{ opacity: 0, y: 20 }}
@@ -35,7 +35,7 @@ export function CTASection() {
 						transition={{ delay: 0.2 }}
 					>
 						<Link
-							href="/contact"
+							href={process.env.NEXT_PUBLIC_MEETING_LINK!}
 							className="from-primary to-secondary inline-flex items-center rounded-full bg-gradient-to-r px-8 py-3 text-lg font-medium text-white transition-all hover:from-blue-600 hover:to-purple-600"
 						>
 							Start a Project

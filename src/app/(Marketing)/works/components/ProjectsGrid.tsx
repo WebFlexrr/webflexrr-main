@@ -21,13 +21,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
 			<div className="mx-auto max-w-7xl">
 				<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
 					{projects.map((project) => (
-						// <motion.div
-						// 	key={project.title}
-						// 	initial={{ opacity: 0, y: 50 }}
-						// 	whileInView={{ opacity: 1, y: 0 }}
-						// 	viewport={{ once: true }}
-						// 	transition={{ duration: 0.5, delay: index * 0.1 }}
-						// >
 						<div key={project.title}>
 							<ProjectCard
 								thumbnail={imageUrlFor(
@@ -38,7 +31,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
 								title={project.title}
 								description={project.description}
 							/>
-							{/* </motion.div> */}
 						</div>
 					))}
 				</div>

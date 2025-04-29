@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 interface ProjectCardProps {
-	thumbnail: string;
+	thumbnail?: string;
 	title?: string;
 	description?: string;
 	link?: string;
@@ -65,7 +65,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 										initial={{ opacity: 0, y: 20 }}
 										animate={{ opacity: 1, y: 0 }}
 										transition={{ duration: 0.3, delay: 0.4 }}
-										className="flex w-full gap-3"
+										className="flex w-full flex-wrap gap-3"
 									>
 										{tags.map((tag) => (
 											<span

@@ -16,14 +16,22 @@ import {
 import { cn } from "@/lib/utils";
 import {
 	Sheet,
+	SheetClose,
 	SheetContent,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
 } from "./ui/sheet";
-import { Menu, Palette } from "lucide-react";
+import { Menu, Rss, ScrollText, X } from "lucide-react";
 import { services } from "@/db/services";
 import { Separator } from "./ui/separator";
+import { motion } from "motion/react";
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "./ui/accordion";
 
 const NavBar = () => {
 	// const pathname = usePathname();
@@ -111,20 +119,21 @@ const NavBar = () => {
 	const insights = [
 		{
 			title: "Blogs",
-			icon: <Palette className="h-8 w-8" />,
+			icon: <Rss className="h-8 w-8" />,
 			link: "/blogs",
 			gradient: "from-purple-500/20 via-transparent to-pink-500/10",
 		},
 		{
 			title: "White Papers",
-			icon: <Palette className="h-8 w-8" />,
+			icon: <ScrollText className="h-8 w-8" />,
 			link: "",
 			gradient: "from-purple-500/20 via-transparent to-pink-500/10",
 		},
 	];
+
 	return (
 		<header className="dark sticky top-0 z-50 w-full md:top-8 md:my-5">
-			<section className="relative z-10 mx-auto flex h-16 w-full max-w-7xl items-center px-5 backdrop-blur-xl md:rounded-full">
+			<motion.section className="bg-background/40 relative z-10 mx-auto flex h-16 w-full max-w-7xl items-center px-5 backdrop-blur-xl md:rounded-full">
 				{/* <div className="absolute inset-0 bg-gradient-to-b from-[#1a1f35] to-[#0c1322]" /> */}
 				<section className="flex w-full items-center justify-start">
 					<Link href={"/"} className="flex w-fit items-center gap-3">
@@ -168,7 +177,7 @@ const NavBar = () => {
 												key={component.title}
 												title={component.title}
 												icon={component.icon}
-												href={component.link}
+												href={`/services/${component.slug}`}
 												gradient={component.gradient}
 											/>
 										))}
@@ -244,16 +253,65 @@ const NavBar = () => {
 												</a>
 											</NavigationMenuLink>
 										</section>
-										<section className="h-full w-full"></section>
+										<section className="bg-muted col-span-2 h-full w-full rounded-md border p-3">
+											<section className="w-full">
+												<span className="font-space-grotesk text-xl font-bold">
+													Solutions
+												</span>
+												<Separator className="mt-3" />
+											</section>
+											<section className="grid w-full grid-cols-2 py-3">
+												<div className="flex w-full flex-col gap-2">
+													<Link href={""} className="text-xl">
+														By Industry
+													</Link>
+													<ul className="grid grid-cols-1 gap-1">
+														<li className="w-full">
+															<Link href={""}>Hospital</Link>
+														</li>
+														<li>
+															<Link href={""}>Real Estate</Link>
+														</li>
+														<li>
+															<Link href={""}>IT industries </Link>
+														</li>
+													</ul>
+												</div>
+												<div className="flex w-full flex-col gap-2">
+													<Link href={""} className="text-xl">
+														Our Solutions
+													</Link>
+													<ul className="grid grid-cols-1 gap-1">
+														<li>
+															<Link href={""} className="w-full">
+																Frontend development
+															</Link>
+														</li>
+														<li>
+															<Link href={""}>Backend Development</Link>
+														</li>
+														<li>
+															<Link href={""}>Chat Bot Development</Link>
+														</li>
+														<li>
+															<Link href={""}>AI automation</Link>
+														</li>
+														<li>
+															<Link href={""}>MVP Developement</Link>
+														</li>
+													</ul>
+												</div>
+											</section>
+										</section>
 									</section>
-									<ul className="grid gap-3 p-4 md:w-[400px] lg:w-[700px] lg:grid-cols-[.75fr_1fr]">
+									{/* <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[700px] lg:grid-cols-[.75fr_1fr]">
 										<li className="row-span-3">
 											<NavigationMenuLink asChild>
 												<a
 													className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none select-none focus:shadow-md"
 													href="/"
 												>
-													{/* <Icons.logo className="h-6 w-6" /> */}
+													{/* <Icons.logo className="h-6 w-6" /> 
 													<div className="mt-4 mb-2 text-xl font-medium">
 														Solutions
 													</div>
@@ -282,7 +340,7 @@ const NavBar = () => {
 										>
 											Styles for headings, paragraphs, lists...etc
 										</ListItem2>
-									</ul>
+									</ul> */}
 								</NavigationMenuContent>
 							</NavigationMenuItem>
 							{/* <NavigationMenuItem>
@@ -365,7 +423,7 @@ const NavBar = () => {
 							</NavigationMenuItem>
 							 */}
 							<NavigationMenuItem>
-								<Link href={"/contact-us"} legacyBehavior passHref>
+								<Link href={"/contact"} legacyBehavior passHref>
 									<NavigationMenuLink className={navigationMenuTriggerStyle()}>
 										Contact Us
 									</NavigationMenuLink>
@@ -379,24 +437,47 @@ const NavBar = () => {
 						<SheetTrigger className="xl:hidden">
 							<Menu className="text-white" />
 						</SheetTrigger>
-						<SheetContent side={"top"} className="h-screen dark:text-white">
+
+						<SheetContent side={"top"} className="dark bg-background h-screen">
 							<SheetHeader>
-								<SheetTitle>Menu</SheetTitle>
+								<SheetTitle className="flex justify-between">
+									<span>Menu</span>
+									<SheetClose>
+										<X className="text-white" />
+									</SheetClose>
+								</SheetTitle>
 							</SheetHeader>
 							<Separator />
-							<div className="flex w-full flex-1 flex-col items-start px-5 font-semibold dark:text-white">
+							<section className="flex w-full flex-col items-start overflow-y-auto px-5 font-semibold dark:text-white">
 								<Link href={"/"} className="w-full border-b border-white p-4">
 									Home
 								</Link>
-								<Link
-									href={"/services"}
-									className="w-full border-b border-white p-4"
-								>
-									Services
-								</Link>
+								<Accordion type="single" collapsible className="w-full p-0">
+									<AccordionItem value="item-1" className="w-full">
+										<AccordionTrigger className="rounded-none border-b border-white">
+											<Link href={"/services"} className="w-full px-4 text-lg">
+												Services
+											</Link>
+										</AccordionTrigger>
+										<AccordionContent className="flex w-full flex-col">
+											{services.map((service) => (
+												<Link
+													key={service.slug}
+													href={`/services/${service.slug}`}
+													className="flex w-full items-center gap-2 p-4 px-6"
+												>
+													<div className="flex h-7 w-7 items-center justify-center rounded-xl bg-white/[0.05] p-1 text-sm text-white">
+														{service.icon}
+													</div>
+													{service.title}
+												</Link>
+											))}
+										</AccordionContent>
+									</AccordionItem>
+								</Accordion>
 
 								<Link
-									href={"/portfolio"}
+									href={"/works"}
 									className="w-full border-b border-white p-4"
 								>
 									portfolio
@@ -417,34 +498,12 @@ const NavBar = () => {
 								<section className="flex w-full flex-col items-center pt-10">
 									<CallToActionButton />
 								</section>
-
-								{/* <Accordion type="single" collapsible className="w-full">
-									<AccordionItem value="item-1">
-										<AccordionTrigger className="w-full py-2 text-base font-semibold">
-											Community
-										</AccordionTrigger>
-										<AccordionContent className="flex flex-col tracking-wide text-blue-600">
-											{socialPlatform.map((social) => (
-												<Link
-													key={social.title}
-													href={social.href}
-													target="_blank"
-													className="flex w-full items-center gap-2 py-2 pl-3"
-												>
-													{social.icon}
-													{social.title}
-													<ArrowUpRight size={20} />
-												</Link>
-											))}
-										</AccordionContent>
-									</AccordionItem>
-								</Accordion> */}
-							</div>
+							</section>
 						</SheetContent>
 					</Sheet>
 					<ContactUsButton />
 				</section>
-			</section>
+			</motion.section>
 		</header>
 	);
 };
