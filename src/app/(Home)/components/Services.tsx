@@ -2,79 +2,76 @@
 import React from "react";
 import Heading from "@/components/SectionHeading";
 import { motion } from "framer-motion";
-import { Check, PanelsTopLeft } from "lucide-react";
-// import { TbBrandReactNative } from "react-icons/tb";
-import { IoLogoAndroid } from "react-icons/io";
-// import { FaPlus } from "react-icons/fa";
-import { BsTypeH1 } from "react-icons/bs";
+import { Check } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { services } from "@/db/services";
 
-const services = [
-	{
-		title: "Landing Page Websites",
-		description:
-			"We ensure your website ranks higher through advanced SEO strategies, driving organic traffic and improving visibility.",
-		icon: <PanelsTopLeft className="h-8 w-8 text-blue-400" />,
-		list: [
-			"Advanced SEO & content optimization",
-			"Conversion-focused landing pages",
-			"Fast, mobile-friendly design",
-		],
-		// gradient: "from-blue-500/10 via-transparent to-transparent",
-		gradient: "from-blue-500/70 via-transparent to-transparent",
-	},
-	{
-		title: "App Development",
-		description:
-			"Build high-performance, scalable, and visually appealing digital products that drive engagement and conversions.",
-		icon: <IoLogoAndroid className="h-8 w-8 text-green-400" />,
-		list: [
-			"Custom web & mobile app development",
-			"Secure, high-performance architecture",
-			"Cross-platform compatibility",
-		],
-		// gradient: "from-green-500/10 via-transparent to-transparent",
-		gradient: "from-green-500/30 via-transparent to-transparent",
-	},
-	{
-		title: "UI/UX Design",
-		description:
-			"Craft beautiful, intuitive, and conversion-driven designs that enhance user experience and boost engagement.",
-		icon: <BsTypeH1 className="h-8 w-8 text-purple-400" />,
-		list: [
-			"Wireframing & interactive prototyping",
-			"Web & mobile app UI/UX design",
-			"A/B testing for performance optimization",
-		],
-		// gradient: "from-purple-500/10 via-transparent to-transparent",
-		gradient: "from-purple-500/70 via-transparent to-transparent",
-	},
-	{
-		title: "AI Automation",
-		description:
-			"Leverage artificial intelligence to automate processes, reduce costs, and enhance efficiency.",
-		icon: <BsTypeH1 className="h-8 w-8 text-purple-400" />,
-		list: [
-			"AI chatbots & virtual assistants",
-			"Workflow & task automation",
-			"Predictive analytics for decision-making",
-		],
-		gradient: "from-purple-500/10 via-transparent to-transparent",
-	},
-	{
-		title: "Cloud & DevOps Services",
-		description:
-			"Deploy, scale, and manage your applications effortlessly with cloud and DevOps solutions.",
-		icon: <BsTypeH1 className="h-8 w-8 text-purple-400" />,
-		list: [
-			"Cloud migration & infrastructure setup.",
-			"CI/CD pipelines for seamless deployments",
-			"Serverless & containerized solutions (Docker, Kubernetes)",
-		],
-		gradient: "from-purple-500/10 via-transparent to-transparent",
-	},
-];
+// const services = [
+// 	{
+// 		title: "Landing Page Websites",
+// 		description:
+// 			"We ensure your website ranks higher through advanced SEO strategies, driving organic traffic and improving visibility.",
+// 		icon: <PanelsTopLeft className="h-8 w-8 text-blue-400" />,
+// 		list: [
+// 			"Advanced SEO & content optimization",
+// 			"Conversion-focused landing pages",
+// 			"Fast, mobile-friendly design",
+// 		],
+// 		// gradient: "from-blue-500/10 via-transparent to-transparent",
+// 		gradient: "from-blue-500/70 via-transparent to-transparent",
+// 	},
+// 	{
+// 		title: "App Development",
+// 		description:
+// 			"Build high-performance, scalable, and visually appealing digital products that drive engagement and conversions.",
+// 		icon: <IoLogoAndroid className="h-8 w-8 text-green-400" />,
+// 		list: [
+// 			"Custom web & mobile app development",
+// 			"Secure, high-performance architecture",
+// 			"Cross-platform compatibility",
+// 		],
+// 		// gradient: "from-green-500/10 via-transparent to-transparent",
+// 		gradient: "from-green-500/30 via-transparent to-transparent",
+// 	},
+// 	{
+// 		title: "UI/UX Design",
+// 		description:
+// 			"Craft beautiful, intuitive, and conversion-driven designs that enhance user experience and boost engagement.",
+// 		icon: <BsTypeH1 className="h-8 w-8 text-purple-400" />,
+// 		list: [
+// 			"Wireframing & interactive prototyping",
+// 			"Web & mobile app UI/UX design",
+// 			"A/B testing for performance optimization",
+// 		],
+// 		// gradient: "from-purple-500/10 via-transparent to-transparent",
+// 		gradient: "from-purple-500/70 via-transparent to-transparent",
+// 	},
+// 	{
+// 		title: "AI Automation",
+// 		description:
+// 			"Leverage artificial intelligence to automate processes, reduce costs, and enhance efficiency.",
+// 		icon: <BsTypeH1 className="h-8 w-8 text-purple-400" />,
+// 		list: [
+// 			"AI chatbots & virtual assistants",
+// 			"Workflow & task automation",
+// 			"Predictive analytics for decision-making",
+// 		],
+// 		gradient: "from-purple-500/10 via-transparent to-transparent",
+// 	},
+// 	{
+// 		title: "Cloud & DevOps Services",
+// 		description:
+// 			"Deploy, scale, and manage your applications effortlessly with cloud and DevOps solutions.",
+// 		icon: <BsTypeH1 className="h-8 w-8 text-purple-400" />,
+// 		list: [
+// 			"Cloud migration & infrastructure setup.",
+// 			"CI/CD pipelines for seamless deployments",
+// 			"Serverless & containerized solutions (Docker, Kubernetes)",
+// 		],
+// 		gradient: "from-purple-500/10 via-transparent to-transparent",
+// 	},
+// ];
 
 const Services = () => {
 	return (
@@ -99,11 +96,12 @@ const Services = () => {
 								type: "tween",
 								ease: "easeOut",
 							}}
+							className="h-full w-full"
 						>
 							<ServicesCard
 								title={service.title}
-								description={service.description}
-								list={service.list}
+								description={service.tagline}
+								list={service.features}
 								gradient={service.gradient}
 								icon={service.icon}
 							/>
@@ -131,7 +129,7 @@ const ServicesCard = ({
 	gradient: string;
 }) => {
 	return (
-		<Card className="group shadow-primary/55 bg-background/40 relative overflow-hidden rounded-3xl border border-white/30 shadow-2xl backdrop-blur-xl">
+		<Card className="group shadow-primary/55 bg-background/40 relative h-full w-full overflow-hidden rounded-3xl border border-white/30 shadow-2xl backdrop-blur-xl">
 			{/* Gradient Background */}
 			<div
 				className={`absolute inset-0 bg-gradient-to-br opacity-100 transition-opacity duration-500 group-hover:opacity-80 ${gradient}`}

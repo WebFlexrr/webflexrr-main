@@ -81,7 +81,12 @@ const Footer2 = () => {
 		{
 			title: "+91 9038007312",
 			icon: <FiPhone className="text-primary text-lg font-light" />,
-			link: "https://wa.me/919038007312",
+			link: "https://wa.me/+919038007312",
+		},
+		{
+			title: "+91 7044785308",
+			icon: <FiPhone className="text-primary text-lg font-light" />,
+			link: "https://wa.me/+917044785308",
 		},
 		{
 			title: "info@webflexrr.com",

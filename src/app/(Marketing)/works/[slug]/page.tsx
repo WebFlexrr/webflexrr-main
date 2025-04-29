@@ -121,7 +121,7 @@ export default async function ProjectPage({
 
 	return (
 		<SmoothScrolling>
-			<main className="h-fit p-0">
+			<main className="h-fit scroll-smooth p-0">
 				<BlurredBg />
 				<NavBar2 />
 				<ProjectHero
@@ -132,7 +132,9 @@ export default async function ProjectPage({
 				/>
 				<ProjectBanner
 					title={project.title}
-					thumbnail={imageUrlFor(project?.thumbnail as SanityImageSource).url()}
+					thumbnail={
+						imageUrlFor(project?.thumbnail as SanityImageSource).url() || ""
+					}
 					clientName={project.clientName}
 					category={project.category}
 					timeline={project.timeline}
@@ -140,9 +142,12 @@ export default async function ProjectPage({
 				/>
 				<ProjectAbout description={project.description} />
 				<ProjectTechStack project={project} />
-				<ProjectFeatures />
+				<ProjectFeatures
+					problemSolving={project.problemSolving}
+					features={project.features}
+				/>
 				<CTASection />
-				<FounderReview />
+				<FounderReview review={project.ownerReview} />
 
 				{/* <ProjectContent project={project} executionProcess={executionProcess} /> */}
 				{/* {project.gallery && project.gallery.length > 0 && (

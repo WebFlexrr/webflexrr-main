@@ -33,13 +33,13 @@ export const ProjectHero = ({
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.4, delay: 0.2 }}
-					className="mt-3 w-1/2 text-lg md:text-xl"
+					className="mt-3 text-lg md:text-xl lg:w-1/2"
 				>
 					{description}
 					{/* App for biggest Tourist Tempo company of ladakh to manage their
 					bookings and drivers. */}
 				</motion.p>
-				<motion.section className="mt-10 flex w-1/2 flex-wrap gap-4">
+				<motion.section className="mt-10 flex flex-wrap gap-4 lg:w-1/2">
 					{tags?.map((tag) => (
 						<motion.span
 							initial={{ opacity: 0, y: 20 }}
@@ -56,19 +56,23 @@ export const ProjectHero = ({
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5, delay: 0.4 }}
-					className="mt-28 flex w-full flex-col gap-7 lg:flex-row"
+					className="mt-16 flex w-full flex-col gap-7 md:flex-row lg:mt-28"
 				>
 					<Link
 						href={projectLink || ""}
-						className="from-/70 to-primary/10 shadow-primary/40 flex w-fit items-center gap-2 rounded-full bg-gradient-to-l px-10 py-3 font-semibold text-white shadow-xl transition-all duration-500 ease-in-out hover:scale-105"
+						target="_blank"
+						className="shadow-primary/40 flex w-fit items-center gap-2 rounded-full bg-blue-600 px-10 py-3 font-semibold text-white shadow-xl transition-all duration-500 ease-in-out hover:scale-105"
 					>
 						<MdPlayArrow className="text-2xl" />
 						View Our Live App
 					</Link>
-					<div className="flex w-fit items-center gap-2 rounded-full border border-white/70 px-10 py-3 font-semibold text-white">
+					<Link
+						href={"#about"}
+						className="flex w-fit items-center gap-2 rounded-full border border-white/70 px-10 py-3 font-semibold text-white"
+					>
 						<MdKeyboardDoubleArrowDown className="text-2xl" />
 						Explore Project
-					</div>
+					</Link>
 				</motion.section>
 			</section>
 		</section>

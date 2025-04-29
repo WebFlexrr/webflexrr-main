@@ -22,9 +22,9 @@ export const ProjectBanner = ({
 	budget,
 }: ProjectBannerProps) => {
 	return (
-		<section className="dark relative flex h-auto w-full flex-col">
+		<section className="dark relative flex h-fit w-full flex-col">
 			<div className="bg-background absolute -z-10 h-full w-full"></div>
-			<section className="w-full px-5 py-20 md:px-8">
+			<section className="w-full px-5 py-20 md:px-5">
 				<div className="mx-auto max-w-7xl">
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ export const ProjectBanner = ({
 								<div className="text-lg">{clientName}</div>
 							</div>
 						</section>
-						<section className="flex w-full flex-col border-r border-white">
+						<section className="flex w-full flex-col border-white lg:border-r">
 							<div className="mx-auto flex w-fit flex-col items-start gap-4">
 								<h5>Project Category</h5>
 								<div className="text-lg">{category}</div>

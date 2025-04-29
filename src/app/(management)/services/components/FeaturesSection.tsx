@@ -8,7 +8,7 @@ interface FeaturesSection {
 }
 const FeaturesSection: FC<FeaturesSection> = ({ features }) => {
 	return (
-		<section className="relative px-4 py-20 md:px-8">
+		<section className="bg-background dark relative px-4 py-20 md:px-8">
 			<div className="mx-auto max-w-7xl">
 				<motion.h2
 					initial={{ opacity: 0, y: 20 }}

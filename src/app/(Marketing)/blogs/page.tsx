@@ -35,7 +35,7 @@ const BlogPage = async (): Promise<React.JSX.Element> => {
 	const blogs = await getBlogs();
 	return (
 		<SmoothScrolling>
-			<main className="bg-background dark relative p-0">
+			<main className="bg-background dark h-fit p-0">
 				<BlurredBg />
 				{/* <AnnouncementBar /> */}
 				<NavBar2 />

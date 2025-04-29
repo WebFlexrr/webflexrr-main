@@ -46,6 +46,18 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 			priority: 1,
 		},
 		{
+			url: `${baseUrl}/contact`,
+			lastModified: new Date(),
+			changeFrequency: "yearly",
+			priority: 1,
+		},
+		{
+			url: `${baseUrl}/industries`,
+			lastModified: new Date(),
+			changeFrequency: "yearly",
+			priority: 1,
+		},
+		{
 			url: `${baseUrl}/booking`,
 			lastModified: new Date(),
 			changeFrequency: "monthly",

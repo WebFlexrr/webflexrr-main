@@ -17,17 +17,20 @@ interface ProjectAboutProps {
 }
 const ProjectAbout: FC<ProjectAboutProps> = ({ description }) => {
 	return (
-		<section className="dark bg-background dark relative px-5 py-36 md:px-8">
-			<section className="mx-auto flex w-full max-w-3xl flex-col gap-8 lg:max-w-7xl lg:flex-row">
+		<section
+			id="about"
+			className="dark bg-background dark relative px-5 py-36 md:px-8"
+		>
+			<section className="mx-auto flex w-full max-w-3xl flex-col gap-10 lg:max-w-7xl lg:flex-row lg:gap-8">
 				{/* left Section */}
 				<section className="flex w-full flex-col gap-6 lg:w-1/2">
-					<Badge>The Client</Badge>
+					<Badge className="bg-secondary text-lg text-white">The Client</Badge>
 					<motion.h2
 						initial={{ opacity: 0, x: -20 }}
 						whileInView={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.5, delay: 0.1 }}
 						viewport={{ once: true }}
-						className="text-left text-2xl font-bold text-white md:text-6xl"
+						className="text-left text-4xl font-bold text-white md:text-6xl"
 					>
 						About the Project
 					</motion.h2>
@@ -36,25 +39,31 @@ const ProjectAbout: FC<ProjectAboutProps> = ({ description }) => {
 						whileInView={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.5, delay: 0.2 }}
 						viewport={{ once: true }}
-						className="mt-3 text-white/30 md:text-xl"
+						className="text-white/60 md:mt-3 md:text-xl"
 					>
 						{description}
 						{/* Ladakh Tempo Union - Biggest tourist tempo provider in ladakh. */}
 					</motion.p>
-					<section className="flex justify-between">
+					<motion.section
+						initial={{ opacity: 0, x: -20 }}
+						whileInView={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.5, delay: 0.2 }}
+						viewport={{ once: true }}
+						className="mt-6 flex justify-between"
+					>
 						<section className="flex w-1/2 flex-col gap-2 text-white">
-							<span>Project Type</span>
-							<span> UI/UX Design</span>
+							<span className="text-lg md:text-xl">Project Type</span>
+							<span className="text-lg text-white/60"> UI/UX Design</span>
 						</section>
 						<section className="flex w-1/2 flex-col gap-2 text-white">
-							<span>Platform</span>
-							<span> Mobile & Web</span>
+							<span className="text-lg md:text-xl">Platform</span>
+							<span className="text-lg text-white/60"> Mobile & Web</span>
 						</section>
-					</section>
+					</motion.section>
 				</section>
 				{/* right Section */}
 				<section className="flex w-full flex-col gap-7 lg:w-1/2">
-					<section className="aspect-video w-full"></section>
+					{/* <section className="aspect-video w-full"></section> */}
 					<Card className="border-secondary w-full rounded-lg border text-white">
 						<CardHeader>
 							<CardTitle>

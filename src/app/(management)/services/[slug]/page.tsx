@@ -2,13 +2,18 @@ import React, { cache } from "react";
 import BlurredBg from "@/components/BlurredBg";
 import Footer2 from "@/components/Footer2";
 import { services } from "@/db/services";
-import BenefitSection from "../components/BenafitSection";
-import ProcessSection from "../components/ProcessSection";
+
 import CallToActionBanner from "@/components/CallToActionBanner";
-import NavBar2 from "@/components/Navbar";
 import { Metadata } from "next";
 import OffersSection from "../components/OffersSection";
-import ServiceHeroSection from "../components/HeroSection";
+import HeroSection from "@/components/HeroSection";
+import NavBar from "@/components/Navbar";
+import BannerSection from "../components/BannerSection";
+import { notFound } from "next/navigation";
+import AboutSection from "../components/AboutSection";
+
+import ServicesProcessSection from "../components/ServicesProcessSection";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 // Service data - in a real app, this would come from a CMS or API
 // const servicesData = {
@@ -142,10 +147,10 @@ export async function generateMetadata({
 
 	return {
 		title: service.title || "Project",
-		description: service.description || "Service details",
+		description: service.tagline || "Service details",
 		openGraph: {
 			title: service.title || "Service",
-			description: service.description || "Service details",
+			description: service.tagline || "Service details",
 			images: service.bannerImage
 				? [
 						{
@@ -160,6 +165,12 @@ export async function generateMetadata({
 	};
 }
 
+export async function generateStaticParams() {
+	return services.map((service) => ({
+		slug: service.slug,
+	}));
+}
+
 const ServicePage = async ({
 	params,
 }: {
@@ -167,87 +178,43 @@ const ServicePage = async ({
 }) => {
 	const serviceData = await getServiceData((await params).slug);
 
+	if (!serviceData) {
+		notFound();
+	}
+
 	return (
-		// <SmoothScrolling>
-		<main className="bg-background dark h-fit p-0">
-			<BlurredBg />
-			<NavBar2 />
+		<SmoothScrolling>
+			<main className="bg-background dark h-fit p-0">
+				<BlurredBg />
+				<NavBar />
+				<HeroSection
+					pillText={"Services Details"}
+					title={serviceData.title}
+					tagline={serviceData.tagline}
+				/>
+				<BannerSection
+					image={serviceData?.bannerImage}
+					alt={serviceData?.title}
+				/>
+				<AboutSection
+					title={serviceData.title}
+					description={serviceData.description}
+				/>
 
-			{/* Back Button
-				<div className="absolute top-8 left-4 z-10 md:left-8">
-					<Link
-						href="/services"
-						className="inline-flex items-center rounded-full bg-white/[0.05] px-4 py-2 text-sm text-white backdrop-blur-xl transition-colors hover:bg-white/[0.1]"
-					>
-						<ArrowLeft className="mr-2 h-4 w-4" />
-						Back to Services
-					</Link>
-				</div> */}
+				{/*  Section */}
+				<OffersSection offers={serviceData?.offers} />
+				{/* Features Section */}
+				{/* <FeaturesSection features={serviceData?.features} /> */}
 
-			{/* Banner Section */}
-			<ServiceHeroSection
-				title={serviceData?.title}
-				tagline={serviceData?.tagline}
-			/>
-			{/* <BannerSection
-				image={serviceData?.bannerImage}
-				alt={serviceData?.title}
-				title={serviceData?.title}
-				description={serviceData?.description}
-			/> */}
+				{/* Benefits Section */}
+				{/* <BenefitSection benefits={serviceData?.benefits} /> */}
+				{/* Process Section */}
+				<ServicesProcessSection />
 
-			{/*  Section */}
-			<OffersSection offers={serviceData?.offers} />
-			{/* Features Section
-			<FeaturesSection features={serviceData?.offers} /> */}
-
-			{/* Benefits Section */}
-			<BenefitSection benefits={serviceData?.benefits} />
-			{/* Process Section */}
-			<ProcessSection process={serviceData?.process} />
-
-			{/* CTA Section */}
-			{/* <section className="relative px-4 py-20 md:px-8">
-					<div className="mx-auto max-w-7xl">
-						<div className="rounded-3xl border border-white/[0.05] bg-[#0A0A0B]/70 p-12 text-center backdrop-blur-xl">
-							<motion.h2
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true }}
-								className="mb-4 text-3xl font-bold text-white"
-							>
-								Ready to Get Started?
-							</motion.h2>
-							<motion.p
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true }}
-								transition={{ delay: 0.1 }}
-								className="mb-8 text-gray-400"
-							>
-								Contact us to discuss your project and see how we can help you
-								succeed.
-							</motion.p>
-							<motion.div
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true }}
-								transition={{ delay: 0.2 }}
-							>
-								<Link
-									href="/contact"
-									className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500 px-8 py-3 text-lg font-medium text-white transition-all hover:from-blue-600 hover:to-purple-600"
-								>
-									Get in Touch
-								</Link>
-							</motion.div>
-						</div>
-					</div>
-				</section> */}
-			<CallToActionBanner />
-			<Footer2 />
-		</main>
-		// </SmoothScrolling>
+				<CallToActionBanner />
+				<Footer2 />
+			</main>
+		</SmoothScrolling>
 	);
 };
 

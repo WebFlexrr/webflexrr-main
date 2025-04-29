@@ -18,6 +18,8 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 			allow: [
 				"/",
 				"/careers",
+				"/contact",
+				"/industries",
 				"/booking",
 				"/blogs",
 				"/works",
