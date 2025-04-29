@@ -138,7 +138,7 @@ const ServicesProcessSection = () => {
 			</section>
 			<section className="mt-20 text-center">
 				<Link
-					href={""}
+					href={process.env.NEXT_PUBLIC_MEETING_LINK!}
 					className="mx-auto flex w-fit items-center rounded-full bg-blue-500 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-600"
 				>
 					Start your project

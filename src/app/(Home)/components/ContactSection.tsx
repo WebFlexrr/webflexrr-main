@@ -79,7 +79,7 @@ const ContactSection = (): React.JSX.Element => {
 									</Link>
 									<div className="flex flex-col">
 										<span className="font-space-grotesk">EMAIL</span>
-										<span className="text-sm">contact@webflexrr.com</span>
+										<span className="text-sm">info@webflexrr.com</span>
 									</div>
 								</div>
 								<Separator orientation="vertical" />

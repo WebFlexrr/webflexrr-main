@@ -4,6 +4,8 @@ import Image from "next/image";
 import "swiper/css";
 import Link from "next/link";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import { Button } from "@/components/ui/button";
+import { MoveRight } from "lucide-react";
 
 // Portfolio images data
 const portfolioImages = [
@@ -89,9 +91,17 @@ const HeroSection = () => {
 						👋
 					</span>
 				</button> */}
-				<div className="mb-12">
+				<div className="mb-20 flex flex-col items-center gap-4 md:flex-row">
 					<CallToActionButton />
-					{/* <ContactUsButton /> */}
+					<Link
+						href={"/work"}
+						className="cursor-pointer transition-all duration-500 ease-in-out"
+					>
+						<Button className="border-secondary font-space-grotesk hover:bg-secondary gap-5 rounded-full border bg-transparent px-5 py-6 text-lg text-white transition-all duration-500 ease-in-out">
+							View our Portfolio
+							<MoveRight size={40} className="fill-white text-lg" />
+						</Button>
+					</Link>
 				</div>
 
 				{/* Customer Avatars */}
@@ -100,24 +110,6 @@ const HeroSection = () => {
 						<AnimatedTooltip items={people} />
 					</div>
 					<div className="mt-4 w-full text-gray-400">15+ Happy Customers</div>
-					{/* <AvatarGroup className="flex items-center" max={3}>
-						<Avatar className="h-11 w-11">
-							<AvatarImage src="/assets/avatar1.png" />
-							<AvatarFallback>CN</AvatarFallback>
-						</Avatar>
-						<Avatar className="h-11 w-11">
-							<AvatarImage src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
-							<AvatarFallback>CN</AvatarFallback>
-						</Avatar>
-						<Avatar className="h-11 w-11">
-							<AvatarImage src="/assets/avatar2.png" />
-							<AvatarFallback>CN</AvatarFallback>
-						</Avatar>
-						<Avatar className="h-11 w-11">
-							<AvatarImage src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
-							<AvatarFallback>CN</AvatarFallback>
-						</Avatar>
-					</AvatarGroup> */}
 				</div>
 			</section>
 
@@ -159,44 +151,6 @@ const HeroSection = () => {
 						))}
 					</section>
 				</section>
-
-				{/* Second Row - Right to Left */}
-				{/* <div>
-					<Swiper
-						modules={[Autoplay]}
-						spaceBetween={24}
-						slidesPerView={4}
-						loop={true}
-						speed={15000}
-						allowTouchMove={false}
-						autoplay={{
-							delay: 0,
-							disableOnInteraction: false,
-							reverseDirection: true,
-						}}
-						breakpoints={{
-							320: { slidesPerView: 1.5 },
-							640: { slidesPerView: 2.5 },
-							768: { slidesPerView: 3.5 },
-							1024: { slidesPerView: 4.5 },
-						}}
-						className="-ml-[5%] !w-[110%]"
-					>
-						{portfolioImages.reverse().map((image) => (
-							<SwiperSlide key={image.id}>
-								<div className="group relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-gray-800">
-									<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-									<Image
-										src={image.src}
-										alt={image.alt}
-										fill
-										className="object-cover transition-transform duration-500 group-hover:scale-110"
-									/>
-								</div>
-							</SwiperSlide>
-						))}
-					</Swiper>
-				</div> */}
 			</section>
 			<section className="flex w-full items-center justify-center">
 				<section className="text-foreground-500 z-20 mx-auto my-4 flex flex-col gap-2 border-green-400 text-lg text-white md:text-lg lg:flex-row">

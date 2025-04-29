@@ -191,7 +191,10 @@ const Footer2 = () => {
 								</li>
 							))}
 						</ul>
-						<Link href={""} className="mt-10">
+						<Link
+							href={process.env.NEXT_PUBLIC_MEETING_LINK!}
+							className="mt-10"
+						>
 							<Button className="rounded-full px-14 py-6 text-white">
 								Get in touch
 								<MoveRight />

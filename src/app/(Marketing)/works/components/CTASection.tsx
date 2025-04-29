@@ -35,7 +35,7 @@ export function CTASection() {
 						transition={{ delay: 0.2 }}
 					>
 						<Link
-							href="/contact"
+							href={process.env.NEXT_PUBLIC_MEETING_LINK!}
 							className="from-primary to-secondary inline-flex items-center rounded-full bg-gradient-to-r px-8 py-3 text-lg font-medium text-white transition-all hover:from-blue-600 hover:to-purple-600"
 						>
 							Start a Project

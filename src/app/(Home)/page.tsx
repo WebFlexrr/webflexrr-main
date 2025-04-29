@@ -2,7 +2,6 @@ import HeroSection from "./components/HeroSection";
 import Services from "./components/Services";
 import BlurredBg from "@/components/BlurredBg";
 import ProjectsSection from "./components/ProjectsSection";
-import PlanSection from "./components/PlanSection";
 import FaqSection from "./components/FaqSection";
 // import ClientFeedBack from "./components/ClientFeedBack";
 // import Footer from "@/components/Footer";
@@ -17,7 +16,6 @@ import IconsCarousal from "./components/IconsCarousal";
 import Footer2 from "@/components/Footer2";
 import BlogSection from "./components/BlogSection";
 import AboutSection from "./components/AboutSection";
-import AnnouncementBar from "@/components/AnnouncementBar";
 import NavBar from "@/components/Navbar";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -59,7 +57,7 @@ const HomePage = async () => {
 		<SmoothScrolling>
 			<main className="h-fit p-0">
 				<BlurredBg />
-				<AnnouncementBar />
+				{/* <AnnouncementBar /> */}
 				<NavBar />
 				{/* <NavbarDemo/> */}
 				<HeroSection />
@@ -67,7 +65,7 @@ const HomePage = async () => {
 				<IconsCarousal />
 				<Services />
 				<ProjectsSection />
-				<PlanSection />
+				{/* <PlanSection /> */}
 				<FaqSection />
 				{/* <ClientFeedBack /> */}
 				{/* <GridSmallBackgroundDemo/> */}
